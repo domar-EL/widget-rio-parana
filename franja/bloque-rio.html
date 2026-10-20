@@ -1,0 +1,38 @@
+<!--
+  Bloque "Río Paraná" para la franja #barra-vivos-unificada-final de ellitoral.com.
+  Pegar dentro de .barra-unificada__interior, después del bloque "Estado del tránsito".
+  Reemplazar URL_NOTA_RIO por la nota del río. Si el dato no carga o tiene más de
+  2 días, la pastilla queda en "VER ALTURA" y el bloque sigue llevando a la nota.
+-->
+<span class="separador-bullet">•</span>
+<div class="bloque-item" data-url="nota">
+  <div class="textos-col">
+    <span class="titulo-seccion">Río Paraná</span>
+    <a class="texto-enlace slogan-ocultar" data-url="nota" href="URL_NOTA_RIO" id="rio-texto">altura en el Puerto</a>
+  </div>
+  <a class="pastilla-vivos pastilla-vivos--azul" data-url="nota" href="URL_NOTA_RIO" id="rio-pastilla">
+    <span class="punto-vivo-unificado"></span>
+    <span id="rio-valor">VER ALTURA</span>
+  </a>
+  <span class="flecha-mobile">❯</span>
+</div>
+<style>
+  .pastilla-vivos--azul { background: #216497; }
+</style>
+<script>
+  (function () {
+    var DATOS = 'https://widget-rio-parana.pages.dev/datos.json';
+    var f = function (x) { return x.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); };
+    fetch(DATOS).then(function (r) { return r.json(); }).then(function (d) {
+      var o = d.observaciones, u = o[o.length - 1], a = o[o.length - 2], n = d.niveles;
+      if ((Date.now() - new Date(u.t)) / 864e5 >= 2) return;
+      var cm = a ? Math.round((u.v - a.v) * 100) : 0;
+      var color = 'azul', texto = 'faltan ' + f(n.alerta - u.v) + ' m para la alerta';
+      if (u.v >= n.evac) { color = 'rojo'; texto = 'superó la evacuación (' + f(n.evac) + ' m)'; }
+      else if (u.v >= n.alerta) { color = 'naranja'; texto = 'superó la alerta (' + f(n.alerta) + ' m)'; }
+      document.getElementById('rio-valor').textContent = f(u.v) + ' m' + (cm > 0 ? ' ▲' : cm < 0 ? ' ▼' : '');
+      document.getElementById('rio-pastilla').className = 'pastilla-vivos pastilla-vivos--' + color;
+      document.getElementById('rio-texto').textContent = texto;
+    }).catch(function () {});
+  })();
+</script>
