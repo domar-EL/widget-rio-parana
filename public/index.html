@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nivel del río Paraná en Santa Fe — El Litoral</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --surface: #f7f7f7;
+    --ink: #111111;
+    --ink-2: #4a4a4a;
+    --muted: #767676;
+    --line: #e4e4e4;
+    --brand: #216497;
+    --brand-soft: rgba(58, 159, 220, .16);
+    --alert: #b86e00;
+    --alert-mark: #f7a600;
+    --evac: #c62828;
+    --evac-mark: #e73232;
+    --ok: #2e7d32;
+  }
+  :root[data-theme="dark"] {
+    --bg: #121417;
+    --surface: #1c1f24;
+    --ink: #f2f2f2;
+    --ink-2: #c4c7cc;
+    --muted: #8f949b;
+    --line: #2c3036;
+    --brand: #5bb4ea;
+    --brand-soft: rgba(91, 180, 234, .18);
+    --alert: #ffb829;
+    --alert-mark: #f7a600;
+    --evac: #ff6b6b;
+    --evac-mark: #ff5252;
+    --ok: #66bb6a;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { height: 100%; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font: 400 14px/1.35 Roboto, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .w {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 14px 16px 12px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .w > * { flex-shrink: 0; }
+  header { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+  .kicker { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); }
+  .brand { font-size: 13px; font-weight: 900; color: var(--brand); white-space: nowrap; text-decoration: none; }
+
+  .hero { display: flex; align-items: flex-end; gap: 14px; flex-wrap: wrap; }
+  .num { font-size: 46px; font-weight: 700; line-height: .95; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+  .num small { font-size: 18px; font-weight: 500; color: var(--ink-2); margin-left: 3px; letter-spacing: 0; }
+  .meta { display: flex; flex-direction: column; gap: 3px; padding-bottom: 2px; }
+  .delta { font-size: 13px; font-weight: 500; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+  .status { font-size: 13px; font-weight: 700; display: flex; align-items: center; gap: 6px; }
+  .status .dot { width: 9px; height: 9px; border-radius: 50%; background: currentColor; flex: none; }
+  .status[data-s="normal"] { color: var(--ok); }
+  .status[data-s="bajas"] { color: var(--ink-2); }
+  .status[data-s="alerta"] { color: var(--alert); }
+  .status[data-s="evac"] { color: var(--evac); }
+
+  /* Regla tipo hidrómetro */
+  .gauge { position: relative; height: 20px; }
+  .track { position: absolute; left: 0; right: 0; top: 6px; height: 8px; border-radius: 4px; background: var(--surface); box-shadow: inset 0 0 0 1px var(--line); }
+  .fill { position: absolute; left: 0; top: 6px; height: 8px; border-radius: 4px; background: var(--brand); transition: width .6s ease; }
+  .tick { position: absolute; top: 2px; width: 2px; height: 16px; border-radius: 1px; transform: translateX(-1px); }
+  .a { background: var(--alert-mark); }
+  .e { background: var(--evac-mark); }
+  .r { background: var(--muted); }
+  .refs { display: flex; flex-wrap: wrap; gap: 2px 12px; margin-top: -4px; font-size: 11px; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+  .refs span { display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
+  .refs i { width: 2px; height: 11px; border-radius: 1px; }
+
+  .chart { position: relative; flex: 1 1 0; min-height: 80px; }
+  .chart svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+  .chart .ctitle { position: absolute; top: 0; left: 0; font-size: 11px; color: var(--muted); }
+  .tip {
+    position: absolute; top: 0; pointer-events: none; opacity: 0;
+    background: var(--ink); color: var(--bg); border-radius: 6px; padding: 4px 7px;
+    font-size: 12px; white-space: nowrap; transform: translateX(-50%); transition: opacity .1s;
+    font-variant-numeric: tabular-nums;
+  }
+  .tip b { font-weight: 700; }
+
+  footer { display: flex; justify-content: space-between; gap: 4px 12px; flex-wrap: wrap; font-size: 11px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 8px; }
+  footer a { color: inherit; }
+  footer strong { color: var(--ink-2); font-weight: 500; }
+
+  .msg { flex: 1; display: grid; place-items: center; text-align: center; color: var(--ink-2); padding: 12px; }
+  .warn { font-size: 12px; color: var(--alert); font-weight: 500; }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  [hidden] { display: none !important; }
+
+  @media (max-width: 420px) {
+    .w { gap: 8px; padding: 12px 12px 10px; }
+    .hero { gap: 4px 10px; }
+    .num { font-size: 38px; }
+  }
+</style>
+</head>
+<body>
+<div class="w" role="figure" aria-labelledby="titulo">
+  <header>
+    <span class="kicker" id="titulo">Río Paraná · Puerto de Santa Fe</span>
+    <a class="brand" href="https://www.ellitoral.com" target="_blank" rel="noopener">El Litoral</a>
+  </header>
+
+  <div id="cargando" class="msg">Consultando el último dato del INA…</div>
+  <div id="error" class="msg" hidden>No pudimos obtener el dato del INA en este momento.<br>Volvé a intentar en unos minutos.</div>
+
+  <div id="contenido" hidden style="display:contents">
+    <div class="hero">
+      <div class="num"><span id="altura">–</span><small>m</small></div>
+      <div class="meta">
+        <span class="delta" id="delta"></span>
+        <span class="status" id="estado"><span class="dot"></span><span id="estado-txt"></span></span>
+      </div>
+    </div>
+    <p class="warn" id="viejo" hidden></p>
+
+    <div class="gauge" id="gauge" aria-hidden="true">
+      <div class="track"></div>
+      <div class="fill" id="fill" style="width:0"></div>
+    </div>
+    <div class="refs" id="refs"></div>
+
+    <div class="chart" id="chart">
+      <span class="ctitle">Últimos 30 días</span>
+      <svg id="svg" aria-hidden="true"></svg>
+      <div class="tip" id="tip"></div>
+    </div>
+    <p class="sr" id="resumen"></p>
+  </div>
+
+  <footer>
+    <span id="fecha"></span>
+    <span>Fuente: <a href="https://alerta.ina.gob.ar/a5/diario/reporte_diario" target="_blank" rel="noopener">INA</a> / Prefectura · <strong>Defensa Civil 103</strong></span>
+  </footer>
+</div>
+
+<script>
+(() => {
+  const RECORD = { valor: 7.43, anio: 1992 };
+  const GAUGE_MAX = 8;
+  const TZ = 'America/Argentina/Buenos_Aires';
+
+  const $ = id => document.getElementById(id);
+  if (new URLSearchParams(location.search).get('theme') === 'dark') document.documentElement.dataset.theme = 'dark';
+
+  const fmt = (n, d = 2) => n.toLocaleString('es-AR', { minimumFractionDigits: d, maximumFractionDigits: d });
+  const fecha = (d, o) => d.toLocaleDateString('es-AR', { timeZone: TZ, ...o });
+  const hoy = new Date();
+
+  // datos.json lo genera scripts/actualizar.mjs desde el INA cada 30 minutos
+  fetch('datos.json', { cache: 'no-cache' })
+    .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(render)
+    .catch(() => { $('cargando').hidden = true; $('error').hidden = false; });
+
+  function render(datos) {
+    const niveles = datos.niveles;
+    const obs = datos.observaciones.map(o => ({ t: new Date(o.t), v: o.v }));
+    if (!obs.length) throw new Error('sin datos');
+
+    const ult = obs[obs.length - 1];
+    const ant = obs[obs.length - 2];
+
+    $('altura').textContent = fmt(ult.v);
+    if (ant) {
+      const cm = Math.round((ult.v - ant.v) * 100);
+      $('delta').textContent = cm === 0 ? '= sin cambios en el día'
+        : `${cm > 0 ? '▲ subió' : '▼ bajó'} ${Math.abs(cm)} cm en el día`;
+    }
+
+    let s, txt;
+    if (ult.v >= niveles.evac) { s = 'evac'; txt = `Superó el nivel de evacuación (${fmt(niveles.evac)} m)`; }
+    else if (ult.v >= niveles.alerta) { s = 'alerta'; txt = `Superó el nivel de alerta (${fmt(niveles.alerta)} m)`; }
+    else if (ult.v < niveles.bajas) { s = 'bajas'; txt = `Aguas bajas · faltan ${fmt(niveles.alerta - ult.v)} m para la alerta`; }
+    else { s = 'normal'; txt = `Faltan ${fmt(niveles.alerta - ult.v)} m para el nivel de alerta`; }
+    $('estado').dataset.s = s;
+    $('estado-txt').textContent = txt;
+
+    const dias = Math.floor((hoy - ult.t) / 864e5);
+    if (dias >= 2) {
+      $('viejo').hidden = false;
+      $('viejo').textContent = `Atención: el último dato publicado es de hace ${dias} días.`;
+    }
+    $('fecha').textContent = `Lectura del ${fecha(ult.t, { day: '2-digit', month: '2-digit', year: 'numeric' })}`;
+    $('resumen').textContent = `El río Paraná en el puerto de Santa Fe mide ${fmt(ult.v)} metros. ${txt}. Récord: ${fmt(RECORD.valor)} metros en ${RECORD.anio}.`;
+
+    gauge(ult.v, niveles);
+    $('cargando').hidden = true;
+    $('contenido').hidden = false;
+    chart(obs, niveles);
+    new ResizeObserver(() => chart(obs, niveles)).observe($('chart'));
+  }
+
+  function gauge(v, n) {
+    const pct = x => `${Math.min(100, x / GAUGE_MAX * 100)}%`;
+    $('fill').style.width = pct(v);
+    [['a', n.alerta, `Alerta ${fmt(n.alerta)} m`],
+     ['e', n.evac, `Evacuación ${fmt(n.evac)} m`],
+     ['r', RECORD.valor, `Récord ${fmt(RECORD.valor)} m (${RECORD.anio})`]].forEach(([c, x, label]) => {
+      const t = document.createElement('div'); t.className = `tick ${c}`; t.style.left = pct(x); $('gauge').append(t);
+      const l = document.createElement('span'); l.innerHTML = `<i class="${c}"></i>${label}`; $('refs').append(l);
+    });
+  }
+
+  function chart(obs, n) {
+    const box = $('chart'), svg = $('svg'), tip = $('tip');
+    const W = box.clientWidth, H = box.clientHeight;
+    const pad = { t: 22, r: 4, b: 18, l: 30 };
+    const vals = obs.map(o => o.v);
+    const lo = Math.floor(Math.min(...vals) - .3);
+    const hi = Math.ceil(Math.max(n.evac, ...vals) + .1);
+    const x = i => pad.l + i / Math.max(1, obs.length - 1) * (W - pad.l - pad.r);
+    const y = v => pad.t + (hi - v) / (hi - lo) * (H - pad.t - pad.b);
+
+    const NS = 'http://www.w3.org/2000/svg';
+    const el = (tag, attrs, txt) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (txt != null) e.textContent = txt; return e; };
+    const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+    svg.replaceChildren();
+
+    // Grilla: cada metro, o cada 2 si el gráfico queda bajo
+    const paso = y(lo) - y(lo + 1) < 18 ? 2 : 1;
+    for (let m = lo; m <= hi; m += paso) {
+      svg.append(el('line', { x1: pad.l, x2: W - pad.r, y1: y(m), y2: y(m), stroke: css('--line'), 'stroke-width': 1 }));
+      svg.append(el('text', { x: pad.l - 6, y: y(m) + 3.5, 'text-anchor': 'end', 'font-size': 10, fill: css('--muted') }, `${m} m`));
+    }
+    // Umbrales
+    [[n.alerta, css('--alert-mark'), 'Alerta'], [n.evac, css('--evac-mark'), 'Evacuación']].forEach(([v, c, label], i) => {
+      svg.append(el('line', { x1: pad.l, x2: W - pad.r, y1: y(v), y2: y(v), stroke: c, 'stroke-width': 1.5, 'stroke-dasharray': '4 3' }));
+      svg.append(el('text', { x: W - pad.r, y: y(v) + (i ? -4 : 11), 'text-anchor': 'end', 'font-size': 10, fill: css('--ink-2') }, label));
+    });
+    // Área + línea
+    const pts = obs.map((o, i) => `${x(i)},${y(o.v)}`).join(' ');
+    svg.append(el('polygon', { points: `${x(0)},${y(lo)} ${pts} ${x(obs.length - 1)},${y(lo)}`, fill: css('--brand-soft') }));
+    svg.append(el('polyline', { points: pts, fill: 'none', stroke: css('--brand'), 'stroke-width': 2, 'stroke-linejoin': 'round', 'stroke-linecap': 'round' }));
+    // Último punto
+    const li = obs.length - 1;
+    svg.append(el('circle', { cx: x(li), cy: y(obs[li].v), r: 4, fill: css('--brand'), stroke: css('--bg'), 'stroke-width': 2 }));
+    // Eje X: primera y última fecha
+    const d = t => fecha(t, { day: 'numeric', month: 'short' });
+    svg.append(el('text', { x: pad.l, y: H - 4, 'font-size': 10, fill: css('--muted') }, d(obs[0].t)));
+    svg.append(el('text', { x: W - pad.r, y: H - 4, 'text-anchor': 'end', 'font-size': 10, fill: css('--muted') }, d(obs[li].t)));
+
+    // Hover / touch: crosshair + tooltip
+    const cross = el('line', { y1: pad.t, y2: H - pad.b, stroke: css('--muted'), 'stroke-width': 1, opacity: 0 });
+    const dot = el('circle', { r: 4, fill: css('--brand'), stroke: css('--bg'), 'stroke-width': 2, opacity: 0 });
+    svg.append(cross, dot);
+    const hit = el('rect', { x: pad.l, y: 0, width: Math.max(0, W - pad.l - pad.r), height: H, fill: 'transparent' });
+    svg.append(hit);
+    svg.style.pointerEvents = 'all';
+    const move = e => {
+      const r = svg.getBoundingClientRect();
+      const i = Math.max(0, Math.min(li, Math.round((e.clientX - r.left - pad.l) / (W - pad.l - pad.r) * li)));
+      const px = x(i), py = y(obs[i].v);
+      cross.setAttribute('x1', px); cross.setAttribute('x2', px); cross.setAttribute('opacity', 1);
+      dot.setAttribute('cx', px); dot.setAttribute('cy', py); dot.setAttribute('opacity', 1);
+      tip.innerHTML = `${fecha(obs[i].t, { day: 'numeric', month: 'short' })} · <b>${fmt(obs[i].v)} m</b>`;
+      tip.style.left = `${Math.max(tip.offsetWidth / 2, Math.min(W - tip.offsetWidth / 2, px))}px`;
+      tip.style.opacity = 1;
+    };
+    const leave = () => { cross.setAttribute('opacity', 0); dot.setAttribute('opacity', 0); tip.style.opacity = 0; };
+    hit.addEventListener('pointermove', move);
+    hit.addEventListener('pointerdown', move);
+    hit.addEventListener('pointerleave', leave);
+  }
+})();
+</script>
+</body>
+</html>
