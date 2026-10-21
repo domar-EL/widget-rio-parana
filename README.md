@@ -12,7 +12,7 @@ Los lectores nunca consultan al INA: leen `datos.json` desde el CDN.
 ## Embed
 
 ```html
-<iframe src="https://URL-DEL-WIDGET/" width="100%" height="340" loading="lazy"
+<iframe src="https://widget-rios.ellitoral.com/" width="100%" height="340" loading="lazy"
   style="border:0" title="Nivel del río Paraná en Santa Fe — El Litoral"></iframe>
 ```
 

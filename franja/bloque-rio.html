@@ -21,7 +21,7 @@
 </style>
 <script>
   (function () {
-    var DATOS = 'https://widget-rio-parana.pages.dev/datos.json';
+    var DATOS = 'https://widget-rios.ellitoral.com/datos.json';
     var f = function (x) { return x.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); };
     fetch(DATOS).then(function (r) { return r.json(); }).then(function (d) {
       var o = d.observaciones, u = o[o.length - 1], a = o[o.length - 2], n = d.niveles;
