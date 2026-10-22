@@ -21,7 +21,7 @@ Tema oscuro: `?theme=dark`. Ancho mínimo recomendado: 300 px.
 ### Ríos (Paraná + Salado en Santo Tomé y Recreo)
 
 ```html
-<iframe src="https://widget-rios.ellitoral.com/rios.html" width="100%" height="450" loading="lazy"
+<iframe src="https://widget-rios.ellitoral.com/rios" width="100%" height="450" loading="lazy"
   style="border:0" title="Altura de los ríos en Santa Fe — El Litoral"></iframe>
 ```
 
