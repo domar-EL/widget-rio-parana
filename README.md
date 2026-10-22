@@ -18,6 +18,16 @@ Los lectores nunca consultan al INA: leen `datos.json` desde el CDN.
 
 Tema oscuro: `?theme=dark`. Ancho mínimo recomendado: 300 px.
 
+### Ríos (Paraná + Salado en Santo Tomé y Recreo)
+
+```html
+<iframe src="https://widget-rios.ellitoral.com/rios.html" width="100%" height="450" loading="lazy"
+  style="border:0" title="Altura de los ríos en Santa Fe — El Litoral"></iframe>
+```
+
+Lee `public/rios.json`. Si una estación no tiene lecturas nuevas hace 2 días o más, la fila se
+muestra en gris, en pasado y con la antigüedad del dato.
+
 ## Probar local
 
 ```bash

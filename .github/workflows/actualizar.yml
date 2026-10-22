@@ -24,9 +24,9 @@ jobs:
       - run: node scripts/actualizar.mjs
       - name: Commitear si el dato cambió
         run: |
-          git diff --quiet -- public/datos.json && { echo "Sin cambios"; exit 0; }
+          git add public/datos.json public/rios.json
+          git diff --cached --quiet && { echo "Sin cambios"; exit 0; }
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add public/datos.json
           git commit -m "Dato del INA $(date -u +%Y-%m-%dT%H:%MZ)"
           git push

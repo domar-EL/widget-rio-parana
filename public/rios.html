@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ríos en Santa Fe — El Litoral</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --ink: #111111;
+    --ink-2: #4a4a4a;
+    --muted: #767676;
+    --line: #e4e4e4;
+    --brand: #216497;
+    --alert: #b86e00;
+    --evac: #c62828;
+    --ok: #2e7d32;
+  }
+  :root[data-theme="dark"] {
+    --bg: #121417;
+    --ink: #f2f2f2;
+    --ink-2: #c4c7cc;
+    --muted: #8f949b;
+    --line: #2c3036;
+    --brand: #5bb4ea;
+    --alert: #ffb829;
+    --evac: #ff6b6b;
+    --ok: #66bb6a;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { height: 100%; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font: 400 14px/1.35 Roboto, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .w {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 14px 16px 12px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  header { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+  .kicker { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); }
+  .brand { font-size: 13px; font-weight: 900; color: var(--brand); white-space: nowrap; text-decoration: none; }
+
+  #filas { flex: 1; display: flex; flex-direction: column; }
+  .fila { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; padding: 10px 0; border-top: 1px solid var(--line); }
+  .fila:first-child { border-top: 0; padding-top: 2px; }
+  .izq { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+  .num { font-size: 30px; font-weight: 700; line-height: 1; letter-spacing: -.02em; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .num small { font-size: 14px; font-weight: 500; color: var(--ink-2); margin-left: 2px; letter-spacing: 0; }
+  .meta { font-size: 12px; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+  .status { font-size: 13px; font-weight: 700; display: flex; align-items: center; gap: 6px; }
+  .status .dot { width: 9px; height: 9px; border-radius: 50%; background: currentColor; flex: none; }
+  .fila[data-s="normal"] .status { color: var(--ok); }
+  .fila[data-s="alerta"] .status { color: var(--alert); }
+  .fila[data-s="evac"] .status { color: var(--evac); }
+  .fila[data-s="viejo"] .status, .fila[data-s="viejo"] .num { color: var(--muted); }
+  .warn { font-size: 12px; color: var(--alert); font-weight: 500; }
+
+  footer { display: flex; justify-content: space-between; gap: 4px 12px; flex-wrap: wrap; font-size: 11px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 8px; }
+  footer a { color: inherit; }
+  footer strong { color: var(--ink-2); font-weight: 500; }
+  .msg { flex: 1; display: grid; place-items: center; text-align: center; color: var(--ink-2); padding: 12px; }
+
+  @media (max-width: 420px) {
+    .w { gap: 8px; padding: 12px 12px 10px; }
+    .num { font-size: 26px; }
+  }
+</style>
+</head>
+<body>
+<div class="w">
+  <header>
+    <span class="kicker">Altura de los ríos · Santa Fe</span>
+    <a class="brand" href="https://www.ellitoral.com" target="_blank" rel="noopener">El Litoral</a>
+  </header>
+
+  <div id="filas"><div class="msg">Consultando los últimos datos del INA…</div></div>
+
+  <footer>
+    <span>Fuente: <a href="https://alerta.ina.gob.ar/a5/diario/reporte_diario" target="_blank" rel="noopener">INA</a> / Prefectura</span>
+    <span>Emergencias: <strong>Defensa Civil 103</strong></span>
+  </footer>
+</div>
+
+<script>
+(() => {
+  const TZ = 'America/Argentina/Buenos_Aires';
+  if (new URLSearchParams(location.search).get('theme') === 'dark') document.documentElement.dataset.theme = 'dark';
+
+  const fmt = n => n.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const dia = t => new Date(t).toLocaleDateString('es-AR', { timeZone: TZ, day: 'numeric', month: 'numeric' });
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const filas = document.getElementById('filas');
+
+  // rios.json lo genera scripts/actualizar.mjs desde el INA cada 30 minutos
+  fetch('rios.json', { cache: 'no-cache' })
+    .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(rios => { filas.innerHTML = rios.map(fila).join(''); })
+    .catch(() => { filas.innerHTML = '<div class="msg">No pudimos obtener los datos del INA en este momento.<br>Volvé a intentar en unos minutos.</div>'; });
+
+  function fila(r) {
+    const titulo = `<span class="kicker">${esc(r.rio)} · ${esc(r.estacion)}</span>`;
+    const [u, ant] = r.lecturas;
+    if (!u) return `<div class="fila" data-s="viejo"><div class="izq">${titulo}<span class="meta">Sin datos recientes del INA</span></div></div>`;
+
+    const dias = Math.floor((Date.now() - new Date(u.t)) / 864e5);
+    const viejo = dias >= 2;
+    let s = 'normal';
+    let txt = `${viejo ? 'Faltaban' : 'Faltan'} ${fmt(r.alerta - u.v)} m para la alerta (${fmt(r.alerta)} m)`;
+    if (r.evac != null && u.v >= r.evac) { s = 'evac'; txt = `${viejo ? 'Superaba' : 'Superó'} la evacuación (${fmt(r.evac)} m)`; }
+    else if (u.v >= r.alerta) { s = 'alerta'; txt = `${viejo ? 'Superaba' : 'Superó'} la alerta (${fmt(r.alerta)} m)`; }
+    if (viejo) s = 'viejo';
+
+    let meta = `Lectura del ${dia(u.t)}`;
+    if (ant && new Date(u.t) - new Date(ant.t) < 1.5 * 864e5) {
+      const cm = Math.round((u.v - ant.v) * 100);
+      meta += cm === 0 ? ' · sin cambios en el día' : ` · ${cm > 0 ? '▲ subió' : '▼ bajó'} ${Math.abs(cm)} cm en el día`;
+    }
+    const aviso = viejo ? `<span class="warn">⚠ Dato de hace ${dias} días: el INA no publicó lecturas nuevas</span>` : '';
+
+    return `<div class="fila" data-s="${s}">
+      <div class="izq">${titulo}
+        <span class="status"><span class="dot"></span>${txt}</span>
+        <span class="meta">${meta}</span>${aviso}
+      </div>
+      <div class="num">${fmt(u.v)}<small>m</small></div>
+    </div>`;
+  }
+})();
+</script>
+</body>
+</html>
