@@ -77,7 +77,7 @@ let salado;
 try {
   salado = await saladoProvincia();
 } catch (e) {
-  console.warn(`Salado sin actualizar (Recursos Hídricos de Santa Fe): ${e.message}`);
+  console.warn(`Salado sin actualizar (Recursos Hídricos de Santa Fe): ${e.message}${e.cause ? ` (${e.cause.code ?? e.cause.message})` : ''}`);
   salado = SALADO.map(s => ({ rio: 'Salado', estacion: s.estacion, alerta: ALERTA_SALADO, evac: null, lecturas: lecturasPrevias(s.estacion) }));
 }
 const rios = [
