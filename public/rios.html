@@ -85,10 +85,10 @@
     <a class="brand" href="https://www.ellitoral.com" target="_blank" rel="noopener">El Litoral</a>
   </header>
 
-  <div id="filas"><div class="msg">Consultando los últimos datos del INA…</div></div>
+  <div id="filas"><div class="msg">Consultando las últimas alturas…</div></div>
 
   <footer>
-    <span>Fuente: <a href="https://alerta.ina.gob.ar/a5/diario/reporte_diario" target="_blank" rel="noopener">INA</a> / Prefectura</span>
+    <span>Paraná: <a href="https://alerta.ina.gob.ar/a5/diario/reporte_diario" target="_blank" rel="noopener">INA</a> / Prefectura · Salado: <a href="https://www.santafe.gob.ar/idesf/vis-pre/?user=rec_hidricos_alturas" target="_blank" rel="noopener">Rec. Hídricos Santa Fe</a></span>
     <span>Emergencias: <strong>Defensa Civil 103</strong></span>
   </footer>
 </div>
@@ -103,16 +103,16 @@
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const filas = document.getElementById('filas');
 
-  // rios.json lo genera scripts/actualizar.mjs desde el INA cada 30 minutos
+  // rios.json lo genera scripts/actualizar.mjs cada 30 minutos (INA y Rec. Hídricos Santa Fe)
   fetch('rios.json', { cache: 'no-cache' })
     .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
     .then(rios => { filas.innerHTML = rios.map(fila).join(''); })
-    .catch(() => { filas.innerHTML = '<div class="msg">No pudimos obtener los datos del INA en este momento.<br>Volvé a intentar en unos minutos.</div>'; });
+    .catch(() => { filas.innerHTML = '<div class="msg">No pudimos obtener las alturas en este momento.<br>Volvé a intentar en unos minutos.</div>'; });
 
   function fila(r) {
     const titulo = `<span class="kicker">${esc(r.rio)} · ${esc(r.estacion)}</span>`;
     const [u, ant] = r.lecturas;
-    if (!u) return `<div class="fila" data-s="viejo"><div class="izq">${titulo}<span class="meta">Sin datos recientes del INA</span></div></div>`;
+    if (!u) return `<div class="fila" data-s="viejo"><div class="izq">${titulo}<span class="meta">Sin datos recientes</span></div></div>`;
 
     const dias = Math.floor((Date.now() - new Date(u.t)) / 864e5);
     const viejo = dias >= 2;
@@ -127,7 +127,7 @@
       const cm = Math.round((u.v - ant.v) * 100);
       meta += cm === 0 ? ' · sin cambios en el día' : ` · ${cm > 0 ? '▲ subió' : '▼ bajó'} ${Math.abs(cm)} cm en el día`;
     }
-    const aviso = viejo ? `<span class="warn">⚠ Dato de hace ${dias} días: el INA no publicó lecturas nuevas</span>` : '';
+    const aviso = viejo ? `<span class="warn">⚠ Dato de hace ${dias} días: no hay lecturas nuevas</span>` : '';
 
     return `<div class="fila" data-s="${s}">
       <div class="izq">${titulo}
