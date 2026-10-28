@@ -4,8 +4,8 @@
   Lleva a la página de altura de los ríos. Si el dato no carga o tiene más de
   2 días, la pastilla queda en "VER ALTURA" y el bloque sigue llevando a esa página.
 -->
-<span class="separador-bullet">•</span>
-<div class="bloque-item" data-url="nota">
+<span class="separador-bullet" id="rio-sep">•</span>
+<div class="bloque-item" data-url="nota" id="rio-bloque">
   <div class="textos-col">
     <span class="titulo-seccion">Río Paraná</span>
     <a class="texto-enlace slogan-ocultar" data-url="nota" href="https://www.ellitoral.com/servicios/clima/altura_rios" id="rio-texto">altura en el Puerto</a>
@@ -18,6 +18,13 @@
 </div>
 <style>
   .pastilla-vivos--azul { background: #216497; }
+  /* Entre el diseño mobile y los 1216 px no entran tres bloques en una línea:
+     el del río pasa a su propia línea, sin el separador. */
+  @media (max-width: 1215px) {
+    #barra-vivos-unificada-final .barra-unificada__interior { flex-wrap: wrap; }
+    #rio-sep { display: none; }
+    #rio-bloque { flex-basis: 100%; }
+  }
 </style>
 <script>
   (function () {
