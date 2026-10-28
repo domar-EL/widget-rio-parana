@@ -30,17 +30,9 @@ muestra en gris, en pasado y con la antigüedad del dato.
 
 ### Tablas para ellitoral.com/servicios/clima/altura_rios
 
-Reemplazan los tres iframes de Datawrapper (mismas estaciones). El alto se ajusta solo con el
-script que la página ya tiene para Datawrapper; ver `prueba-tablas.html`.
-
-```html
-<iframe src="https://widget-rios.ellitoral.com/tabla?cuenca=parana" scrolling="no" frameborder="0"
-  style="width:0;min-width:100%!important;border:none" height="1900" title="Alturas hidrométricas / Cuenca del Paraná"></iframe>
-<iframe src="https://widget-rios.ellitoral.com/tabla?cuenca=salado" scrolling="no" frameborder="0"
-  style="width:0;min-width:100%!important;border:none" height="400" title="Alturas hidrométricas / Cuenca del Salado"></iframe>
-<iframe src="https://widget-rios.ellitoral.com/tabla?cuenca=uruguay" scrolling="no" frameborder="0"
-  style="width:0;min-width:100%!important;border:none" height="600" title="Alturas hidrométricas / Cuenca del Uruguay"></iframe>
-```
+Reemplazan los tres iframes de Datawrapper (mismas estaciones). El bloque completo de la página,
+con el widget de ríos y las tres tablas, está en `pagina-altura-rios.html`: su script ajusta cada
+iframe al alto que informa el widget (mensaje `datawrapper-height`). Prueba local: `prueba-tablas.html`.
 
 Lee `public/tablas.json`: Paraná, Paraguay, Iguazú y Salado de las tablas diarias del CIM (FICH-UNL);
 Uruguay de las series de Prefectura en el INA. Desde GitHub no se llega a Prefectura ni al mapa de la

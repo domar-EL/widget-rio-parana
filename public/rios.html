@@ -103,11 +103,23 @@
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const filas = document.getElementById('filas');
 
+  // Avisa el alto natural (sin estirarse al iframe) con el mismo mensaje que las tablas,
+  // para que la página de altura de los ríos ajuste el iframe.
+  const w = document.querySelector('.w');
+  const avisarAlto = () => {
+    w.style.height = 'auto';
+    const alto = Math.ceil(w.getBoundingClientRect().height);
+    w.style.height = '';
+    parent.postMessage({ 'datawrapper-height': { rios: alto } }, '*');
+  };
+  addEventListener('resize', avisarAlto);
+
   // rios.json lo genera scripts/actualizar.mjs cada 30 minutos (INA y Rec. Hídricos Santa Fe)
   fetch('rios.json', { cache: 'no-cache' })
     .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
     .then(rios => { filas.innerHTML = rios.map(fila).join(''); })
-    .catch(() => { filas.innerHTML = '<div class="msg">No pudimos obtener las alturas en este momento.<br>Volvé a intentar en unos minutos.</div>'; });
+    .catch(() => { filas.innerHTML = '<div class="msg">No pudimos obtener las alturas en este momento.<br>Volvé a intentar en unos minutos.</div>'; })
+    .finally(avisarAlto);
 
   function fila(r) {
     const titulo = `<span class="kicker">${esc(r.rio)} · ${esc(r.estacion)}</span>`;

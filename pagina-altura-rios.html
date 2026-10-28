@@ -1,0 +1,95 @@
+<!--
+  Bloque de ellitoral.com/servicios/clima/altura_rios (el que armó Dario) con el script del final,
+  que ajusta cada iframe al alto real de su contenido: los widgets lo informan con el mensaje
+  'datawrapper-height'. Sin el script queda como antes: alturas fijas del CSS.
+-->
+<!-- ESTILOS UNIFICADOS (Desktop y Mobile) -->
+<style>
+  .contenedor-cuenca-rio {
+    width: 100%;
+    margin-bottom: 2.5rem;
+  }
+
+  .titulo-cuenca-rio {
+    font-size: 22px;
+    font-weight: 700;
+    color: #216497;
+    font-family: 'Roboto', sans-serif;
+    border-bottom: 1px solid #CCCCCC;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  /* Altura específica para el widget general de Ríos */
+  .iframe-rios-general {
+    width: 100%;
+    height: 380px; /* Reducido para eliminar espacio en blanco en Desktop */
+    border: 1px solid #E0E0E0;
+    border-radius: 6px;
+    background-color: #FFFFFF;
+  }
+
+  /* Altura para las tablas de las cuencas */
+  .iframe-rio-custom {
+    width: 100%;
+    height: 600px;
+    border: 1px solid #E0E0E0;
+    border-radius: 6px;
+    background-color: #FFFFFF;
+  }
+
+  /* Ajustes para pantallas pequeñas (Mobile) */
+  @media (max-width: 768px) {
+    .titulo-cuenca-rio {
+      font-size: 18px;
+      padding-bottom: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+    .iframe-rios-general {
+      height: 420px; /* Ligeramente más alto en mobile por si se apilan elementos */
+    }
+    .iframe-rio-custom {
+      height: 480px;
+    }
+  }
+</style>
+
+<!-- 1. Ríos (General) -->
+<div class="contenedor-cuenca-rio">
+  <div class="titulo-cuenca-rio">Ríos</div>
+  <iframe class="iframe-rios-general" src="https://widget-rios.ellitoral.com/rios" title="Widget General de Ríos" loading="lazy">
+  </iframe>
+</div>
+
+<!-- 2. Cuenca Paraná -->
+<div class="contenedor-cuenca-rio">
+  <div class="titulo-cuenca-rio">Cuenca Paraná</div>
+  <iframe class="iframe-rio-custom" src="https://widget-rios.ellitoral.com/tabla?cuenca=parana" title="Tabla de alturas - Cuenca Paraná" loading="lazy">
+  </iframe>
+</div>
+
+<!-- 3. Cuenca Salado -->
+<div class="contenedor-cuenca-rio">
+  <div class="titulo-cuenca-rio">Cuenca Salado</div>
+  <iframe class="iframe-rio-custom" src="https://widget-rios.ellitoral.com/tabla?cuenca=salado" title="Tabla de alturas - Cuenca Salado" loading="lazy">
+  </iframe>
+</div>
+
+<!-- 4. Cuenca Uruguay -->
+<div class="contenedor-cuenca-rio">
+  <div class="titulo-cuenca-rio">Cuenca Uruguay</div>
+  <iframe class="iframe-rio-custom" src="https://widget-rios.ellitoral.com/tabla?cuenca=uruguay" title="Tabla de alturas - Cuenca Uruguay" loading="lazy">
+  </iframe>
+</div>
+
+<!-- Alto automático: cada widget avisa cuánto mide y se ajusta su iframe -->
+<script>
+  window.addEventListener('message', function (e) {
+    var alto = e.data && e.data['datawrapper-height'];
+    if (!alto) return;
+    document.querySelectorAll('.contenedor-cuenca-rio iframe').forEach(function (f) {
+      if (f.contentWindow === e.source) for (var k in alto) f.style.height = alto[k] + 'px';
+    });
+  });
+</script>
