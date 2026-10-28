@@ -72,8 +72,7 @@
 
   const fmt = n => n == null ? '—' : n.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   const var_ = (a, b) => a == null || b == null ? '—' : `${a > b ? '▲ +' : a < b ? '▼ ' : '= '}${fmt(a - b)}`;
-  const cuando = t => new Date(t).toLocaleString('es-AR', { timeZone: TZ, day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false });
-  const horas = (a, b) => Math.round((new Date(a) - new Date(b)) / 36e5);
+  const dia = t => new Date(t).toLocaleDateString('es-AR', { timeZone: TZ, day: '2-digit', month: '2-digit' });
   const viejo = t => Date.now() - new Date(t) >= 2 * 864e5;
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const estado = (v, alerta, evac) => v == null ? '' : evac != null && v >= evac ? 'evac' : alerta != null && v >= alerta ? 'alerta' : '';
@@ -85,32 +84,40 @@
   const avisarAlto = () => parent.postMessage({ 'datawrapper-height': { [cuenca]: Math.ceil(box.getBoundingClientRect().height) } }, '*');
   addEventListener('resize', avisarAlto);
 
-  // tablas.json lo genera scripts/actualizar.mjs cada 30 minutos (Prefectura y FICH-UNL)
+  // tablas.json lo genera scripts/actualizar.mjs cada 30 minutos (CIM FICH-UNL e INA)
   fetch('tablas.json', { cache: 'no-cache' })
     .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
     .then(d => { box.innerHTML = cuenca === 'salado' ? salado(d.salado) : puertos(d[cuenca]); })
     .catch(() => { box.innerHTML = '<div class="msg">No pudimos obtener las alturas en este momento. Volvé a intentar en unos minutos.</div>'; })
     .finally(avisarAlto);
 
-  function puertos(filas) {
-    const cuerpo = filas.map(f => {
-      if (f.altura == null) return `<tr><td>${esc(f.puerto)}</td><td class="izq opcional">${esc(f.rio)}</td><td colspan="6" class="izq sub">Sin dato</td></tr>`;
-      const s = viejo(f.fecha) ? 'viejo' : estado(f.altura, f.alerta, f.evac);
+  // Paraná: una fecha para toda la tabla (relevamiento diario del CIM sobre registros de
+  // Prefectura). Uruguay: fecha por puerto (series de Prefectura en el INA).
+  function puertos(t) {
+    const porFila = !t.fecha;
+    const fecha = t.fecha && new Date(`${t.fecha}T00:00:00-03:00`);
+    const aviso = fecha && viejo(fecha) ? `<p class="warn">⚠ Estos datos son del ${fecha.toLocaleDateString('es-AR', { timeZone: TZ })}: no hay lecturas nuevas.</p>` : '';
+    const cuerpo = t.filas.map(f => {
+      if (f.altura == null) return `<tr><td>${esc(f.puerto)}</td><td class="izq opcional">${esc(f.rio)}</td><td colspan="${porFila ? 6 : 5}" class="izq sub">Sin dato</td></tr>`;
+      const s = porFila && viejo(f.fecha) ? 'viejo' : estado(f.altura, f.alerta, f.evac);
       return `<tr data-s="${s}">
         <td>${esc(f.puerto)} ${etiqueta(s)}</td>
         <td class="izq opcional">${esc(f.rio)}</td>
         <td class="alt">${fmt(f.altura)}</td>
-        <td>${var_(f.altura, f.anterior)}${f.fechaAnt ? `<div class="sub">en ${horas(f.fecha, f.fechaAnt)} h</div>` : ''}</td>
+        <td>${var_(f.altura, f.anterior)}</td>
         <td class="opcional">${fmt(f.anterior)}</td>
         <td>${fmt(f.alerta)}</td>
         <td>${fmt(f.evac)}</td>
-        <td class="sub">${cuando(f.fecha)}${s === 'viejo' ? '<br>dato viejo' : ''}</td>
+        ${porFila ? `<td class="sub">${dia(f.fecha)}${s === 'viejo' ? '<br>dato viejo' : ''}</td>` : ''}
       </tr>`;
     }).join('');
-    return `<div class="scroll"><table>
-      <thead><tr><th>Puerto</th><th class="izq opcional">Río</th><th>Altura</th><th>Variación</th><th class="opcional">Anterior</th><th>Alerta</th><th>Evac.</th><th>Lectura</th></tr></thead>
+    const fuente = porFila
+      ? `Alturas en metros, lecturas de las 0:00 · Fuente: Prefectura Naval Argentina, vía <a href="https://alerta.ina.gob.ar/a5/diario/reporte_diario" target="_blank" rel="noopener">INA</a>`
+      : `Alturas en metros, del ${fecha.toLocaleDateString('es-AR', { timeZone: TZ })} · Fuente: Prefectura Naval Argentina, vía <a href="https://fich.unl.edu.ar/cim/rios/parana/alturas" target="_blank" rel="noopener">CIM FICH-UNL</a>`;
+    return `${aviso}<div class="scroll"><table>
+      <thead><tr><th>Puerto</th><th class="izq opcional">Río</th><th>Altura</th><th>Var. 24 h</th><th class="opcional">Anterior</th><th>Alerta</th><th>Evac.</th>${porFila ? '<th>Fecha</th>' : ''}</tr></thead>
       <tbody>${cuerpo}</tbody></table></div>
-      <div class="pie"><span>Alturas en metros · Fuente: <a href="https://contenidosweb.prefecturanaval.gob.ar/alturas/" target="_blank" rel="noopener">Prefectura Naval Argentina</a></span><span>Se actualiza automáticamente</span></div>`;
+      <div class="pie"><span>${fuente}</span><span>Se actualiza automáticamente</span></div>`;
   }
 
   function salado(t) {

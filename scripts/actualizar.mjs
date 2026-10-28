@@ -32,139 +32,87 @@ const datos = { estacion: est.nombre, niveles, observaciones };
 await writeFile(new URL('../public/datos.json', import.meta.url), JSON.stringify(datos, null, 1) + '\n');
 console.log(`OK: ${observaciones.length} lecturas, última ${observaciones.at(-1).t} = ${observaciones.at(-1).v} m`);
 
-// public/rios.json para rios.html: Paraná (lo de arriba, del INA) + Salado.
-// El Salado sale del mapa de alturas de Recursos Hídricos de Santa Fe, porque la red
-// del INA para esa cuenca dejó de actualizarse el 8/10/2026 (es la misma escala: los
-// dos daban 3,64 en Santo Tomé ese día). No es una API publicada: el proxy del mapa
-// solo responde con la cookie de sesión que da la página del mapa. Si falla, o si
-// una estación no tiene dato, se conserva su última lectura y el widget avisa que
-// es vieja; datos.json se actualiza igual.
+// Fuentes para rios.json y tablas.json. Desde GitHub no se llega ni a Prefectura ni al
+// mapa de Recursos Hídricos de la provincia (timeout de conexión), pero sí a la FICH-UNL
+// y al INA. Paraná, Paraguay e Iguazú: tabla diaria del CIM (FICH-UNL), que copia los
+// registros de Prefectura; Salado: tabla diaria del CIM, que toma la red de alerta de la
+// provincia (el INA no actualiza el Salado desde el 8/10/2026); Uruguay: series de
+// Prefectura en el INA. Las del CIM son páginas HTML, no APIs: si cambian o no
+// responden, se conserva el último dato y los widgets avisan cuando es viejo.
 const RIOS = new URL('../public/rios.json', import.meta.url);
-const MAPA = 'https://www.santafe.gob.ar/idesf/vis-pre/';
-const SALADO = [
-  { nombre: 'Est. Santo Tome', estacion: 'Santo Tomé' },
-  { nombre: 'Est. Recreo', estacion: 'Recreo (RP 70)' },
-];
-const ALERTA_SALADO = 4.7;   // nivel de alerta en Santo Tomé y Recreo (INA y Rec. Hídricos)
-
-const previo = JSON.parse(await readFile(RIOS, 'utf8').catch(() => '[]'));
-const lecturasPrevias = estacion => previo.find(r => r.estacion === estacion)?.lecturas ?? [];
-
-async function saladoProvincia() {
-  const pagina = await fetch(`${MAPA}?user=rec_hidricos_alturas`, { signal: AbortSignal.timeout(30_000) });
-  const cookie = pagina.headers.getSetCookie().map(c => c.split(';')[0]).join('; ');
-  const lecturas = SALADO.map(() => null);
-  // Dato del día (hora argentina); si todavía no está, días anteriores.
-  for (let i = 0; i < 7 && lecturas.includes(null); i++) {
-    const fecha = new Date(Date.now() - 3 * 3600e3 - i * 864e5).toISOString().slice(0, 10);
-    const wfs = 'https://aswe.santafe.gov.ar/idesf/geoserver/RecursosHidricos/wfs/wfs?service=WFS&version=1.0.0'
-      + `&request=GetFeature&typeName=diferencia_alturas&maxFeatures=500&outputFormat=application/json&viewparams=fecha:${fecha}`;
-    const r = await fetch(`${MAPA}proxyPTRxml.php?url=${encodeURIComponent(wfs)}`, { headers: { cookie }, signal: AbortSignal.timeout(30_000) });
-    const alturas = new Map(JSON.parse(await r.text()).features.map(f => [f.properties.nombre, f.properties]));
-    SALADO.forEach((s, k) => {
-      const p = alturas.get(s.nombre);
-      if (lecturas[k] || !p || p.sd || !Number.isFinite(p.altura)) return;
-      const t = new Date(`${fecha}T09:00:00Z`);   // la provincia publica el dato de las 6:00
-      lecturas[k] = [{ t: t.toISOString(), v: p.altura }];
-      if (Number.isFinite(p.anterior)) lecturas[k].push({ t: new Date(t - 864e5).toISOString(), v: p.anterior });
-    });
-  }
-  return SALADO.map((s, k) => ({ rio: 'Salado', estacion: s.estacion, alerta: ALERTA_SALADO, evac: null,
-    lecturas: lecturas[k] ?? lecturasPrevias(s.estacion) }));
-}
-
-let salado;
-try {
-  salado = await saladoProvincia();
-} catch (e) {
-  console.warn(`Salado sin actualizar (Recursos Hídricos de Santa Fe): ${e.message}${e.cause ? ` (${e.cause.code ?? e.cause.message})` : ''}`);
-  salado = SALADO.map(s => ({ rio: 'Salado', estacion: s.estacion, alerta: ALERTA_SALADO, evac: null, lecturas: lecturasPrevias(s.estacion) }));
-}
-const rios = [
-  { rio: 'Paraná', estacion: 'Puerto de Santa Fe', alerta: niveles.alerta, evac: niveles.evac, lecturas: observaciones.slice(-2).reverse() },
-  ...salado,
-];
-await writeFile(RIOS, JSON.stringify(rios, null, 1) + '\n');
-for (const r of rios) console.log(`rios.json: ${r.rio} ${r.estacion} = ${r.lecturas[0]?.v ?? 'sin datos'} (${r.lecturas[0]?.t ?? '-'})`);
-
-// public/tablas.json para tabla.html, que reemplaza las tablas de Datawrapper de
-// ellitoral.com/servicios/clima/altura_rios (mismas estaciones y orden). Paraná,
-// Paraguay, Iguazú y Uruguay: tabla de Prefectura; Salado: tabla del CIM (FICH-UNL),
-// que toma la red de alerta de la provincia. Son páginas HTML, no APIs: si cambian
-// o no responden, se conserva la sección anterior de tablas.json.
 const TABLAS = new URL('../public/tablas.json', import.meta.url);
-const PUERTOS = {
-  parana: [
-    ['Andresito', 'Iguazú'], ['Iguazú', 'Iguazú'], ['Libertad', 'Paraná'], ['Eldorado', 'Paraná'],
-    ['Libertador', 'Paraná'], ['Puerto Mani', 'Paraná'], ['Santa Ana', 'Paraná'], ['Posadas', 'Paraná'],
-    ['Ituzaingó', 'Paraná'], ['Ita Ibate', 'Paraná'], ['Itatí', 'Paraná'], ['Paso de la Patria', 'Paraná'],
-    ['Corrientes', 'Paraná'], ['Barranqueras', 'Paraná'], ['Empedrado', 'Paraná'], ['Bella Vista', 'Paraná'],
-    ['Goya', 'Paraná'], ['Reconquista', 'Paraná'], ['Esquina', 'Paraná'], ['San Javier (Santa Fe)', 'San Javier'],
-    ['La Paz', 'Paraná'], ['Santa Elena', 'Paraná'], ['Hernandarias', 'Paraná'], ['Paraná', 'Paraná'],
-    ['Santa Fe', 'Paraná'], ['Diamante', 'Paraná'], ['Victoria', 'Paraná'], ['San Lorenzo', 'Paraná'],
-    ['Rosario', 'Paraná'], ['Villa Constitución', 'Paraná'], ['San Nicolás', 'Paraná'], ['Ramallo', 'Paraná'],
-    ['San Pedro', 'Delta Paraná'], ['Baradero', 'Delta Paraná'], ['Pilcomayo', 'Paraguay'], ['Bouvier', 'Paraguay'],
-    ['Formosa', 'Paraguay'], ['Bermejo', 'Paraguay'], ['Las Palmas', 'Paraguay'], ['Isla del Cerrito', 'Paraguay'],
-  ],
-  uruguay: [
-    ['Monte Caseros', 'Uruguay'], ['Mocoretá', 'Uruguay'], ['Federación', 'Uruguay'], ['Federación Embalse', 'Uruguay'],
-    ['Salto Grande Arriba', 'Uruguay'], ['Salto Grande Abajo', 'Uruguay'], ['Concordia', 'Uruguay'], ['Colón', 'Uruguay'],
-    ['Concepción del Uruguay', 'Uruguay'], ['Campichuelo', 'Uruguay'], ['Boca Gualeguaychú', 'Gualeguaychú'],
-  ],
-};
+const URUGUAY = [   // [puerto, río, serie del INA]
+  ['Monte Caseros', 'Uruguay', 74], ['Mocoretá', 'Uruguay', 75], ['Federación', 'Uruguay', 76],
+  ['Federación Embalse', 'Uruguay', 18621], ['Salto Grande Arriba', 'Uruguay', 77], ['Salto Grande Abajo', 'Uruguay', 78],
+  ['Concordia', 'Uruguay', 79], ['Colón', 'Uruguay', 80], ['Concepción del Uruguay', 'Uruguay', 81],
+  ['Campichuelo', 'Uruguay', 82], ['Boca Gualeguaychú', 'Gualeguaychú', 84],
+];
+const SALADO_RIOS = [['Santo Tomé', 'Santo Tomé'], ['Recreo (R.P. 70)', 'Recreo (RP 70)']];   // [estación en el CIM, nombre en rios.json]
+const ALERTA_SALADO = 4.7;   // nivel de alerta en Santo Tomé y Recreo (CIM, INA y Rec. Hídricos)
+
 const MESES = { ENE: 1, FEB: 2, MAR: 3, ABR: 4, MAY: 5, JUN: 6, JUL: 7, AGO: 8, SEP: 9, SET: 9, OCT: 10, NOV: 11, DIC: 12 };
 const clave = s => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toUpperCase().trim();
 const num = s => { const n = parseFloat(String(s).replace(',', '.')); return Number.isFinite(n) ? n : null; };
 const texto = s => s.replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ').trim();
 const celdas = html => [...html.matchAll(/<tr[^>]*>([\s\S]*?)<\/tr>/g)]
   .map(([, tr]) => [...tr.matchAll(/<t[dh][^>]*>([\s\S]*?)<\/t[dh]>/g)].map(([, td]) => texto(td)));
-// "28/OCT/26 - 0800" (hora argentina) -> ISO
-const fechaPNA = s => {
-  const m = s.match(/(\d{2})\/([A-Z]{3})\/(\d{2}) - (\d{2})(\d{2})/);
-  return m && `20${m[3]}-${String(MESES[m[2]]).padStart(2, '0')}-${m[1]}T${m[4]}:${m[5]}:00-03:00`;
-};
-const pagina = async url => {
-  const r = await fetch(url, { signal: AbortSignal.timeout(30_000) });
-  if (!r.ok) throw new Error(`${url} respondió ${r.status}`);
-  return r.text();
-};
+const motivo = e => `${e.message}${e.cause ? ` (${e.cause.code ?? e.cause.message})` : ''}`;
 
-async function prefectura() {
-  const filas = new Map(celdas(await pagina('https://contenidosweb.prefecturanaval.gob.ar/alturas/'))
-    .filter(c => c.length >= 12).map(c => [clave(c[0]), c]));
-  const tabla = lista => lista.map(([puerto, rio]) => {
-    const c = filas.get(clave(puerto));
-    return c ? { puerto, rio, altura: num(c[2]), fecha: fechaPNA(c[5]), estado: c[6], anterior: num(c[8]), fechaAnt: fechaPNA(c[9]), alerta: num(c[10]), evac: num(c[11]) }
-             : { puerto, rio, altura: null };
-  });
-  const parana = tabla(PUERTOS.parana), uruguay = tabla(PUERTOS.uruguay);
-  if (![...parana, ...uruguay].some(f => f.altura != null)) throw new Error('la tabla de Prefectura no trajo alturas');
-  return { parana, uruguay };
-}
-
-async function fichSalado() {
-  const html = await pagina('https://fich.unl.edu.ar/cim/rios/salado/alturas');
-  const m = texto(html).match(/correspondientes a la fecha \w+ (\d{1,2}) de (\w+) de (\d{4})/);
+// Tabla del CIM: fecha ("correspondientes a la fecha martes 27 de octubre de 2026") y filas
+// con la altura en la columna 2, la anterior en la 5 y el umbral de alerta en la 6.
+async function cim(rio) {
+  const r = await fetch(`https://fich.unl.edu.ar/cim/rios/${rio}/alturas`, { signal: AbortSignal.timeout(30_000) });
+  if (!r.ok) throw new Error(`el CIM respondió ${r.status}`);
+  const html = await r.text();
+  const m = texto(html).match(/correspondientes a la fecha \S+ (\d{1,2}) de (\S+) de (\d{4})/);
   const mes = m && MESES[clave(m[2]).slice(0, 3)];
-  const fecha = mes && `${m[3]}-${String(mes).padStart(2, '0')}-${m[1].padStart(2, '0')}`;
-  const filas = celdas(html).filter(c => c.length >= 7 && num(c[6]) != null)
-    .map(c => ({ estacion: c[0], rio: c[1], altura: num(c[2]), anterior: num(c[5]), alerta: num(c[6]) }));
-  if (!fecha || !filas.length) throw new Error('la tabla de la FICH no trajo fecha o alturas');
-  return { fecha, filas };
+  const filas = celdas(html).filter(c => c.length >= 7 && num(c[6]) != null);
+  if (!mes || !filas.length) throw new Error(`la tabla del CIM (${rio}) no trajo fecha o alturas`);
+  return { fecha: `${m[3]}-${String(mes).padStart(2, '0')}-${m[1].padStart(2, '0')}`, filas };
 }
 
-const tablasPrevias = JSON.parse(await readFile(TABLAS, 'utf8').catch(() => '{}'));
-const tablas = { ...tablasPrevias };
-try {
-  Object.assign(tablas, await prefectura());
-} catch (e) {
-  console.warn(`Prefectura sin actualizar: ${e.message}${e.cause ? ` (${e.cause.code ?? e.cause.message})` : ''}`);
+async function uruguay() {
+  const desdeUy = new Date(hoy - 10 * 864e5);
+  return Promise.all(URUGUAY.map(async ([puerto, rio, id]) => {
+    const r = await fetch(`https://alerta.ina.gob.ar/a5/obs/puntual/series/${id}?timestart=${iso(desdeUy)}&timeend=${iso(hasta)}`,
+      { signal: AbortSignal.timeout(30_000) });
+    if (!r.ok) throw new Error(`INA respondió ${r.status} para la serie ${id}`);
+    const s = await r.json();
+    const [u, a] = s.observaciones.filter(o => Number.isFinite(+o.valor)).sort((x, y) => y.timestart.localeCompare(x.timestart));
+    return { puerto, rio, altura: u ? +u.valor : null, anterior: a ? +a.valor : null, fecha: u?.timestart ?? null,
+      alerta: s.estacion.nivel_alerta, evac: s.estacion.nivel_evacuacion };
+  }));
 }
+
+const previoRios = JSON.parse(await readFile(RIOS, 'utf8').catch(() => '[]'));
+const tablas = JSON.parse(await readFile(TABLAS, 'utf8').catch(() => '{}'));
+
 try {
-  tablas.salado = await fichSalado();
-} catch (e) {
-  console.warn(`FICH (Salado) sin actualizar: ${e.message}${e.cause ? ` (${e.cause.code ?? e.cause.message})` : ''}`);
-}
+  const t = await cim('parana');
+  tablas.parana = { fecha: t.fecha, filas: t.filas.map(c => ({ puerto: c[0], rio: c[1], altura: num(c[2]), anterior: num(c[5]), alerta: num(c[6]), evac: num(c[7]) })) };
+} catch (e) { console.warn(`Paraná (CIM) sin actualizar: ${motivo(e)}`); }
+try {
+  const t = await cim('salado');
+  tablas.salado = { fecha: t.fecha, filas: t.filas.map(c => ({ estacion: c[0], rio: c[1], altura: num(c[2]), anterior: num(c[5]), alerta: num(c[6]) })) };
+} catch (e) { console.warn(`Salado (CIM) sin actualizar: ${motivo(e)}`); }
+try {
+  tablas.uruguay = { filas: await uruguay() };
+} catch (e) { console.warn(`Uruguay (INA) sin actualizar: ${motivo(e)}`); }
 await writeFile(TABLAS, JSON.stringify(tablas, null, 1) + '\n');
-const sf = tablas.parana?.find(f => f.puerto === 'Santa Fe');
-console.log(`tablas.json: Santa Fe ${sf?.altura} (${sf?.fecha}) · Salado ${tablas.salado?.fecha} · ${tablas.salado?.filas.length ?? 0} estaciones`);
+console.log(`tablas.json: Paraná ${tablas.parana?.fecha} · Salado ${tablas.salado?.fecha} · Uruguay ${tablas.uruguay?.filas.find(f => f.fecha)?.fecha}`);
+
+// rios.json: Paraná del INA (datos.json) + Salado del CIM, con la lectura del día y la anterior.
+const salado = SALADO_RIOS.map(([cimNombre, estacion]) => {
+  const f = tablas.salado?.filas.find(f => f.estacion === cimNombre);
+  const t = tablas.salado && new Date(`${tablas.salado.fecha}T00:00:00-03:00`);   // el CIM toma el dato de las 0:00
+  const lecturas = f?.altura != null
+    ? [{ t: t.toISOString(), v: f.altura }, ...(f.anterior != null ? [{ t: new Date(t - 864e5).toISOString(), v: f.anterior }] : [])]
+    : previoRios.find(r => r.estacion === estacion)?.lecturas ?? [];
+  return { rio: 'Salado', estacion, alerta: ALERTA_SALADO, evac: null, lecturas };
+});
+const rios = [
+  { rio: 'Paraná', estacion: 'Puerto de Santa Fe', alerta: niveles.alerta, evac: niveles.evac, lecturas: observaciones.slice(-2).reverse() },
+  ...salado,
+];
+await writeFile(RIOS, JSON.stringify(rios, null, 1) + '\n');
+for (const r of rios) console.log(`rios.json: ${r.rio} ${r.estacion} = ${r.lecturas[0]?.v ?? 'sin datos'} (${r.lecturas[0]?.t ?? '-'})`);

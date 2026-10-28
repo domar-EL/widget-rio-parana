@@ -42,8 +42,9 @@ script que la página ya tiene para Datawrapper; ver `prueba-tablas.html`.
   style="width:0;min-width:100%!important;border:none" height="600" title="Alturas hidrométricas / Cuenca del Uruguay"></iframe>
 ```
 
-Lee `public/tablas.json`: Paraná, Paraguay, Iguazú y Uruguay de la tabla de Prefectura; Salado del
-CIM (FICH-UNL). Son páginas HTML, no APIs: si cambian o no responden, se conserva el último dato.
+Lee `public/tablas.json`: Paraná, Paraguay, Iguazú y Salado de las tablas diarias del CIM (FICH-UNL);
+Uruguay de las series de Prefectura en el INA. Desde GitHub no se llega a Prefectura ni al mapa de la
+provincia. Las del CIM son páginas HTML, no APIs: si cambian o no responden, se conserva el último dato.
 
 ## Probar local
 
