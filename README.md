@@ -28,6 +28,23 @@ Tema oscuro: `?theme=dark`. Ancho mínimo recomendado: 300 px.
 Lee `public/rios.json`. Si una estación no tiene lecturas nuevas hace 2 días o más, la fila se
 muestra en gris, en pasado y con la antigüedad del dato.
 
+### Tablas para ellitoral.com/servicios/clima/altura_rios
+
+Reemplazan los tres iframes de Datawrapper (mismas estaciones). El alto se ajusta solo con el
+script que la página ya tiene para Datawrapper; ver `prueba-tablas.html`.
+
+```html
+<iframe src="https://widget-rios.ellitoral.com/tabla?cuenca=parana" scrolling="no" frameborder="0"
+  style="width:0;min-width:100%!important;border:none" height="1900" title="Alturas hidrométricas / Cuenca del Paraná"></iframe>
+<iframe src="https://widget-rios.ellitoral.com/tabla?cuenca=salado" scrolling="no" frameborder="0"
+  style="width:0;min-width:100%!important;border:none" height="400" title="Alturas hidrométricas / Cuenca del Salado"></iframe>
+<iframe src="https://widget-rios.ellitoral.com/tabla?cuenca=uruguay" scrolling="no" frameborder="0"
+  style="width:0;min-width:100%!important;border:none" height="600" title="Alturas hidrométricas / Cuenca del Uruguay"></iframe>
+```
+
+Lee `public/tablas.json`: Paraná, Paraguay, Iguazú y Uruguay de la tabla de Prefectura; Salado del
+CIM (FICH-UNL). Son páginas HTML, no APIs: si cambian o no responden, se conserva el último dato.
+
 ## Probar local
 
 ```bash

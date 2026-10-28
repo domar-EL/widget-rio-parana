@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Prueba de tablas</title>
+<style>body{font-family:Roboto,sans-serif;max-width:860px;margin:0 auto;padding:16px}.t{font-size:22px;color:#216497;border-bottom:1px solid #CCC;padding-bottom:1rem;margin:2rem 0 1rem}</style></head>
+<body>
+<!-- Réplica de ellitoral.com/servicios/clima/altura_rios con las tablas propias -->
+<div class="t">Registros de Alturas en la Cuenca del Río Paraná</div>
+<iframe title="Alturas hidrométricas / Cuenca del Paraná" src="public/tabla.html?cuenca=parana" scrolling="no" frameborder="0" style="width:0;min-width:100%!important;border:none" height="900"></iframe>
+<div class="t">Registros de Alturas en la Cuenca del Río Salado</div>
+<iframe title="Alturas hidrométricas / Cuenca del Salado" src="public/tabla.html?cuenca=salado" scrolling="no" frameborder="0" style="width:0;min-width:100%!important;border:none" height="400"></iframe>
+<div class="t">Registros de Alturas en la Cuenca del Río Uruguay</div>
+<iframe title="Alturas hidrométricas / Cuenca del Uruguay" src="public/tabla.html?cuenca=uruguay" scrolling="no" frameborder="0" style="width:0;min-width:100%!important;border:none" height="500"></iframe>
+<!-- El mismo script que ya tiene la página de El Litoral para los embeds de Datawrapper -->
+<script>(function(){function e(){window.addEventListener(`message`,function(e){if(e.data[`datawrapper-height`]!==void 0){var t=document.querySelectorAll(`iframe`);for(var n in e.data[`datawrapper-height`])for(var r=0,i;i=t[r];r++)if(i.contentWindow===e.source){var a=e.data[`datawrapper-height`][n]+`px`;i.style.height=a}}})}e()})();</script>
+</body></html>

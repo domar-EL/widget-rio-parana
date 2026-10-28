@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alturas de los ríos — El Litoral</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --ink: #111111;
+    --ink-2: #4a4a4a;
+    --muted: #767676;
+    --line: #e4e4e4;
+    --head: #f4f7fa;
+    --brand: #216497;
+    --alert: #b86e00;
+    --alert-bg: #fff4dc;
+    --evac: #c62828;
+    --evac-bg: #fde8e8;
+  }
+  :root[data-theme="dark"] {
+    --bg: #121417;
+    --ink: #f2f2f2;
+    --ink-2: #c4c7cc;
+    --muted: #8f949b;
+    --line: #2c3036;
+    --head: #1c1f24;
+    --brand: #5bb4ea;
+    --alert: #ffb829;
+    --alert-bg: #3a2c0e;
+    --evac: #ff6b6b;
+    --evac-bg: #3d1717;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body { background: var(--bg); color: var(--ink); font: 400 14px/1.35 Roboto, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  .scroll { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+  th, td { padding: 7px 8px; text-align: right; white-space: nowrap; border-bottom: 1px solid var(--line); }
+  th:first-child, td:first-child { text-align: left; position: sticky; left: 0; background: inherit; }
+  .izq { text-align: left; }
+  thead th { background: var(--head); color: var(--ink-2); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .03em; }
+  tbody tr { background: var(--bg); }
+  td:first-child { font-weight: 500; }
+  .alt { font-weight: 700; }
+  .sub { font-size: 11px; color: var(--muted); }
+  tr[data-s="alerta"] { background: var(--alert-bg); }
+  tr[data-s="evac"] { background: var(--evac-bg); }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 1px 6px; border-radius: 3px; color: #fff; }
+  tr[data-s="alerta"] .tag { background: var(--alert); }
+  tr[data-s="evac"] .tag { background: var(--evac); }
+  :root[data-theme="dark"] .tag { color: #121417; }
+  tr[data-s="viejo"] td { color: var(--muted); }
+  .warn { color: var(--alert); font-weight: 500; padding: 8px 0; }
+  .pie { display: flex; justify-content: space-between; gap: 4px 12px; flex-wrap: wrap; font-size: 11px; color: var(--muted); padding: 8px 2px 2px; }
+  .pie a { color: inherit; }
+  .msg { padding: 24px 8px; text-align: center; color: var(--ink-2); }
+  @media (max-width: 520px) { .opcional { display: none; } th, td { padding: 6px 6px; } }
+</style>
+</head>
+<body>
+<div id="contenido"><div class="msg">Consultando las alturas…</div></div>
+
+<script>
+(() => {
+  const TZ = 'America/Argentina/Buenos_Aires';
+  const params = new URLSearchParams(location.search);
+  if (params.get('theme') === 'dark') document.documentElement.dataset.theme = 'dark';
+  const cuenca = ['parana', 'uruguay', 'salado'].includes(params.get('cuenca')) ? params.get('cuenca') : 'parana';
+
+  const fmt = n => n == null ? '—' : n.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const var_ = (a, b) => a == null || b == null ? '—' : `${a > b ? '▲ +' : a < b ? '▼ ' : '= '}${fmt(a - b)}`;
+  const cuando = t => new Date(t).toLocaleString('es-AR', { timeZone: TZ, day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false });
+  const horas = (a, b) => Math.round((new Date(a) - new Date(b)) / 36e5);
+  const viejo = t => Date.now() - new Date(t) >= 2 * 864e5;
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const estado = (v, alerta, evac) => v == null ? '' : evac != null && v >= evac ? 'evac' : alerta != null && v >= alerta ? 'alerta' : '';
+  const etiqueta = s => s === 'evac' ? '<span class="tag">Evacuación</span>' : s === 'alerta' ? '<span class="tag">Alerta</span>' : '';
+  const box = document.getElementById('contenido');
+
+  // Ajusta el alto del iframe con el mismo mensaje que usan los embeds de Datawrapper,
+  // que ellitoral.com ya escucha en la página de altura de los ríos.
+  const avisarAlto = () => parent.postMessage({ 'datawrapper-height': { [cuenca]: Math.ceil(box.getBoundingClientRect().height) } }, '*');
+  addEventListener('resize', avisarAlto);
+
+  // tablas.json lo genera scripts/actualizar.mjs cada 30 minutos (Prefectura y FICH-UNL)
+  fetch('tablas.json', { cache: 'no-cache' })
+    .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(d => { box.innerHTML = cuenca === 'salado' ? salado(d.salado) : puertos(d[cuenca]); })
+    .catch(() => { box.innerHTML = '<div class="msg">No pudimos obtener las alturas en este momento. Volvé a intentar en unos minutos.</div>'; })
+    .finally(avisarAlto);
+
+  function puertos(filas) {
+    const cuerpo = filas.map(f => {
+      if (f.altura == null) return `<tr><td>${esc(f.puerto)}</td><td class="izq opcional">${esc(f.rio)}</td><td colspan="6" class="izq sub">Sin dato</td></tr>`;
+      const s = viejo(f.fecha) ? 'viejo' : estado(f.altura, f.alerta, f.evac);
+      return `<tr data-s="${s}">
+        <td>${esc(f.puerto)} ${etiqueta(s)}</td>
+        <td class="izq opcional">${esc(f.rio)}</td>
+        <td class="alt">${fmt(f.altura)}</td>
+        <td>${var_(f.altura, f.anterior)}${f.fechaAnt ? `<div class="sub">en ${horas(f.fecha, f.fechaAnt)} h</div>` : ''}</td>
+        <td class="opcional">${fmt(f.anterior)}</td>
+        <td>${fmt(f.alerta)}</td>
+        <td>${fmt(f.evac)}</td>
+        <td class="sub">${cuando(f.fecha)}${s === 'viejo' ? '<br>dato viejo' : ''}</td>
+      </tr>`;
+    }).join('');
+    return `<div class="scroll"><table>
+      <thead><tr><th>Puerto</th><th class="izq opcional">Río</th><th>Altura</th><th>Variación</th><th class="opcional">Anterior</th><th>Alerta</th><th>Evac.</th><th>Lectura</th></tr></thead>
+      <tbody>${cuerpo}</tbody></table></div>
+      <div class="pie"><span>Alturas en metros · Fuente: <a href="https://contenidosweb.prefecturanaval.gob.ar/alturas/" target="_blank" rel="noopener">Prefectura Naval Argentina</a></span><span>Se actualiza automáticamente</span></div>`;
+  }
+
+  function salado(t) {
+    const fecha = new Date(`${t.fecha}T00:00:00-03:00`);
+    const aviso = viejo(fecha) ? `<p class="warn">⚠ Estos datos son del ${fecha.toLocaleDateString('es-AR', { timeZone: TZ })}: no hay lecturas nuevas.</p>` : '';
+    const cuerpo = t.filas.map(f => {
+      const s = estado(f.altura, f.alerta, null);
+      return `<tr data-s="${s}">
+        <td>${esc(f.estacion)} ${etiqueta(s)}</td>
+        <td class="izq opcional">${esc(f.rio)}</td>
+        <td class="alt">${fmt(f.altura)}</td>
+        <td>${var_(f.altura, f.anterior)}</td>
+        <td class="opcional">${fmt(f.anterior)}</td>
+        <td>${fmt(f.alerta)}</td>
+      </tr>`;
+    }).join('');
+    return `${aviso}<div class="scroll"><table>
+      <thead><tr><th>Estación</th><th class="izq opcional">Río</th><th>Altura</th><th>Var. 24 h</th><th class="opcional">Anterior</th><th>Alerta técnica</th></tr></thead>
+      <tbody>${cuerpo}</tbody></table></div>
+      <div class="pie"><span>Alturas en metros, del ${fecha.toLocaleDateString('es-AR', { timeZone: TZ })} a las 0:00 · Fuente: <a href="https://fich.unl.edu.ar/cim/rios/salado/alturas" target="_blank" rel="noopener">CIM FICH-UNL</a> (red de alerta de la provincia)</span><span>Se actualiza automáticamente</span></div>`;
+  }
+})();
+</script>
+</body>
+</html>

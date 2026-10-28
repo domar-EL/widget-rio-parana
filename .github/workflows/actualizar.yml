@@ -24,7 +24,7 @@ jobs:
       - run: node scripts/actualizar.mjs
       - name: Commitear si el dato cambió
         run: |
-          git add public/datos.json public/rios.json
+          git add public/datos.json public/rios.json public/tablas.json
           git diff --cached --quiet && { echo "Sin cambios"; exit 0; }
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

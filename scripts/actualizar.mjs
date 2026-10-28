@@ -86,3 +86,85 @@ const rios = [
 ];
 await writeFile(RIOS, JSON.stringify(rios, null, 1) + '\n');
 for (const r of rios) console.log(`rios.json: ${r.rio} ${r.estacion} = ${r.lecturas[0]?.v ?? 'sin datos'} (${r.lecturas[0]?.t ?? '-'})`);
+
+// public/tablas.json para tabla.html, que reemplaza las tablas de Datawrapper de
+// ellitoral.com/servicios/clima/altura_rios (mismas estaciones y orden). Paraná,
+// Paraguay, Iguazú y Uruguay: tabla de Prefectura; Salado: tabla del CIM (FICH-UNL),
+// que toma la red de alerta de la provincia. Son páginas HTML, no APIs: si cambian
+// o no responden, se conserva la sección anterior de tablas.json.
+const TABLAS = new URL('../public/tablas.json', import.meta.url);
+const PUERTOS = {
+  parana: [
+    ['Andresito', 'Iguazú'], ['Iguazú', 'Iguazú'], ['Libertad', 'Paraná'], ['Eldorado', 'Paraná'],
+    ['Libertador', 'Paraná'], ['Puerto Mani', 'Paraná'], ['Santa Ana', 'Paraná'], ['Posadas', 'Paraná'],
+    ['Ituzaingó', 'Paraná'], ['Ita Ibate', 'Paraná'], ['Itatí', 'Paraná'], ['Paso de la Patria', 'Paraná'],
+    ['Corrientes', 'Paraná'], ['Barranqueras', 'Paraná'], ['Empedrado', 'Paraná'], ['Bella Vista', 'Paraná'],
+    ['Goya', 'Paraná'], ['Reconquista', 'Paraná'], ['Esquina', 'Paraná'], ['San Javier (Santa Fe)', 'San Javier'],
+    ['La Paz', 'Paraná'], ['Santa Elena', 'Paraná'], ['Hernandarias', 'Paraná'], ['Paraná', 'Paraná'],
+    ['Santa Fe', 'Paraná'], ['Diamante', 'Paraná'], ['Victoria', 'Paraná'], ['San Lorenzo', 'Paraná'],
+    ['Rosario', 'Paraná'], ['Villa Constitución', 'Paraná'], ['San Nicolás', 'Paraná'], ['Ramallo', 'Paraná'],
+    ['San Pedro', 'Delta Paraná'], ['Baradero', 'Delta Paraná'], ['Pilcomayo', 'Paraguay'], ['Bouvier', 'Paraguay'],
+    ['Formosa', 'Paraguay'], ['Bermejo', 'Paraguay'], ['Las Palmas', 'Paraguay'], ['Isla del Cerrito', 'Paraguay'],
+  ],
+  uruguay: [
+    ['Monte Caseros', 'Uruguay'], ['Mocoretá', 'Uruguay'], ['Federación', 'Uruguay'], ['Federación Embalse', 'Uruguay'],
+    ['Salto Grande Arriba', 'Uruguay'], ['Salto Grande Abajo', 'Uruguay'], ['Concordia', 'Uruguay'], ['Colón', 'Uruguay'],
+    ['Concepción del Uruguay', 'Uruguay'], ['Campichuelo', 'Uruguay'], ['Boca Gualeguaychú', 'Gualeguaychú'],
+  ],
+};
+const MESES = { ENE: 1, FEB: 2, MAR: 3, ABR: 4, MAY: 5, JUN: 6, JUL: 7, AGO: 8, SEP: 9, SET: 9, OCT: 10, NOV: 11, DIC: 12 };
+const clave = s => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toUpperCase().trim();
+const num = s => { const n = parseFloat(String(s).replace(',', '.')); return Number.isFinite(n) ? n : null; };
+const texto = s => s.replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ').trim();
+const celdas = html => [...html.matchAll(/<tr[^>]*>([\s\S]*?)<\/tr>/g)]
+  .map(([, tr]) => [...tr.matchAll(/<t[dh][^>]*>([\s\S]*?)<\/t[dh]>/g)].map(([, td]) => texto(td)));
+// "28/OCT/26 - 0800" (hora argentina) -> ISO
+const fechaPNA = s => {
+  const m = s.match(/(\d{2})\/([A-Z]{3})\/(\d{2}) - (\d{2})(\d{2})/);
+  return m && `20${m[3]}-${String(MESES[m[2]]).padStart(2, '0')}-${m[1]}T${m[4]}:${m[5]}:00-03:00`;
+};
+const pagina = async url => {
+  const r = await fetch(url, { signal: AbortSignal.timeout(30_000) });
+  if (!r.ok) throw new Error(`${url} respondió ${r.status}`);
+  return r.text();
+};
+
+async function prefectura() {
+  const filas = new Map(celdas(await pagina('https://contenidosweb.prefecturanaval.gob.ar/alturas/'))
+    .filter(c => c.length >= 12).map(c => [clave(c[0]), c]));
+  const tabla = lista => lista.map(([puerto, rio]) => {
+    const c = filas.get(clave(puerto));
+    return c ? { puerto, rio, altura: num(c[2]), fecha: fechaPNA(c[5]), estado: c[6], anterior: num(c[8]), fechaAnt: fechaPNA(c[9]), alerta: num(c[10]), evac: num(c[11]) }
+             : { puerto, rio, altura: null };
+  });
+  const parana = tabla(PUERTOS.parana), uruguay = tabla(PUERTOS.uruguay);
+  if (![...parana, ...uruguay].some(f => f.altura != null)) throw new Error('la tabla de Prefectura no trajo alturas');
+  return { parana, uruguay };
+}
+
+async function fichSalado() {
+  const html = await pagina('https://fich.unl.edu.ar/cim/rios/salado/alturas');
+  const m = texto(html).match(/correspondientes a la fecha \w+ (\d{1,2}) de (\w+) de (\d{4})/);
+  const mes = m && MESES[clave(m[2]).slice(0, 3)];
+  const fecha = mes && `${m[3]}-${String(mes).padStart(2, '0')}-${m[1].padStart(2, '0')}`;
+  const filas = celdas(html).filter(c => c.length >= 7 && num(c[6]) != null)
+    .map(c => ({ estacion: c[0], rio: c[1], altura: num(c[2]), anterior: num(c[5]), alerta: num(c[6]) }));
+  if (!fecha || !filas.length) throw new Error('la tabla de la FICH no trajo fecha o alturas');
+  return { fecha, filas };
+}
+
+const tablasPrevias = JSON.parse(await readFile(TABLAS, 'utf8').catch(() => '{}'));
+const tablas = { ...tablasPrevias };
+try {
+  Object.assign(tablas, await prefectura());
+} catch (e) {
+  console.warn(`Prefectura sin actualizar: ${e.message}${e.cause ? ` (${e.cause.code ?? e.cause.message})` : ''}`);
+}
+try {
+  tablas.salado = await fichSalado();
+} catch (e) {
+  console.warn(`FICH (Salado) sin actualizar: ${e.message}${e.cause ? ` (${e.cause.code ?? e.cause.message})` : ''}`);
+}
+await writeFile(TABLAS, JSON.stringify(tablas, null, 1) + '\n');
+const sf = tablas.parana?.find(f => f.puerto === 'Santa Fe');
+console.log(`tablas.json: Santa Fe ${sf?.altura} (${sf?.fecha}) · Salado ${tablas.salado?.fecha} · ${tablas.salado?.filas.length ?? 0} estaciones`);
