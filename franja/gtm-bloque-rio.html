@@ -1,0 +1,71 @@
+<!--
+  Versión del bloque "Río Paraná" (bloque-rio.html) para cargar desde Google Tag Manager,
+  sin tocar la plantilla de la portada. Etiqueta: HTML personalizado; activador: Vista de
+  página - Ventana cargada, con Page Path igual a "/". Inserta el bloque al final de la
+  franja #barra-vivos-unificada-final y lo vuelve a poner si el sitio redibuja la franja.
+  JavaScript ES5 para que GTM lo acepte. Si algún día se pega bloque-rio.html en la
+  plantilla, hay que pausar esta etiqueta.
+-->
+<style>
+  .pastilla-vivos--azul { background: #216497; }
+  @media (max-width: 1215px) {
+    #barra-vivos-unificada-final .barra-unificada__interior { flex-wrap: wrap; }
+    #rio-sep { display: none; }
+    #rio-bloque { flex-basis: 100%; }
+  }
+</style>
+<script>
+  (function () {
+    var DATOS = 'https://widget-rios.ellitoral.com/datos.json';
+    var PAGINA = 'https://www.ellitoral.com/servicios/clima/altura_rios';
+    var HTML =
+      '<span class="separador-bullet" id="rio-sep">•</span>' +
+      '<div class="bloque-item" data-url="nota" id="rio-bloque">' +
+        '<div class="textos-col">' +
+          '<span class="titulo-seccion">Río Paraná</span>' +
+          '<a class="texto-enlace slogan-ocultar" data-url="nota" href="' + PAGINA + '" id="rio-texto">altura en el Puerto</a>' +
+        '</div>' +
+        '<a class="pastilla-vivos pastilla-vivos--azul" data-url="nota" href="' + PAGINA + '" id="rio-pastilla">' +
+          '<span class="punto-vivo-unificado"></span><span id="rio-valor">VER ALTURA</span>' +
+        '</a>' +
+        '<span class="flecha-mobile">❯</span>' +
+      '</div>';
+    var dato = null;   // { valor, texto, color } una vez que llega datos.json
+
+    function f(x) { return x.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
+
+    function mostrar() {
+      if (!dato || !document.getElementById('rio-valor')) return;
+      document.getElementById('rio-valor').textContent = dato.valor;
+      document.getElementById('rio-pastilla').className = 'pastilla-vivos pastilla-vivos--' + dato.color;
+      document.getElementById('rio-texto').textContent = dato.texto;
+    }
+
+    function insertar() {
+      if (document.getElementById('rio-bloque')) return;
+      var interior = document.querySelector('#barra-vivos-unificada-final .barra-unificada__interior');
+      if (!interior) return;
+      interior.insertAdjacentHTML('beforeend', HTML);
+      mostrar();
+    }
+
+    function iniciar() {
+      var franja = document.getElementById('barra-vivos-unificada-final');
+      if (!franja) return;
+      insertar();
+      new MutationObserver(insertar).observe(franja, { childList: true, subtree: true });
+      fetch(DATOS).then(function (r) { return r.json(); }).then(function (d) {
+        var o = d.observaciones, u = o[o.length - 1], a = o[o.length - 2], n = d.niveles;
+        if ((Date.now() - new Date(u.t)) / 864e5 >= 2) return;
+        var cm = a ? Math.round((u.v - a.v) * 100) : 0;
+        dato = { color: 'azul', texto: 'faltan ' + f(n.alerta - u.v) + ' m para la alerta', valor: f(u.v) + ' m' + (cm > 0 ? ' ▲' : cm < 0 ? ' ▼' : '') };
+        if (u.v >= n.evac) { dato.color = 'rojo'; dato.texto = 'superó la evacuación (' + f(n.evac) + ' m)'; }
+        else if (u.v >= n.alerta) { dato.color = 'naranja'; dato.texto = 'superó la alerta (' + f(n.alerta) + ' m)'; }
+        mostrar();
+      }).catch(function () {});
+    }
+
+    if (document.readyState === 'complete') iniciar();
+    else window.addEventListener('load', iniciar);
+  })();
+</script>
