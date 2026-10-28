@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Río Paraná — El Litoral</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<!--
+  Bloque "Río Paraná" de la franja de vivos de la portada, como iframe (Lila no lleva bien
+  el JS del bloque). Copia el estilo de los bloques "Santa Fe 24/7" y "Estado del tránsito":
+  en una fila si el iframe es ancho; como celda de 70 px (pastilla arriba, borde superior de
+  color) si mide 300 px o menos, que es como se ve la franja en celulares.
+-->
+<style>
+  html, body { margin: 0; height: 100%; background: transparent; }
+  a { display: flex; align-items: center; gap: 8px; height: 100%; box-sizing: border-box; color: #000; text-decoration: none; font-family: Roboto, sans-serif; white-space: nowrap; overflow: hidden; }
+  .titulo { font-size: 14px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+  .texto { font-size: 14px; color: #666; overflow: hidden; text-overflow: ellipsis; }
+  .pastilla { display: inline-flex; align-items: center; gap: 6px; flex: none; height: 22px; padding: 0 9px 0 7px; border-radius: 4px; box-sizing: border-box;
+    color: #fff; font-size: 11px; font-weight: 700; letter-spacing: .1em; line-height: 1; background: #216497; }
+  .pastilla[data-c="naranja"] { background: #f7a600; }
+  .pastilla[data-c="rojo"] { background: #e73232; }
+  .punto { position: relative; width: 7px; height: 7px; flex: none; }
+  .punto::before, .punto::after { content: ""; position: absolute; top: 50%; left: 50%; width: 7px; height: 7px; border-radius: 50%; transform: translate(-50%, -50%); }
+  .punto::before { background: #fff; z-index: 2; }
+  .punto::after { background: rgba(255, 255, 255, .6); animation: onda 1.6s ease-out infinite; }
+  @keyframes onda { 0% { transform: translate(-50%, -50%) scale(1); opacity: .8; } 70% { transform: translate(-50%, -50%) scale(3); opacity: 0; } 100% { opacity: 0; } }
+  @media (max-width: 379px) { .texto { display: none; } }
+  @media (max-width: 300px) {
+    a { flex-direction: column; justify-content: space-between; gap: 0; padding: 10px 10px 8px; border-top: 2px solid #216497; }
+    a[data-c="naranja"] { border-top-color: #f7a600; }
+    a[data-c="rojo"] { border-top-color: #e73232; }
+    .pastilla { order: -1; font-size: 12px; letter-spacing: .1em; padding: 0 7px 0 5px; }
+    .titulo { font-size: 13px; letter-spacing: .03em; color: #111; }
+  }
+</style>
+</head>
+<body>
+<a id="bloque" href="https://www.ellitoral.com/servicios/clima/altura_rios" target="_top">
+  <span class="titulo">Río Paraná</span>
+  <span class="texto" id="texto">altura en el Puerto</span>
+  <span class="pastilla" id="pastilla"><span class="punto"></span><span id="valor">VER ALTURA</span></span>
+</a>
+<script>
+  (function () {
+    var f = function (x) { return x.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); };
+    // datos.json lo genera scripts/actualizar.mjs (INA). Si falla o tiene 2 días o más, queda "VER ALTURA".
+    fetch('datos.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (d) {
+      var o = d.observaciones, u = o[o.length - 1], a = o[o.length - 2], n = d.niveles;
+      if ((Date.now() - new Date(u.t)) / 864e5 >= 2) return;
+      var cm = a ? Math.round((u.v - a.v) * 100) : 0;
+      var color = 'azul', texto = 'faltan ' + f(n.alerta - u.v) + ' m para la alerta';
+      if (u.v >= n.evac) { color = 'rojo'; texto = 'superó la evacuación (' + f(n.evac) + ' m)'; }
+      else if (u.v >= n.alerta) { color = 'naranja'; texto = 'superó la alerta (' + f(n.alerta) + ' m)'; }
+      document.getElementById('valor').textContent = f(u.v) + ' m' + (cm > 0 ? ' ▲' : cm < 0 ? ' ▼' : '');
+      document.getElementById('texto').textContent = texto;
+      document.getElementById('pastilla').dataset.c = color;
+      document.getElementById('bloque').dataset.c = color;
+    }).catch(function () {});
+  })();
+</script>
+</body>
+</html>
