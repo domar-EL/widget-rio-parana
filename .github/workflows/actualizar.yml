@@ -4,9 +4,15 @@ on:
   schedule:
     - cron: '*/30 * * * *'
   workflow_dispatch:
+    inputs:
+      probar_aviso:
+        description: 'Simular un problema para probar el aviso (abre el issue; la próxima corrida normal lo cierra)'
+        type: boolean
+        default: false
 
 permissions:
   contents: write
+  issues: write
 
 concurrency:
   group: actualizar
@@ -16,12 +22,15 @@ jobs:
   actualizar:
     runs-on: ubuntu-latest
     timeout-minutes: 5
+    env:
+      ALERTAS: ${{ runner.temp }}/alertas.md
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - run: node scripts/actualizar.mjs
+      - id: actualizar
+        run: node scripts/actualizar.mjs
       - name: Commitear si el dato cambió
         run: |
           git add public/datos.json public/rios.json public/tablas.json
@@ -30,3 +39,26 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -m "Dato del INA $(date -u +%Y-%m-%dT%H:%MZ)"
           git push
+      # Aviso por mail: un issue que menciona a @mserra-dev cuando aparece un problema
+      # (lo escribe el script en $ALERTAS), se actualiza mientras dura y se cierra solo.
+      - name: Avisar si hay problemas
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          LOG: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          touch "$ALERTAS"
+          [ "${{ steps.actualizar.outcome }}" = success ] || echo "- El script de actualización falló (error en el código, no en las fuentes)." >> "$ALERTAS"
+          [ "${{ inputs.probar_aviso }}" = true ] && echo "- Prueba del aviso, corrida manual. No hay ningún problema real." >> "$ALERTAS"
+          gh label create alerta-datos --color D93F0B --description "Aviso automático de los widgets de ríos" 2>/dev/null || true
+          abierto=$(gh issue list --label alerta-datos --state open --json number --jq '.[0].number // empty')
+          if [ -s "$ALERTAS" ]; then
+            cuerpo=$(printf '@mserra-dev hay un problema con los datos de los widgets de ríos (widget-rios.ellitoral.com):\n\n%s\n\nRegistro de la corrida: %s\n\nMientras dure, los widgets muestran el último dato con su fecha y, si tiene 2 días o más, el aviso de dato viejo. Este issue se cierra solo cuando se resuelve.' "$(cat "$ALERTAS")" "$LOG")
+            if [ -z "$abierto" ]; then
+              gh issue create --title "Widgets de ríos: problema con los datos" --label alerta-datos --body "$cuerpo"
+            else
+              gh issue edit "$abierto" --body "$cuerpo"
+            fi
+          elif [ -n "$abierto" ]; then
+            gh issue close "$abierto" --comment "Resuelto: los datos volvieron a actualizarse normalmente. $LOG"
+          fi

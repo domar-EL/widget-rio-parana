@@ -11,26 +11,40 @@ const hoy = new Date();
 const desde = new Date(hoy - (DIAS + 15) * 864e5);
 const hasta = new Date(+hoy + 864e5);
 const url = `https://alerta.ina.gob.ar/a5/obs/puntual/series/${SERIE}?timestart=${iso(desde)}&timeend=${iso(hasta)}`;
+const DATOS = new URL('../public/datos.json', import.meta.url);
 
-const r = await fetch(url, { signal: AbortSignal.timeout(30_000) });
-if (!r.ok) throw new Error(`INA respondió ${r.status}`);
-const serie = await r.json();
-const est = serie.estacion;
+// Problemas para el aviso por mail (ver el workflow): una fuente que cambió de formato se
+// avisa enseguida; un corte de conexión no, porque suele resolverse en la corrida siguiente
+// y, si dura, termina en un dato viejo, que también se avisa (al final del script).
+const problemas = [];
+const formato = msg => Object.assign(new Error(msg), { formato: true });
+const motivo = e => `${e.message}${e.cause ? ` (${e.cause.code ?? e.cause.message})` : ''}`;
+const fallo = (fuente, e) => {
+  console.warn(`${fuente} sin actualizar: ${motivo(e)}`);
+  if (e.formato) problemas.push(`${fuente}: ${e.message}. Probablemente cambió la página o la API; hay que ajustar scripts/actualizar.mjs.`);
+};
 
-const observaciones = serie.observaciones
-  .map(o => ({ t: o.timestart, v: +o.valor }))
-  .filter(o => Number.isFinite(o.v))
-  .sort((a, b) => a.t.localeCompare(b.t))
-  .slice(-DIAS);
-
-const niveles = { bajas: est.nivel_aguas_bajas, alerta: est.nivel_alerta, evac: est.nivel_evacuacion };
-if (!observaciones.length || !Object.values(niveles).every(Number.isFinite)) {
-  throw new Error('El INA devolvió la serie sin datos o sin niveles de referencia');
+let observaciones, niveles;
+try {
+  const r = await fetch(url, { signal: AbortSignal.timeout(30_000) });
+  if (!r.ok) throw new Error(`INA respondió ${r.status}`);
+  const serie = await r.json();
+  const est = serie.estacion;
+  observaciones = serie.observaciones
+    .map(o => ({ t: o.timestart, v: +o.valor }))
+    .filter(o => Number.isFinite(o.v))
+    .sort((a, b) => a.t.localeCompare(b.t))
+    .slice(-DIAS);
+  niveles = { bajas: est.nivel_aguas_bajas, alerta: est.nivel_alerta, evac: est.nivel_evacuacion };
+  if (!observaciones.length || !Object.values(niveles).every(Number.isFinite)) {
+    throw formato('el INA devolvió la serie sin datos o sin niveles de referencia');
+  }
+  await writeFile(DATOS, JSON.stringify({ estacion: est.nombre, niveles, observaciones }, null, 1) + '\n');
+  console.log(`OK: ${observaciones.length} lecturas, última ${observaciones.at(-1).t} = ${observaciones.at(-1).v} m`);
+} catch (e) {
+  fallo('Santa Fe (INA)', e);
+  ({ observaciones, niveles } = JSON.parse(await readFile(DATOS, 'utf8')));   // sigue con el último datos.json
 }
-
-const datos = { estacion: est.nombre, niveles, observaciones };
-await writeFile(new URL('../public/datos.json', import.meta.url), JSON.stringify(datos, null, 1) + '\n');
-console.log(`OK: ${observaciones.length} lecturas, última ${observaciones.at(-1).t} = ${observaciones.at(-1).v} m`);
 
 // Fuentes para rios.json y tablas.json. Desde GitHub no se llega ni a Prefectura ni al
 // mapa de Recursos Hídricos de la provincia (timeout de conexión), pero sí a la FICH-UNL
@@ -56,7 +70,6 @@ const num = s => { const n = parseFloat(String(s).replace(',', '.')); return Num
 const texto = s => s.replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ').trim();
 const celdas = html => [...html.matchAll(/<tr[^>]*>([\s\S]*?)<\/tr>/g)]
   .map(([, tr]) => [...tr.matchAll(/<t[dh][^>]*>([\s\S]*?)<\/t[dh]>/g)].map(([, td]) => texto(td)));
-const motivo = e => `${e.message}${e.cause ? ` (${e.cause.code ?? e.cause.message})` : ''}`;
 
 // Tabla del CIM: fecha ("correspondientes a la fecha martes 27 de octubre de 2026") y filas
 // con la altura en la columna 2, la anterior en la 5 y el umbral de alerta en la 6.
@@ -67,7 +80,7 @@ async function cim(rio) {
   const m = texto(html).match(/correspondientes a la fecha \S+ (\d{1,2}) de (\S+) de (\d{4})/);
   const mes = m && MESES[clave(m[2]).slice(0, 3)];
   const filas = celdas(html).filter(c => c.length >= 7 && num(c[6]) != null);
-  if (!mes || !filas.length) throw new Error(`la tabla del CIM (${rio}) no trajo fecha o alturas`);
+  if (!mes || !filas.length) throw formato(`la tabla del CIM (${rio}) no trajo fecha o alturas`);
   return { fecha: `${m[3]}-${String(mes).padStart(2, '0')}-${m[1].padStart(2, '0')}`, filas };
 }
 
@@ -90,14 +103,14 @@ const tablas = JSON.parse(await readFile(TABLAS, 'utf8').catch(() => '{}'));
 try {
   const t = await cim('parana');
   tablas.parana = { fecha: t.fecha, filas: t.filas.map(c => ({ puerto: c[0], rio: c[1], altura: num(c[2]), anterior: num(c[5]), alerta: num(c[6]), evac: num(c[7]) })) };
-} catch (e) { console.warn(`Paraná (CIM) sin actualizar: ${motivo(e)}`); }
+} catch (e) { fallo('Tabla del Paraná (CIM FICH-UNL)', e); }
 try {
   const t = await cim('salado');
   tablas.salado = { fecha: t.fecha, filas: t.filas.map(c => ({ estacion: c[0], rio: c[1], altura: num(c[2]), anterior: num(c[5]), alerta: num(c[6]) })) };
-} catch (e) { console.warn(`Salado (CIM) sin actualizar: ${motivo(e)}`); }
+} catch (e) { fallo('Tabla del Salado (CIM FICH-UNL)', e); }
 try {
   tablas.uruguay = { filas: await uruguay() };
-} catch (e) { console.warn(`Uruguay (INA) sin actualizar: ${motivo(e)}`); }
+} catch (e) { fallo('Tabla del Uruguay (INA)', e); }
 await writeFile(TABLAS, JSON.stringify(tablas, null, 1) + '\n');
 console.log(`tablas.json: Paraná ${tablas.parana?.fecha} · Salado ${tablas.salado?.fecha} · Uruguay ${tablas.uruguay?.filas.find(f => f.fecha)?.fecha}`);
 
@@ -116,3 +129,15 @@ const rios = [
 ];
 await writeFile(RIOS, JSON.stringify(rios, null, 1) + '\n');
 for (const r of rios) console.log(`rios.json: ${r.rio} ${r.estacion} = ${r.lecturas[0]?.v ?? 'sin datos'} (${r.lecturas[0]?.t ?? '-'})`);
+
+// Datos viejos: 2 días o más sin lecturas nuevas (el mismo umbral que usan los widgets).
+const viejo = t => t && Date.now() - new Date(t) >= 2 * 864e5;
+const dia = t => new Date(t).toLocaleDateString('es-AR', { timeZone: 'America/Argentina/Buenos_Aires' });
+const revisar = (que, t) => { if (viejo(t)) problemas.push(`${que}: la última lectura es del ${dia(t)}.`); };
+revisar('Santa Fe (INA), widgets y franja', observaciones.at(-1)?.t);
+revisar('Tabla del Paraná (CIM FICH-UNL)', tablas.parana && `${tablas.parana.fecha}T00:00:00-03:00`);
+revisar('Tabla del Salado y widget de ríos (CIM FICH-UNL)', tablas.salado && `${tablas.salado.fecha}T00:00:00-03:00`);
+revisar('Tabla del Uruguay (INA)', tablas.uruguay?.filas.map(f => f.fecha).filter(Boolean).sort().at(-1));
+
+if (problemas.length) console.warn(`Problemas:\n- ${problemas.join('\n- ')}`);
+if (process.env.ALERTAS) await writeFile(process.env.ALERTAS, problemas.map(p => `- ${p}`).join('\n'));
