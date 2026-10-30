@@ -81,15 +81,22 @@
 
   // Ajusta el alto del iframe con el mismo mensaje que usan los embeds de Datawrapper,
   // que ellitoral.com ya escucha en la página de altura de los ríos.
-  const avisarAlto = () => parent.postMessage({ 'datawrapper-height': { [cuenca]: Math.ceil(box.getBoundingClientRect().height) } }, '*');
+  const avisarAlto = () => {
+    const alto = Math.ceil(box.getBoundingClientRect().height);
+    parent.postMessage({ 'datawrapper-height': { [cuenca]: alto } }, '*');
+    return alto;
+  };
   addEventListener('resize', avisarAlto);
+  // La página puede empezar a escuchar después (Cloudflare demora sus scripts): se repite
+  // el aviso cada segundo hasta que el iframe toma el alto, como mucho 30 veces.
+  const insistir = (n = 0) => { if (Math.abs(innerHeight - avisarAlto()) > 1 && n < 30) setTimeout(insistir, 1000, n + 1); };
 
   // tablas.json lo genera scripts/actualizar.mjs cada 30 minutos (CIM FICH-UNL e INA)
   fetch('tablas.json', { cache: 'no-cache' })
     .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
     .then(d => { box.innerHTML = cuenca === 'salado' ? salado(d.salado) : puertos(d[cuenca]); })
     .catch(() => { box.innerHTML = '<div class="msg">No pudimos obtener las alturas en este momento. Volvé a intentar en unos minutos.</div>'; })
-    .finally(avisarAlto);
+    .finally(insistir);
 
   // Paraná: una fecha para toda la tabla (relevamiento diario del CIM sobre registros de
   // Prefectura). Uruguay: fecha por puerto (series de Prefectura en el INA).

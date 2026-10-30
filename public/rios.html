@@ -246,15 +246,19 @@
     const alto = Math.ceil(w.getBoundingClientRect().height);
     w.style.height = '';
     parent.postMessage({ 'datawrapper-height': { rios: alto } }, '*');
+    return alto;
   };
   addEventListener('resize', avisarAlto);
+  // La página puede empezar a escuchar después (Cloudflare demora sus scripts): se repite
+  // el aviso cada segundo hasta que el iframe toma el alto, como mucho 30 veces.
+  const insistir = (n = 0) => { if (Math.abs(innerHeight - avisarAlto()) > 1 && n < 30) setTimeout(insistir, 1000, n + 1); };
 
   // rios.json lo genera scripts/actualizar.mjs cada 30 minutos (INA y Rec. Hídricos Santa Fe)
   fetch('rios.json', { cache: 'no-cache' })
     .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
     .then(rios => { filas.innerHTML = rios.map(fila).join(''); })
     .catch(() => { filas.innerHTML = '<div class="msg">No pudimos obtener las alturas en este momento.<br>Volvé a intentar en unos minutos.</div>'; })
-    .finally(avisarAlto);
+    .finally(insistir);
 
   function fila(r) {
     const titulo = `<span class="kicker">${esc(r.rio)} · ${esc(r.estacion)}</span>`;
