@@ -6,7 +6,7 @@
 <title>Ríos en Santa Fe — El Litoral</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #ffffff;
@@ -42,39 +42,174 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    padding: 14px 16px 12px;
+    gap: 16px;
+    padding: 20px;
     border: 1px solid var(--line);
     border-radius: 12px;
     overflow: hidden;
   }
   header { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
-  .kicker { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); }
+  .kicker { font-size: 12px; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; color: var(--brand); }
+  header .kicker { color: var(--ink-2); font-size: 13px; }
   .brand { font-size: 13px; font-weight: 900; color: var(--brand); white-space: nowrap; text-decoration: none; }
 
-  #filas { flex: 1; display: flex; flex-direction: column; }
-  .fila { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; padding: 10px 0; border-top: 1px solid var(--line); }
-  .fila:first-child { border-top: 0; padding-top: 2px; }
-  .izq { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
-  .num { font-size: 30px; font-weight: 700; line-height: 1; letter-spacing: -.02em; font-variant-numeric: tabular-nums; white-space: nowrap; }
-  .num small { font-size: 14px; font-weight: 500; color: var(--ink-2); margin-left: 2px; letter-spacing: 0; }
-  .meta { font-size: 12px; color: var(--ink-2); font-variant-numeric: tabular-nums; }
-  .status { font-size: 13px; font-weight: 700; display: flex; align-items: center; gap: 6px; }
-  .status .dot { width: 9px; height: 9px; border-radius: 50%; background: currentColor; flex: none; }
+  /* --- ESTRUCTURA DESKTOP (3 COLUMNAS TIPO TARJETA) --- */
+  #filas {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+  }
+
+  .fila {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 0 20px;
+    border-right: 1px solid var(--line);
+  }
+
+  .fila:first-child {
+    padding-left: 0;
+  }
+
+  .fila:last-child {
+    border-right: 0;
+    padding-right: 0;
+  }
+
+  .izq {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+    order: 1;
+  }
+
+  .num {
+    font-size: 42px;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -.02em;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+    order: 2;
+    margin-top: 10px;
+    margin-bottom: 12px;
+  }
+
+  .num small {
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-left: 2px;
+    letter-spacing: 0;
+  }
+
+  .status {
+    order: 3;
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 6px;
+  }
+
+  .status .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: currentColor;
+    flex: none;
+  }
+
+  .meta {
+    order: 4;
+    font-size: 12px;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+    line-height: 1.4;
+  }
+
+  .warn {
+    order: 5;
+    font-size: 12px;
+    color: var(--alert);
+    font-weight: 500;
+    margin-top: 4px;
+  }
+
   .fila[data-s="normal"] .status { color: var(--ok); }
   .fila[data-s="alerta"] .status { color: var(--alert); }
   .fila[data-s="evac"] .status { color: var(--evac); }
   .fila[data-s="viejo"] .status, .fila[data-s="viejo"] .num { color: var(--muted); }
-  .warn { font-size: 12px; color: var(--alert); font-weight: 500; }
 
-  footer { display: flex; justify-content: space-between; gap: 4px 12px; flex-wrap: wrap; font-size: 11px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 8px; }
+  footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 4px 12px;
+    flex-wrap: wrap;
+    font-size: 12px;
+    color: var(--muted);
+    border-top: 1px solid var(--line);
+    padding-top: 14px;
+    margin-top: 4px;
+  }
   footer a { color: inherit; }
-  footer strong { color: var(--ink-2); font-weight: 500; }
+  footer strong { color: var(--ink-2); font-weight: 700; }
   .msg { flex: 1; display: grid; place-items: center; text-align: center; color: var(--ink-2); padding: 12px; }
 
-  @media (max-width: 420px) {
-    .w { gap: 8px; padding: 12px 12px 10px; }
-    .num { font-size: 26px; }
+  /* --- ADAPTACIÓN MOBILE (< 600px - UNO DEBAJO DEL OTRO) --- */
+  @media (max-width: 600px) {
+    .w { gap: 10px; padding: 14px 16px 12px; }
+
+    #filas {
+      flex-direction: column;
+    }
+
+    .fila {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      grid-template-areas:
+        "izq num"
+        "status num"
+        "meta num"
+        "warn num";
+      border-right: 0;
+      border-top: 1px solid var(--line);
+      padding: 12px 0;
+    }
+
+    .fila:first-child {
+      border-top: 0;
+      padding-top: 4px;
+    }
+
+    .izq { grid-area: izq; margin-bottom: 4px; }
+    .izq .kicker { color: var(--ink-2); }
+
+    .num {
+      grid-area: num;
+      align-self: center;
+      font-size: 36px;
+      margin-top: 0;
+      margin-bottom: 0;
+      padding-left: 12px;
+    }
+
+    .num small { font-size: 16px; }
+
+    .status { grid-area: status; margin-bottom: 4px; }
+    .meta { grid-area: meta; }
+    .warn { grid-area: warn; }
+
+    footer {
+      flex-direction: column;
+      gap: 6px;
+      padding-top: 10px;
+    }
   }
 </style>
 </head>
@@ -100,7 +235,7 @@
 
   const fmt = n => n.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   const dia = t => new Date(t).toLocaleDateString('es-AR', { timeZone: TZ, day: 'numeric', month: 'numeric' });
-  const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const filas = document.getElementById('filas');
 
   // Avisa el alto natural (sin estirarse al iframe) con el mismo mensaje que las tablas,
@@ -142,11 +277,11 @@
     const aviso = viejo ? `<span class="warn">⚠ Dato de hace ${dias} días: no hay lecturas nuevas</span>` : '';
 
     return `<div class="fila" data-s="${s}">
-      <div class="izq">${titulo}
-        <span class="status"><span class="dot"></span>${txt}</span>
-        <span class="meta">${meta}</span>${aviso}
-      </div>
+      <div class="izq">${titulo}</div>
       <div class="num">${fmt(u.v)}<small>m</small></div>
+      <span class="status"><span class="dot"></span>${txt}</span>
+      <span class="meta">${meta}</span>
+      ${aviso}
     </div>`;
   }
 })();
