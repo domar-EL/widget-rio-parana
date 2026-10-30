@@ -408,9 +408,9 @@
    {
     "puerto": "Federación",
     "rio": "Uruguay",
-    "altura": null,
-    "anterior": null,
-    "fecha": null,
+    "altura": 34.82,
+    "anterior": 34.68,
+    "fecha": "2026-10-30T03:00:00.000Z",
     "alerta": 3.9,
     "evac": 4.2
    },
