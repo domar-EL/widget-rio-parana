@@ -391,7 +391,7 @@
     "puerto": "Monte Caseros",
     "rio": "Uruguay",
     "altura": 6.02,
-    "anterior": 5.86,
+    "anterior": 5.8,
     "fecha": "2026-10-30T03:00:00.000Z",
     "alerta": 7.5,
     "evac": 8.5
@@ -400,7 +400,7 @@
     "puerto": "Mocoretá",
     "rio": "Uruguay",
     "altura": 8.96,
-    "anterior": 8.82,
+    "anterior": 8.81,
     "fecha": "2026-10-30T03:00:00.000Z",
     "alerta": 10.3,
     "evac": 12
@@ -427,7 +427,7 @@
     "puerto": "Salto Grande Arriba",
     "rio": "Uruguay",
     "altura": 34.74,
-    "anterior": 34.58,
+    "anterior": 34.53,
     "fecha": "2026-10-30T03:00:00.000Z",
     "alerta": 35.5,
     "evac": 36
@@ -436,7 +436,7 @@
     "puerto": "Salto Grande Abajo",
     "rio": "Uruguay",
     "altura": 12.15,
-    "anterior": 12.03,
+    "anterior": 12.05,
     "fecha": "2026-10-30T03:00:00.000Z",
     "alerta": 17.3,
     "evac": 17.8
