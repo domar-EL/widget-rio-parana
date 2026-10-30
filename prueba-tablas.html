@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Prueba de tablas</title>
-<style>body{font-family:Roboto,sans-serif;max-width:868px;margin:0 auto;padding:16px}</style></head>
+<style>body{font-family:Roboto,sans-serif;max-width:868px;margin:0 auto;padding:16px}*{box-sizing:border-box}</style></head>
 <body>
 <!-- Réplica de ellitoral.com/servicios/clima/altura_rios: pagina-altura-rios.html con los widgets locales -->
 <!-- ESTILOS UNIFICADOS (Desktop y Mobile) -->
@@ -89,7 +89,7 @@
     var alto = e.data && e.data['datawrapper-height'];
     if (!alto) return;
     document.querySelectorAll('.contenedor-cuenca-rio iframe').forEach(function (f) {
-      if (f.contentWindow === e.source) for (var k in alto) f.style.height = alto[k] + 'px';
+      if (f.contentWindow === e.source) for (var k in alto) f.style.height = alto[k] + f.offsetHeight - f.clientHeight + 'px';
     });
   });
 </script>

@@ -89,7 +89,7 @@
     var alto = e.data && e.data['datawrapper-height'];
     if (!alto) return;
     document.querySelectorAll('.contenedor-cuenca-rio iframe').forEach(function (f) {
-      if (f.contentWindow === e.source) for (var k in alto) f.style.height = alto[k] + 'px';
+      if (f.contentWindow === e.source) for (var k in alto) f.style.height = alto[k] + f.offsetHeight - f.clientHeight + 'px';
     });
   });
 </script>
