@@ -40,7 +40,7 @@ provincia. Las del CIM son páginas HTML, no APIs: si cambian o no responden, se
 
 ## Aviso de fallas
 
-Si una fuente cambia de formato, un dato queda con 2 días o más sin actualizarse o el script falla,
+Si una fuente cambia de formato o de dirección (responde 404), un dato queda con 2 días o más sin actualizarse o el script falla,
 la Action abre un issue (etiqueta `alerta-datos`) que menciona a @mserra-dev, lo actualiza mientras
 dura y lo cierra sola cuando se resuelve. Los cortes de conexión sueltos no avisan: se conserva el
 último dato. Para probarlo: Actions → Actualizar dato del INA → Run workflow con «probar_aviso».

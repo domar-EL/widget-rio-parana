@@ -13,9 +13,9 @@ const hasta = new Date(+hoy + 864e5);
 const url = `https://alerta.ina.gob.ar/a5/obs/puntual/series/${SERIE}?timestart=${iso(desde)}&timeend=${iso(hasta)}`;
 const DATOS = new URL('../public/datos.json', import.meta.url);
 
-// Problemas para el aviso por mail (ver el workflow): una fuente que cambió de formato se
-// avisa enseguida; un corte de conexión no, porque suele resolverse en la corrida siguiente
-// y, si dura, termina en un dato viejo, que también se avisa (al final del script).
+// Problemas para el aviso por mail (ver el workflow): una fuente que cambió de formato o de
+// dirección (404) se avisa enseguida; un corte de conexión no, porque suele resolverse en la
+// corrida siguiente y, si dura, termina en un dato viejo, que también se avisa (al final del script).
 const problemas = [];
 const formato = msg => Object.assign(new Error(msg), { formato: true });
 const motivo = e => `${e.message}${e.cause ? ` (${e.cause.code ?? e.cause.message})` : ''}`;
@@ -27,7 +27,7 @@ const fallo = (fuente, e) => {
 let observaciones, niveles;
 try {
   const r = await fetch(url, { signal: AbortSignal.timeout(30_000) });
-  if (!r.ok) throw new Error(`INA respondió ${r.status}`);
+  if (!r.ok) throw (r.status === 404 ? formato : Error)(`INA respondió ${r.status}`);
   const serie = await r.json();
   const est = serie.estacion;
   observaciones = serie.observaciones
@@ -75,7 +75,7 @@ const celdas = html => [...html.matchAll(/<tr[^>]*>([\s\S]*?)<\/tr>/g)]
 // con la altura en la columna 2, la anterior en la 5 y el umbral de alerta en la 6.
 async function cim(rio) {
   const r = await fetch(`https://cim.fich.unl.edu.ar/rios/${rio}/alturas`, { signal: AbortSignal.timeout(30_000) });
-  if (!r.ok) throw new Error(`el CIM respondió ${r.status}`);
+  if (!r.ok) throw (r.status === 404 ? formato : Error)(`el CIM respondió ${r.status}`);
   const html = await r.text();
   const m = texto(html).match(/correspondientes a la fecha \S+ (\d{1,2}) de (\S+) de (\d{4})/);
   const mes = m && MESES[clave(m[2]).slice(0, 3)];
@@ -89,7 +89,7 @@ async function uruguay() {
   return Promise.all(URUGUAY.map(async ([puerto, rio, id]) => {
     const r = await fetch(`https://alerta.ina.gob.ar/a5/obs/puntual/series/${id}?timestart=${iso(desdeUy)}&timeend=${iso(hasta)}`,
       { signal: AbortSignal.timeout(30_000) });
-    if (!r.ok) throw new Error(`INA respondió ${r.status} para la serie ${id}`);
+    if (!r.ok) throw (r.status === 404 ? formato : Error)(`INA respondió ${r.status} para la serie ${id}`);
     const s = await r.json();
     const [u, a] = s.observaciones.filter(o => Number.isFinite(+o.valor)).sort((x, y) => y.timestart.localeCompare(x.timestart));
     return { puerto, rio, altura: u ? +u.valor : null, anterior: a ? +a.valor : null, fecha: u?.timestart ?? null,
