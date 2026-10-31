@@ -74,7 +74,7 @@ const celdas = html => [...html.matchAll(/<tr[^>]*>([\s\S]*?)<\/tr>/g)]
 // Tabla del CIM: fecha ("correspondientes a la fecha martes 27 de octubre de 2026") y filas
 // con la altura en la columna 2, la anterior en la 5 y el umbral de alerta en la 6.
 async function cim(rio) {
-  const r = await fetch(`https://fich.unl.edu.ar/cim/rios/${rio}/alturas`, { signal: AbortSignal.timeout(30_000) });
+  const r = await fetch(`https://cim.fich.unl.edu.ar/rios/${rio}/alturas`, { signal: AbortSignal.timeout(30_000) });
   if (!r.ok) throw new Error(`el CIM respondió ${r.status}`);
   const html = await r.text();
   const m = texto(html).match(/correspondientes a la fecha \S+ (\d{1,2}) de (\S+) de (\d{4})/);
