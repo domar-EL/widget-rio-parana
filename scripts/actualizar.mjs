@@ -115,6 +115,12 @@ await writeFile(TABLAS, JSON.stringify(tablas, null, 1) + '\n');
 console.log(`tablas.json: Paraná ${tablas.parana?.fecha} · Salado ${tablas.salado?.fecha} · Uruguay ${tablas.uruguay?.filas.find(f => f.fecha)?.fecha}`);
 
 // rios.json: Paraná del INA (datos.json) + Salado del CIM, con la lectura del día y la anterior.
+// El INA carga Santa Fe horas después que el CIM: si la tabla del CIM ya tiene un día más nuevo, se usa esa.
+const sf = tablas.parana?.filas.find(f => f.puerto === 'Santa Fe');
+const tSf = tablas.parana && new Date(`${tablas.parana.fecha}T00:00:00-03:00`).toISOString();
+const parana = sf?.altura != null && tSf > observaciones.at(-1).t
+  ? [{ t: tSf, v: sf.altura }, observaciones.at(-1)]
+  : observaciones.slice(-2).reverse();
 const salado = SALADO_RIOS.map(([cimNombre, estacion]) => {
   const f = tablas.salado?.filas.find(f => f.estacion === cimNombre);
   const t = tablas.salado && new Date(`${tablas.salado.fecha}T00:00:00-03:00`);   // el CIM toma el dato de las 0:00
@@ -124,7 +130,7 @@ const salado = SALADO_RIOS.map(([cimNombre, estacion]) => {
   return { rio: 'Salado', estacion, alerta: ALERTA_SALADO, evac: null, lecturas };
 });
 const rios = [
-  { rio: 'Paraná', estacion: 'Puerto de Santa Fe', alerta: niveles.alerta, evac: niveles.evac, lecturas: observaciones.slice(-2).reverse() },
+  { rio: 'Paraná', estacion: 'Puerto de Santa Fe', alerta: niveles.alerta, evac: niveles.evac, lecturas: parana },
   ...salado,
 ];
 await writeFile(RIOS, JSON.stringify(rios, null, 1) + '\n');
