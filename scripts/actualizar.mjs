@@ -1,5 +1,6 @@
-// Baja la serie del INA (Paraná en el Puerto de Santa Fe) y escribe public/datos.json.
-// El archivo solo cambia cuando el INA publica o corrige una lectura, así el
+// Baja la serie del INA (Paraná en el Puerto de Santa Fe) y escribe public/datos.json
+// (más la lectura del CIM si el INA todavía no cargó la del día, ver más abajo).
+// El archivo solo cambia cuando hay o se corrige una lectura, así el
 // workflow commitea (y Cloudflare publica) una o dos veces por día.
 import { readFile, writeFile } from 'node:fs/promises';
 
@@ -24,7 +25,7 @@ const fallo = (fuente, e) => {
   if (e.formato) problemas.push(`${fuente}: ${e.message}. Probablemente cambió la página o la API; hay que ajustar scripts/actualizar.mjs.`);
 };
 
-let observaciones, niveles;
+let estacion, observaciones, niveles;
 try {
   const r = await fetch(url, { signal: AbortSignal.timeout(30_000) });
   if (!r.ok) throw (r.status === 404 ? formato : Error)(`INA respondió ${r.status}`);
@@ -39,11 +40,11 @@ try {
   if (!observaciones.length || !Object.values(niveles).every(Number.isFinite)) {
     throw formato('el INA devolvió la serie sin datos o sin niveles de referencia');
   }
-  await writeFile(DATOS, JSON.stringify({ estacion: est.nombre, niveles, observaciones }, null, 1) + '\n');
+  estacion = est.nombre;
   console.log(`OK: ${observaciones.length} lecturas, última ${observaciones.at(-1).t} = ${observaciones.at(-1).v} m`);
 } catch (e) {
   fallo('Santa Fe (INA)', e);
-  ({ observaciones, niveles } = JSON.parse(await readFile(DATOS, 'utf8')));   // sigue con el último datos.json
+  ({ estacion, observaciones, niveles } = JSON.parse(await readFile(DATOS, 'utf8')));   // sigue con el último datos.json
 }
 
 // Fuentes para rios.json y tablas.json. Desde GitHub no se llega ni a Prefectura ni al
@@ -114,13 +115,14 @@ try {
 await writeFile(TABLAS, JSON.stringify(tablas, null, 1) + '\n');
 console.log(`tablas.json: Paraná ${tablas.parana?.fecha} · Salado ${tablas.salado?.fecha} · Uruguay ${tablas.uruguay?.filas.find(f => f.fecha)?.fecha}`);
 
-// rios.json: Paraná del INA (datos.json) + Salado del CIM, con la lectura del día y la anterior.
-// El INA carga Santa Fe horas después que el CIM: si la tabla del CIM ya tiene un día más nuevo, se usa esa.
+// El INA carga Santa Fe horas después que el CIM: si la tabla del CIM ya tiene un día más nuevo,
+// se suma a datos.json hasta que el INA publique el suyo (que lo reemplaza en la corrida siguiente).
 const sf = tablas.parana?.filas.find(f => f.puerto === 'Santa Fe');
 const tSf = tablas.parana && new Date(`${tablas.parana.fecha}T00:00:00-03:00`).toISOString();
-const parana = sf?.altura != null && tSf > observaciones.at(-1).t
-  ? [{ t: tSf, v: sf.altura }, observaciones.at(-1)]
-  : observaciones.slice(-2).reverse();
+if (sf?.altura != null && tSf > observaciones.at(-1).t) observaciones = [...observaciones, { t: tSf, v: sf.altura }].slice(-DIAS);
+await writeFile(DATOS, JSON.stringify({ estacion, niveles, observaciones }, null, 1) + '\n');
+
+// rios.json: Paraná de datos.json + Salado del CIM, con la lectura del día y la anterior.
 const salado = SALADO_RIOS.map(([cimNombre, estacion]) => {
   const f = tablas.salado?.filas.find(f => f.estacion === cimNombre);
   const t = tablas.salado && new Date(`${tablas.salado.fecha}T00:00:00-03:00`);   // el CIM toma el dato de las 0:00
@@ -130,7 +132,7 @@ const salado = SALADO_RIOS.map(([cimNombre, estacion]) => {
   return { rio: 'Salado', estacion, alerta: ALERTA_SALADO, evac: null, lecturas };
 });
 const rios = [
-  { rio: 'Paraná', estacion: 'Puerto de Santa Fe', alerta: niveles.alerta, evac: niveles.evac, lecturas: parana },
+  { rio: 'Paraná', estacion: 'Puerto de Santa Fe', alerta: niveles.alerta, evac: niveles.evac, lecturas: observaciones.slice(-2).reverse() },
   ...salado,
 ];
 await writeFile(RIOS, JSON.stringify(rios, null, 1) + '\n');
