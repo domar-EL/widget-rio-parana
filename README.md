@@ -6,6 +6,9 @@ Puerto de Santa Fe, los niveles de alerta y evacuación, y los últimos 30 días
 - `public/` — lo que se publica (Cloudflare Pages, directorio de salida `public`, sin build).
 - `scripts/actualizar.mjs` — baja la serie 30 del INA y escribe `public/datos.json`.
 - `.github/workflows/actualizar.yml` — corre el script cada 30 minutos y commitea solo si el dato cambió.
+- `disparador/` — Worker de Cloudflare que dispara ese Action cada 30 minutos (el cron de GitHub
+  se atrasa horas; queda como respaldo). Usa el secreto `GITHUB_TOKEN`: token fine-grained con
+  acceso solo a este repo y permiso Actions: write. Publicar con `npx wrangler deploy` desde `disparador/`.
 
 Los lectores nunca consultan al INA: leen `datos.json` desde el CDN.
 
