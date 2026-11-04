@@ -231,7 +231,11 @@
 <script>
 (() => {
   const TZ = 'America/Argentina/Buenos_Aires';
-  if (new URLSearchParams(location.search).get('theme') === 'dark') document.documentElement.dataset.theme = 'dark';
+  const params = new URLSearchParams(location.search);
+  if (params.get('theme') === 'dark') document.documentElement.dataset.theme = 'dark';
+  // ?ocultar=puerto-de-santa-fe,santo-tome saca esas estaciones (nombre de la estación sin tildes, con guiones)
+  const slug = s => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  const ocultar = (params.get('ocultar') || '').split(',').map(slug).filter(Boolean);
 
   const fmt = n => n.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   const dia = t => new Date(t).toLocaleDateString('es-AR', { timeZone: TZ, day: 'numeric', month: 'numeric' });
@@ -256,7 +260,7 @@
   // rios.json lo genera scripts/actualizar.mjs cada 30 minutos (INA y Rec. Hídricos Santa Fe)
   fetch('rios.json', { cache: 'no-cache' })
     .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
-    .then(rios => { filas.innerHTML = rios.map(fila).join(''); })
+    .then(rios => { filas.innerHTML = rios.filter(r => !ocultar.includes(slug(r.estacion))).map(fila).join(''); })
     .catch(() => { filas.innerHTML = '<div class="msg">No pudimos obtener las alturas en este momento.<br>Volvé a intentar en unos minutos.</div>'; })
     .finally(insistir);
 
