@@ -31,6 +31,9 @@ Tema oscuro: `?theme=dark`. Ancho mínimo recomendado: 300 px.
 Lee `public/rios.json`. Si una estación no tiene lecturas nuevas hace 2 días o más, la fila se
 muestra en gris, en pasado y con la antigüedad del dato.
 
+Para sacar estaciones: `?ocultar=puerto-de-santa-fe` (nombre de la estación sin tildes y con guiones;
+varias separadas por coma). Se puede combinar con `&theme=dark`.
+
 ### Tablas para ellitoral.com/servicios/clima/altura_rios
 
 Reemplazan los tres iframes de Datawrapper (mismas estaciones). El bloque completo de la página,
