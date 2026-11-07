@@ -390,18 +390,18 @@
    {
     "puerto": "Monte Caseros",
     "rio": "Uruguay",
-    "altura": 4.14,
-    "anterior": 4.42,
-    "fecha": "2026-11-06T03:00:00.000Z",
+    "altura": 3.97,
+    "anterior": 4.14,
+    "fecha": "2026-11-07T03:00:00.000Z",
     "alerta": 7.5,
     "evac": 8.5
    },
    {
     "puerto": "Mocoretá",
     "rio": "Uruguay",
-    "altura": 8.92,
-    "anterior": 8.98,
-    "fecha": "2026-11-06T03:00:00.000Z",
+    "altura": 8.78,
+    "anterior": 8.92,
+    "fecha": "2026-11-07T03:00:00.000Z",
     "alerta": 10.3,
     "evac": 12
    },
@@ -417,63 +417,63 @@
    {
     "puerto": "Federación Embalse",
     "rio": "Uruguay",
-    "altura": 34.95,
-    "anterior": 35.03,
-    "fecha": "2026-11-06T03:00:00.000Z",
+    "altura": 34.8,
+    "anterior": 34.95,
+    "fecha": "2026-11-07T03:00:00.000Z",
     "alerta": null,
     "evac": null
    },
    {
     "puerto": "Salto Grande Arriba",
     "rio": "Uruguay",
-    "altura": 34.89,
-    "anterior": 34.92,
-    "fecha": "2026-11-06T03:00:00.000Z",
+    "altura": 34.74,
+    "anterior": 34.89,
+    "fecha": "2026-11-07T03:00:00.000Z",
     "alerta": 35.5,
     "evac": 36
    },
    {
     "puerto": "Salto Grande Abajo",
     "rio": "Uruguay",
-    "altura": 10.13,
-    "anterior": 10.6,
-    "fecha": "2026-11-06T03:00:00.000Z",
+    "altura": 10,
+    "anterior": 10.13,
+    "fecha": "2026-11-07T03:00:00.000Z",
     "alerta": 17.3,
     "evac": 17.8
    },
    {
     "puerto": "Concordia",
     "rio": "Uruguay",
-    "altura": 7.12,
-    "anterior": 7.66,
-    "fecha": "2026-11-06T03:00:00.000Z",
+    "altura": 6.91,
+    "anterior": 7.12,
+    "fecha": "2026-11-07T03:00:00.000Z",
     "alerta": 11,
     "evac": 12.5
    },
    {
     "puerto": "Colón",
     "rio": "Uruguay",
-    "altura": 4.92,
-    "anterior": 5.02,
-    "fecha": "2026-11-06T03:00:00.000Z",
+    "altura": 4.36,
+    "anterior": 4.92,
+    "fecha": "2026-11-07T03:00:00.000Z",
     "alerta": 7.1,
     "evac": 7.9
    },
    {
     "puerto": "Concepción del Uruguay",
     "rio": "Uruguay",
-    "altura": 4.1,
+    "altura": 3.44,
     "anterior": 4.1,
-    "fecha": "2026-11-06T03:00:00.000Z",
+    "fecha": "2026-11-07T03:00:00.000Z",
     "alerta": 5.3,
     "evac": 6.3
    },
    {
     "puerto": "Campichuelo",
     "rio": "Uruguay",
-    "altura": 3.2,
+    "altura": 2.96,
     "anterior": 3.2,
-    "fecha": "2026-11-06T03:00:00.000Z",
+    "fecha": "2026-11-07T03:00:00.000Z",
     "alerta": 5.3,
     "evac": 6.3
    },
@@ -481,8 +481,8 @@
     "puerto": "Boca Gualeguaychú",
     "rio": "Gualeguaychú",
     "altura": 2.1,
-    "anterior": 2.3,
-    "fecha": "2026-11-06T03:00:00.000Z",
+    "anterior": 2.1,
+    "fecha": "2026-11-07T03:00:00.000Z",
     "alerta": 2.9,
     "evac": 3.1
    }
