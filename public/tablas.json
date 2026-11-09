@@ -409,7 +409,7 @@
     "puerto": "Federación",
     "rio": "Uruguay",
     "altura": 34.82,
-    "anterior": 34.68,
+    "anterior": null,
     "fecha": "2026-10-30T03:00:00.000Z",
     "alerta": 3.9,
     "evac": 4.2
