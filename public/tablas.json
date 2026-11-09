@@ -325,62 +325,62 @@
   ]
  },
  "salado": {
-  "fecha": "2026-11-07",
+  "fecha": "2026-11-08",
   "filas": [
    {
     "estacion": "Tostado (R.N. 95)",
     "rio": "Río Salado",
-    "altura": 3.53,
+    "altura": 3.51,
     "anterior": 3.53,
     "alerta": 4
    },
    {
     "estacion": "Calchaquí (R.P. 38)",
     "rio": "Río Calchaquí",
-    "altura": 2.42,
-    "anterior": 2.59,
+    "altura": 2.51,
+    "anterior": 2.42,
     "alerta": 3.5
    },
    {
     "estacion": "Paso de las Piedras (R.P. 39)",
     "rio": "Río Salado",
-    "altura": 3.35,
-    "anterior": 3.39,
+    "altura": 3.31,
+    "anterior": 3.35,
     "alerta": 5
    },
    {
     "estacion": "San Justo (R.P. 2)",
     "rio": "Río Salado",
-    "altura": 5.69,
-    "anterior": 5.74,
+    "altura": 5.63,
+    "anterior": 5.69,
     "alerta": 9
    },
    {
     "estacion": "Emilia (R.P. 62)",
     "rio": "Río Salado",
-    "altura": 1.9,
-    "anterior": 1.95,
+    "altura": 1.87,
+    "anterior": 1.9,
     "alerta": 4.5
    },
    {
     "estacion": "Recreo (R.P. 70)",
     "rio": "Río Salado",
-    "altura": 2.06,
-    "anterior": 2.05,
+    "altura": 2.14,
+    "anterior": 2.06,
     "alerta": 4.7
    },
    {
     "estacion": "Santo Tomé",
     "rio": "Río Salado",
-    "altura": 4.77,
-    "anterior": 4.73,
+    "altura": 4.85,
+    "anterior": 4.77,
     "alerta": 4.7
    },
    {
     "estacion": "Cululú (R.P. 50-s)",
     "rio": "Arroyo Cululú",
-    "altura": 0.29,
-    "anterior": 0.3,
+    "altura": 0.28,
+    "anterior": 0.29,
     "alerta": 4
    }
   ]
