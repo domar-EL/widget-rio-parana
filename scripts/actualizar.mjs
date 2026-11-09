@@ -51,16 +51,18 @@ try {
 // mapa de Recursos Hídricos de la provincia (timeout de conexión), pero sí a la FICH-UNL
 // y al INA. Paraná, Paraguay e Iguazú: tabla diaria del CIM (FICH-UNL), que copia los
 // registros de Prefectura; Salado: tabla diaria del CIM, que toma la red de alerta de la
-// provincia (el INA no actualiza el Salado desde el 8/10/2026); Uruguay: series de
-// Prefectura en el INA. Las del CIM son páginas HTML, no APIs: si cambian o no
+// provincia (el INA no actualiza el Salado desde el 8/10/2026); Uruguay: página de alturas
+// de Prefectura, a través del Worker disparador (desde el 8/11/2026 el INA no carga las series
+// de Prefectura). Son páginas HTML, no APIs: si cambian o no
 // responden, se conserva el último dato y los widgets avisan cuando es viejo.
 const RIOS = new URL('../public/rios.json', import.meta.url);
 const TABLAS = new URL('../public/tablas.json', import.meta.url);
-const URUGUAY = [   // [puerto, río, serie del INA]
-  ['Monte Caseros', 'Uruguay', 74], ['Mocoretá', 'Uruguay', 75], ['Federación', 'Uruguay', 76],
-  ['Federación Embalse', 'Uruguay', 18621], ['Salto Grande Arriba', 'Uruguay', 77], ['Salto Grande Abajo', 'Uruguay', 78],
-  ['Concordia', 'Uruguay', 79], ['Colón', 'Uruguay', 80], ['Concepción del Uruguay', 'Uruguay', 81],
-  ['Campichuelo', 'Uruguay', 82], ['Boca Gualeguaychú', 'Gualeguaychú', 84],
+const PREFECTURA = 'https://widget-rios-disparador.ellitoral.workers.dev/';
+const URUGUAY = [   // [puerto, río]; el puerto sin tildes es el nombre en Prefectura
+  ['Monte Caseros', 'Uruguay'], ['Mocoretá', 'Uruguay'], ['Federación', 'Uruguay'],
+  ['Federación Embalse', 'Uruguay'], ['Salto Grande Arriba', 'Uruguay'], ['Salto Grande Abajo', 'Uruguay'],
+  ['Concordia', 'Uruguay'], ['Colón', 'Uruguay'], ['Concepción del Uruguay', 'Uruguay'],
+  ['Campichuelo', 'Uruguay'], ['Boca Gualeguaychú', 'Gualeguaychú'],
 ];
 const SALADO_RIOS = [['Santo Tomé', 'Santo Tomé'], ['Recreo (R.P. 70)', 'Recreo (RP 70)']];   // [estación en el CIM, nombre en rios.json]
 const ALERTA_SALADO = 4.7;   // nivel de alerta en Santo Tomé y Recreo (CIM, INA y Rec. Hídricos)
@@ -85,17 +87,21 @@ async function cim(rio) {
   return { fecha: `${m[3]}-${String(mes).padStart(2, '0')}-${m[1].padStart(2, '0')}`, filas };
 }
 
+// Tabla de Prefectura: puerto, río, último registro, variación, período, fecha y hora
+// ("09/NOV/26 - 1200"), estado, (vacía), registro anterior, fecha anterior, alerta y evacuación.
+// Un puerto que no aparece conserva su fila anterior.
 async function uruguay() {
-  const desdeUy = new Date(hoy - 10 * 864e5);
-  return Promise.all(URUGUAY.map(async ([puerto, rio, id]) => {
-    const r = await fetch(`https://alerta.ina.gob.ar/a5/obs/puntual/series/${id}?timestart=${iso(desdeUy)}&timeend=${iso(hasta)}`,
-      { signal: AbortSignal.timeout(30_000) });
-    if (!r.ok) throw (r.status === 404 ? formato : Error)(`INA respondió ${r.status} para la serie ${id}`);
-    const s = await r.json();
-    const [u, a] = s.observaciones.filter(o => Number.isFinite(+o.valor)).sort((x, y) => y.timestart.localeCompare(x.timestart));
-    return { puerto, rio, altura: u ? +u.valor : null, anterior: a ? +a.valor : null, fecha: u?.timestart ?? null,
-      alerta: s.estacion.nivel_alerta, evac: s.estacion.nivel_evacuacion };
-  }));
+  const r = await fetch(PREFECTURA, { signal: AbortSignal.timeout(30_000) });
+  if (!r.ok) throw (r.status === 404 ? formato : Error)(`Prefectura (vía el Worker) respondió ${r.status}`);
+  const filas = new Map(celdas(await r.text()).map(c => [clave(c[0]), c]));
+  if (!URUGUAY.some(([puerto]) => filas.has(clave(puerto)))) throw formato('la página de Prefectura no trajo los puertos del Uruguay');
+  return URUGUAY.map(([puerto, rio]) => {
+    const c = filas.get(clave(puerto));
+    const m = c?.[5]?.match(/(\d{2})\/(\S{3})\/(\d{2}) - (\d{2})(\d{2})/);
+    if (!m || !MESES[m[2]] || num(c[2]) == null) return tablas.uruguay?.filas.find(f => f.puerto === puerto) ?? { puerto, rio, altura: null };
+    const fecha = new Date(`20${m[3]}-${String(MESES[m[2]]).padStart(2, '0')}-${m[1]}T${m[4]}:${m[5]}:00-03:00`).toISOString();
+    return { puerto, rio, altura: num(c[2]), anterior: num(c[8]), fecha, alerta: num(c[10]), evac: num(c[11]) };
+  });
 }
 
 const previoRios = JSON.parse(await readFile(RIOS, 'utf8').catch(() => '[]'));
@@ -111,7 +117,7 @@ try {
 } catch (e) { fallo('Tabla del Salado (CIM FICH-UNL)', e); }
 try {
   tablas.uruguay = { filas: await uruguay() };
-} catch (e) { fallo('Tabla del Uruguay (INA)', e); }
+} catch (e) { fallo('Tabla del Uruguay (Prefectura)', e); }
 await writeFile(TABLAS, JSON.stringify(tablas, null, 1) + '\n');
 console.log(`tablas.json: Paraná ${tablas.parana?.fecha} · Salado ${tablas.salado?.fecha} · Uruguay ${tablas.uruguay?.filas.find(f => f.fecha)?.fecha}`);
 
@@ -145,7 +151,7 @@ const revisar = (que, t) => { if (viejo(t)) problemas.push(`${que}: la última l
 revisar('Santa Fe (INA), widgets y franja', observaciones.at(-1)?.t);
 revisar('Tabla del Paraná (CIM FICH-UNL)', tablas.parana && `${tablas.parana.fecha}T00:00:00-03:00`);
 revisar('Tabla del Salado y widget de ríos (CIM FICH-UNL)', tablas.salado && `${tablas.salado.fecha}T00:00:00-03:00`);
-revisar('Tabla del Uruguay (INA)', tablas.uruguay?.filas.map(f => f.fecha).filter(Boolean).sort().at(-1));
+revisar('Tabla del Uruguay (Prefectura)', tablas.uruguay?.filas.map(f => f.fecha).filter(Boolean).sort().at(-1));
 
 if (problemas.length) console.warn(`Problemas:\n- ${problemas.join('\n- ')}`);
 if (process.env.ALERTAS) await writeFile(process.env.ALERTAS, problemas.map(p => `- ${p}`).join('\n'));

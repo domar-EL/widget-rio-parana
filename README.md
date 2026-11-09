@@ -9,6 +9,8 @@ Puerto de Santa Fe, los niveles de alerta y evacuación, y los últimos 30 días
 - `disparador/` — Worker de Cloudflare que dispara ese Action cada 30 minutos (el cron de GitHub
   se atrasa horas; queda como respaldo). Usa el secreto `GITHUB_TOKEN`: token fine-grained con
   acceso solo a este repo y permiso Actions: write. Publicar con `npx wrangler deploy` desde `disparador/`.
+  También devuelve la página de alturas de Prefectura en https://widget-rios-disparador.ellitoral.workers.dev/
+  (desde GitHub no responde), de donde el script toma la tabla del Uruguay.
 
 Los lectores nunca consultan al INA: leen `datos.json` desde el CDN.
 
@@ -41,8 +43,9 @@ con el widget de ríos y las tres tablas, está en `pagina-altura-rios.html`: su
 iframe al alto que informa el widget (mensaje `datawrapper-height`). Prueba local: `prueba-tablas.html`.
 
 Lee `public/tablas.json`: Paraná, Paraguay, Iguazú y Salado de las tablas diarias del CIM (FICH-UNL);
-Uruguay de las series de Prefectura en el INA. Desde GitHub no se llega a Prefectura ni al mapa de la
-provincia. Las del CIM son páginas HTML, no APIs: si cambian o no responden, se conserva el último dato.
+Uruguay de la página de alturas de Prefectura, a través del Worker de `disparador/` (desde GitHub no se
+llega a Prefectura ni al mapa de la provincia). Son páginas HTML, no APIs: si cambian o no responden,
+se conserva el último dato.
 
 ## Aviso de fallas
 

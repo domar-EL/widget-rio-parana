@@ -99,7 +99,8 @@
     .finally(insistir);
 
   // Paraná: una fecha para toda la tabla (relevamiento diario del CIM sobre registros de
-  // Prefectura). Uruguay: fecha por puerto (series de Prefectura en el INA).
+  // Prefectura). Uruguay: fecha y hora por puerto (último registro de Prefectura; la
+  // variación es contra el registro anterior, de 6 o 12 horas antes).
   function puertos(t) {
     const porFila = !t.fecha;
     const fecha = t.fecha && new Date(`${t.fecha}T00:00:00-03:00`);
@@ -115,14 +116,14 @@
         <td class="opcional">${fmt(f.anterior)}</td>
         <td>${fmt(f.alerta)}</td>
         <td>${fmt(f.evac)}</td>
-        ${porFila ? `<td class="sub">${dia(f.fecha)}${s === 'viejo' ? '<br>dato viejo' : ''}</td>` : ''}
+        ${porFila ? `<td class="sub">${dia(f.fecha)} ${new Date(f.fecha).toLocaleTimeString('es-AR', { timeZone: TZ, hour: '2-digit', minute: '2-digit', hourCycle: 'h23' })}${s === 'viejo' ? '<br>dato viejo' : ''}</td>` : ''}
       </tr>`;
     }).join('');
     const fuente = porFila
-      ? `Alturas en metros, lecturas de las 0:00 · Fuente: Prefectura Naval Argentina, vía <a href="https://alerta.ina.gob.ar/a5/diario/reporte_diario" target="_blank" rel="noopener">INA</a>`
+      ? `Alturas en metros, último registro de cada puerto · Fuente: <a href="https://contenidosweb.prefecturanaval.gob.ar/alturas/" target="_blank" rel="noopener">Prefectura Naval Argentina</a>`
       : `Alturas en metros, del ${fecha.toLocaleDateString('es-AR', { timeZone: TZ })} · Fuente: Prefectura Naval Argentina, vía <a href="https://fich.unl.edu.ar/cim/rios/parana/alturas" target="_blank" rel="noopener">CIM FICH-UNL</a>`;
     return `${aviso}<div class="scroll"><table>
-      <thead><tr><th>Puerto</th><th class="izq opcional">Río</th><th>Altura</th><th>Var. 24 h</th><th class="opcional">Anterior</th><th>Alerta</th><th>Evac.</th>${porFila ? '<th>Fecha</th>' : ''}</tr></thead>
+      <thead><tr><th>Puerto</th><th class="izq opcional">Río</th><th>Altura</th><th>${porFila ? 'Variación' : 'Var. 24 h'}</th><th class="opcional">Anterior</th><th>Alerta</th><th>Evac.</th>${porFila ? '<th>Fecha</th>' : ''}</tr></thead>
       <tbody>${cuerpo}</tbody></table></div>
       <div class="pie"><span>${fuente}</span><span>Se actualiza automáticamente</span></div>`;
   }
