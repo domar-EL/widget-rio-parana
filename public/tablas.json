@@ -1,28 +1,28 @@
 {
  "parana": {
-  "fecha": "2026-11-08",
+  "fecha": "2026-11-09",
   "filas": [
    {
     "puerto": "Andresito",
     "rio": "Iguazú",
-    "altura": 3.3,
-    "anterior": 4.5,
+    "altura": 4.6,
+    "anterior": 3.3,
     "alerta": 10.5,
     "evac": 13.5
    },
    {
     "puerto": "Iguazú",
     "rio": "Iguazú",
-    "altura": 26,
-    "anterior": 26.05,
+    "altura": 25.9,
+    "anterior": 26,
     "alerta": 25,
     "evac": 28
    },
    {
     "puerto": "Libertad",
     "rio": "Paraná",
-    "altura": 25,
-    "anterior": 25.4,
+    "altura": 25.2,
+    "anterior": 25,
     "alerta": 29,
     "evac": 31
    },
@@ -30,7 +30,7 @@
     "puerto": "Eldorado",
     "rio": "Paraná",
     "altura": 19.4,
-    "anterior": 19.35,
+    "anterior": 19.4,
     "alerta": 23,
     "evac": 25
    },
@@ -38,22 +38,22 @@
     "puerto": "Libertador",
     "rio": "Paraná",
     "altura": 14.48,
-    "anterior": 14.49,
+    "anterior": 14.48,
     "alerta": 14.5,
     "evac": 15.5
    },
    {
     "puerto": "Puerto Mani",
     "rio": "Paraná",
-    "altura": 7.37,
-    "anterior": 7.12,
+    "altura": 7.39,
+    "anterior": 7.37,
     "alerta": 9.5,
     "evac": 10
    },
    {
     "puerto": "Santa Ana",
     "rio": "Paraná",
-    "altura": 9.04,
+    "altura": 8.98,
     "anterior": 9.04,
     "alerta": 9.3,
     "evac": 9.8
@@ -61,16 +61,16 @@
    {
     "puerto": "Posadas",
     "rio": "Paraná",
-    "altura": 10.14,
-    "anterior": 10.16,
+    "altura": 10.1,
+    "anterior": 10.14,
     "alerta": 11,
     "evac": 12
    },
    {
     "puerto": "Ituzaingó",
     "rio": "Paraná",
-    "altura": 3.68,
-    "anterior": 3.65,
+    "altura": 3.56,
+    "anterior": 3.68,
     "alerta": 3.5,
     "evac": 4
    },
@@ -78,30 +78,30 @@
     "puerto": "Ita Ibate",
     "rio": "Paraná",
     "altura": 5.88,
-    "anterior": 6,
+    "anterior": 5.88,
     "alerta": 7,
     "evac": 7.5
    },
    {
     "puerto": "Itati",
     "rio": "Paraná",
-    "altura": 7.48,
-    "anterior": 7.42,
+    "altura": 7.42,
+    "anterior": 7.48,
     "alerta": 6.8,
     "evac": 7.5
    },
    {
     "puerto": "Paso de la Patria",
     "rio": "Paraná",
-    "altura": 7.14,
-    "anterior": 7.17,
+    "altura": 7.11,
+    "anterior": 7.14,
     "alerta": 6.5,
     "evac": 7
    },
    {
     "puerto": "Corrientes",
     "rio": "Paraná",
-    "altura": 7,
+    "altura": 6.93,
     "anterior": 7,
     "alerta": 6.5,
     "evac": 7
@@ -109,8 +109,8 @@
    {
     "puerto": "Barranqueras",
     "rio": "Paraná",
-    "altura": 6.81,
-    "anterior": 6.85,
+    "altura": 6.8,
+    "anterior": 6.81,
     "alerta": 6,
     "evac": 6.5
    },
@@ -126,7 +126,7 @@
     "puerto": "Bella Vista",
     "rio": "Paraná",
     "altura": 6.34,
-    "anterior": 6.41,
+    "anterior": 6.34,
     "alerta": 6,
     "evac": 6.4
    },
@@ -134,151 +134,151 @@
     "puerto": "Goya",
     "rio": "Paraná",
     "altura": 6,
-    "anterior": 6.08,
+    "anterior": 6,
     "alerta": 5.2,
     "evac": 5.7
    },
    {
     "puerto": "Reconquista",
     "rio": "Paraná",
-    "altura": 5.86,
-    "anterior": 5.89,
+    "altura": 5.83,
+    "anterior": 5.86,
     "alerta": 5.1,
     "evac": 5.3
    },
    {
     "puerto": "Esquina",
     "rio": "Paraná",
-    "altura": 5.59,
-    "anterior": 5.6,
+    "altura": 5.58,
+    "anterior": 5.59,
     "alerta": 5,
     "evac": 5.4
    },
    {
     "puerto": "San Javier (Santa Fe)",
     "rio": "San Javier",
-    "altura": 7.86,
-    "anterior": 7.72,
+    "altura": 7.93,
+    "anterior": 7.86,
     "alerta": 6,
     "evac": 6.5
    },
    {
     "puerto": "La Paz",
     "rio": "Paraná",
-    "altura": 6.07,
-    "anterior": 6.01,
+    "altura": 6.13,
+    "anterior": 6.07,
     "alerta": 5.8,
     "evac": 6.15
    },
    {
     "puerto": "Santa Elena",
     "rio": "Paraná",
-    "altura": 5.87,
-    "anterior": 5.8,
+    "altura": 6.05,
+    "anterior": 5.87,
     "alerta": 6.9,
     "evac": 7.25
    },
    {
     "puerto": "Hernandarias",
     "rio": "Paraná",
-    "altura": 5.69,
-    "anterior": 5.42,
+    "altura": 5.91,
+    "anterior": 5.69,
     "alerta": 5.5,
     "evac": 6
    },
    {
     "puerto": "Paraná",
     "rio": "Paraná",
-    "altura": 4.85,
-    "anterior": 4.69,
+    "altura": 5.03,
+    "anterior": 4.85,
     "alerta": 4.7,
     "evac": 5
    },
    {
     "puerto": "Santa Fe",
     "rio": "Paraná",
-    "altura": 4.75,
-    "anterior": 4.68,
+    "altura": 4.87,
+    "anterior": 4.75,
     "alerta": 5.3,
     "evac": 5.7
    },
    {
     "puerto": "Diamante",
     "rio": "Paraná",
-    "altura": 5.07,
-    "anterior": 4.99,
+    "altura": 5.2,
+    "anterior": 5.07,
     "alerta": 5.3,
     "evac": 5.5
    },
    {
     "puerto": "Victoria",
     "rio": "Paraná",
-    "altura": 4.2,
-    "anterior": 4.16,
+    "altura": 4.21,
+    "anterior": 4.2,
     "alerta": 4.6,
     "evac": 4.9
    },
    {
     "puerto": "San Lorenzo",
     "rio": "Paraná",
-    "altura": 4.53,
-    "anterior": 4.51,
+    "altura": 4.64,
+    "anterior": 4.53,
     "alerta": 5.2,
     "evac": 5.7
    },
    {
     "puerto": "Rosario",
     "rio": "Paraná",
-    "altura": 4.14,
-    "anterior": 4.11,
+    "altura": 4.22,
+    "anterior": 4.14,
     "alerta": 5,
     "evac": 5.3
    },
    {
     "puerto": "Villa Constitución",
     "rio": "Paraná",
-    "altura": 3.32,
-    "anterior": 3.24,
+    "altura": 3.38,
+    "anterior": 3.32,
     "alerta": 4,
     "evac": 4.5
    },
    {
     "puerto": "San Nicolás",
     "rio": "Paraná",
-    "altura": 3.05,
-    "anterior": 2.93,
+    "altura": 3.08,
+    "anterior": 3.05,
     "alerta": 4.2,
     "evac": 5
    },
    {
     "puerto": "Ramallo",
     "rio": "Paraná",
-    "altura": 2.69,
-    "anterior": 2.52,
+    "altura": 2.68,
+    "anterior": 2.69,
     "alerta": 3.5,
     "evac": 4
    },
    {
     "puerto": "San Pedro",
     "rio": "Delta Paraná",
-    "altura": 2.32,
-    "anterior": 2.06,
+    "altura": 2.17,
+    "anterior": 2.32,
     "alerta": 3.4,
     "evac": 3.6
    },
    {
     "puerto": "Baradero",
     "rio": "Delta Paraná",
-    "altura": 2.1,
-    "anterior": 1.88,
+    "altura": 2,
+    "anterior": 2.1,
     "alerta": 2.7,
     "evac": 3.1
    },
    {
     "puerto": "Pilcomayo",
     "rio": "Paraguay",
-    "altura": 3.01,
-    "anterior": 3.05,
+    "altura": 2.98,
+    "anterior": 3.01,
     "alerta": 5.35,
     "evac": 6
    },
@@ -293,32 +293,32 @@
    {
     "puerto": "Formosa",
     "rio": "Paraguay",
-    "altura": 5.33,
-    "anterior": 5.36,
+    "altura": 5.27,
+    "anterior": 5.33,
     "alerta": 7.8,
     "evac": 8.3
    },
    {
     "puerto": "Bermejo",
     "rio": "Paraguay",
-    "altura": 5.84,
-    "anterior": 5.86,
+    "altura": 5.8,
+    "anterior": 5.84,
     "alerta": 6.5,
     "evac": 7
    },
    {
     "puerto": "Las Palmas",
     "rio": "Paraguay",
-    "altura": 6.87,
-    "anterior": 6.9,
+    "altura": 6.82,
+    "anterior": 6.87,
     "alerta": 6.5,
     "evac": 7
    },
    {
     "puerto": "Isla del Cerrito",
     "rio": "Paraguay",
-    "altura": 7.41,
-    "anterior": 7.44,
+    "altura": 7.38,
+    "anterior": 7.41,
     "alerta": 6.2,
     "evac": 6.8
    }
