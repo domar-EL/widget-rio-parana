@@ -9,7 +9,7 @@ Puerto de Santa Fe, los niveles de alerta y evacuación, y los últimos 30 días
 - `disparador/` — Worker de Cloudflare que dispara ese Action cada 30 minutos (el cron de GitHub
   se atrasa horas; queda como respaldo). Usa el secreto `GITHUB_TOKEN`: token fine-grained con
   acceso solo a este repo y permiso Actions: write. Publicar con `npx wrangler deploy` desde `disparador/`.
-- `mac/` — tarea de una Mac en Argentina que sube el último registro de Santa Fe en Prefectura a
+- `mac/` — tarea de una Mac en Argentina que le pasa al Action el último registro de Santa Fe en Prefectura, que lo guarda en
   `fuentes/prefectura.json` (Prefectura no responde a GitHub). Así los widgets muestran la altura
   durante el día y no solo la lectura de las 0:00. Ver `mac/LEEME.md`.
 

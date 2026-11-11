@@ -1,7 +1,7 @@
 #!/bin/zsh
 # Prefectura no responde a GitHub ni a Cloudflare, pero sí desde Argentina. Esta tarea corre en una
-# Mac (launchd, cada 30 minutos): baja la fila de Santa Fe y, si cambió, la sube a
-# fuentes/prefectura.json y dispara el Action. Si la Mac está apagada, los widgets siguen con las
+# Mac (launchd, cada 30 minutos): baja la fila de Santa Fe y, si cambió, se la pasa al
+# Action, que la guarda en fuentes/prefectura.json. Si la Mac está apagada, los widgets siguen con las
 # lecturas de las 0:00 del INA y el CIM. Instalación: ver mac/LEEME.md.
 set -eu
 REPO=domar-EL/widget-rio-parana
@@ -21,8 +21,5 @@ sys.exit("Prefectura: no está la fila de Santa Fe")
 actual=$($GH api -H "Accept: application/vnd.github.raw" "repos/$REPO/contents/$ARCHIVO" 2>/dev/null || true)
 [[ "$nuevo" == "$actual" ]] && exit 0
 
-sha=$($GH api "repos/$REPO/contents/$ARCHIVO" --jq .sha 2>/dev/null || true)
-$GH api -X PUT "repos/$REPO/contents/$ARCHIVO" -f message="Santa Fe según Prefectura" \
-  -f content="$(print -r -- "$nuevo" | /usr/bin/base64)" ${sha:+-f sha=$sha} > /dev/null
-$GH workflow run actualizar.yml -R $REPO
+$GH workflow run actualizar.yml -R $REPO -f prefectura="$nuevo"
 echo "$(date '+%F %R') subido: $nuevo"

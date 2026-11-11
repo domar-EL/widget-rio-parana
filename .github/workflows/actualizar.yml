@@ -9,6 +9,10 @@ on:
         description: 'Simular un problema para probar el aviso (abre el issue; la próxima corrida normal lo cierra)'
         type: boolean
         default: false
+      prefectura:
+        description: 'Fila de Santa Fe en Prefectura (la manda la tarea de mac/ o linux/)'
+        type: string
+        default: ''
 
 permissions:
   contents: write
@@ -29,11 +33,18 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      # La fila de Prefectura llega como parámetro y no como commit aparte: dos commits seguidos
+      # disparan dos builds en Cloudflare y, si el más viejo termina último, pisa el dato nuevo.
+      - name: Guardar el dato de Prefectura
+        if: inputs.prefectura != ''
+        env:
+          PREFECTURA: ${{ inputs.prefectura }}
+        run: printf '%s\n' "$PREFECTURA" > fuentes/prefectura.json
       - id: actualizar
         run: node scripts/actualizar.mjs
       - name: Commitear si el dato cambió
         run: |
-          git add public/datos.json public/rios.json public/tablas.json
+          git add public/datos.json public/rios.json public/tablas.json fuentes/prefectura.json
           git diff --cached --quiet && { echo "Sin cambios"; exit 0; }
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
