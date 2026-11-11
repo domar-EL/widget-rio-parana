@@ -1,7 +1,7 @@
 name = "widget-rios-disparador"
 main = "worker.js"
 compatibility_date = "2026-10-01"
-workers_dev = true
+workers_dev = false
 
 [observability]
 enabled = true
