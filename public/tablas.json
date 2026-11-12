@@ -365,14 +365,14 @@
    {
     "estacion": "Recreo (R.P. 70)",
     "rio": "Río Salado",
-    "altura": null,
+    "altura": 2.35,
     "anterior": 2.28,
     "alerta": 4.7
    },
    {
     "estacion": "Santo Tomé",
     "rio": "Río Salado",
-    "altura": null,
+    "altura": 5.27,
     "anterior": 5.13,
     "alerta": 4.7
    },
