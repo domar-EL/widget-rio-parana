@@ -155,6 +155,8 @@ const viejo = t => t && Date.now() - new Date(t) >= 2 * 864e5;
 const dia = t => new Date(t).toLocaleDateString('es-AR', { timeZone: 'America/Argentina/Buenos_Aires' });
 const revisar = (que, t) => { if (viejo(t)) problemas.push(`${que}: la última lectura es del ${dia(t)}.`); };
 revisar('Santa Fe (INA), widgets y franja', observaciones.at(-1)?.t);
+// Prefectura publica varios registros por día: un día sin uno nuevo es que el equipo que la consulta no está subiendo.
+if (tPf && Date.now() - new Date(tPf) >= 864e5) problemas.push(`Santa Fe durante el día (Prefectura, ver mac/ y linux/): la última lectura es del ${dia(tPf)}.`);
 revisar('Tabla del Paraná (CIM FICH-UNL)', tablas.parana && `${tablas.parana.fecha}T00:00:00-03:00`);
 revisar('Tabla del Salado y widget de ríos (CIM FICH-UNL)', tablas.salado && `${tablas.salado.fecha}T00:00:00-03:00`);
 revisar('Tabla del Uruguay (INA)', tablas.uruguay?.filas.map(f => f.fecha).filter(Boolean).sort().at(-1));
