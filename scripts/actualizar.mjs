@@ -121,11 +121,17 @@ const sf = tablas.parana?.filas.find(f => f.puerto === 'Santa Fe');
 const tSf = tablas.parana && new Date(`${tablas.parana.fecha}T00:00:00-03:00`).toISOString();
 if (sf?.altura != null && tSf > observaciones.at(-1).t) observaciones = [...observaciones, { t: tSf, v: sf.altura }].slice(-DIAS);
 // Durante el día: último registro de Santa Fe en Prefectura ("11/NOV/26 - 1400"), que sube una Mac en
-// Argentina a fuentes/prefectura.json (ver mac/). Se suma solo si es más nuevo que la última lectura.
+// Argentina a fuentes/prefectura.json (ver mac/). Se suma solo si es más nuevo que la última lectura,
+// y reemplaza a la de ese mismo día: los widgets comparan la última lectura con la anterior como
+// «respecto del día anterior», así que queda una por día (la más nueva).
 const pf = JSON.parse(await readFile(new URL('../fuentes/prefectura.json', import.meta.url), 'utf8').catch(() => '{}')).santa_fe;
 const mPf = pf?.[5]?.match(/(\d{2})\/(\S{3})\/(\d{2}) - (\d{2})(\d{2})/);
 const tPf = mPf && MESES[mPf[2]] && new Date(`20${mPf[3]}-${String(MESES[mPf[2]]).padStart(2, '0')}-${mPf[1]}T${mPf[4]}:${mPf[5]}:00-03:00`).toISOString();
-if (tPf && num(pf[2]) != null && tPf > observaciones.at(-1).t) observaciones = [...observaciones, { t: tPf, v: num(pf[2]) }].slice(-DIAS);
+if (tPf && num(pf[2]) != null && tPf > observaciones.at(-1).t) {
+  const diaAR = t => new Date(new Date(t) - 3 * 36e5).toISOString().slice(0, 10);
+  const previas = diaAR(observaciones.at(-1).t) === diaAR(tPf) ? observaciones.slice(0, -1) : observaciones;
+  observaciones = [...previas, { t: tPf, v: num(pf[2]) }].slice(-DIAS);
+}
 await writeFile(DATOS, JSON.stringify({ estacion, niveles, observaciones }, null, 1) + '\n');
 
 // rios.json: Paraná de datos.json + Salado del CIM, con la lectura del día y la anterior.
