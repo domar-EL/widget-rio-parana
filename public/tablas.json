@@ -347,6 +347,41 @@
     "altura": 3.17,
     "anterior": 3.21,
     "alerta": 5
+   },
+   {
+    "estacion": "San Justo (R.P. 2)",
+    "rio": "Río Salado",
+    "altura": 5.47,
+    "anterior": 5.49,
+    "alerta": 9
+   },
+   {
+    "estacion": "Emilia (R.P. 62)",
+    "rio": "Río Salado",
+    "altura": 1.67,
+    "anterior": 1.69,
+    "alerta": 4.5
+   },
+   {
+    "estacion": "Recreo (R.P. 70)",
+    "rio": "Río Salado",
+    "altura": 2.59,
+    "anterior": 2.47,
+    "alerta": 4.7
+   },
+   {
+    "estacion": "Santo Tomé",
+    "rio": "Río Salado",
+    "altura": 5.54,
+    "anterior": 5.41,
+    "alerta": 4.7
+   },
+   {
+    "estacion": "Cululú (R.P. 50-s)",
+    "rio": "Arroyo Cululú",
+    "altura": 0.33,
+    "anterior": 0.33,
+    "alerta": 4
    }
   ]
  },
