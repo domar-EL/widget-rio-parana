@@ -104,9 +104,9 @@
    {
     "puerto": "Paso de la Patria",
     "rio": "Paraná",
-    "altura": 6.77,
+    "altura": 6.76,
     "anterior": 6.9,
-    "fecha": "2026-11-14T21:00:00.000Z",
+    "fecha": "2026-11-14T23:00:00.000Z",
     "alerta": 6.5,
     "evac": 7
    },
@@ -212,9 +212,9 @@
    {
     "puerto": "Paraná",
     "rio": "Paraná",
-    "altura": 5.65,
+    "altura": 5.66,
     "anterior": 5.57,
-    "fecha": "2026-11-14T21:00:00.000Z",
+    "fecha": "2026-11-14T23:00:00.000Z",
     "alerta": 4.7,
     "evac": 5
    },
@@ -347,9 +347,9 @@
    {
     "puerto": "Las Palmas",
     "rio": "Paraguay",
-    "altura": 6.55,
+    "altura": 6.53,
     "anterior": 6.64,
-    "fecha": "2026-11-14T21:00:00.000Z",
+    "fecha": "2026-11-14T23:00:00.000Z",
     "alerta": 6.5,
     "evac": 7
    },
