@@ -95,9 +95,9 @@
    {
     "puerto": "Itati",
     "rio": "Paraná",
-    "altura": 6.97,
+    "altura": 6.95,
     "anterior": 7.06,
-    "fecha": "2026-11-14T15:00:00.000Z",
+    "fecha": "2026-11-14T17:00:00.000Z",
     "alerta": 6.8,
     "evac": 7.5
    },
@@ -295,7 +295,7 @@
     "rio": "Delta Paraná",
     "altura": 2.24,
     "anterior": 2.12,
-    "fecha": "2026-11-14T03:00:00.000Z",
+    "fecha": "2026-11-14T15:00:00.000Z",
     "alerta": 3.4,
     "evac": 3.6
    },
