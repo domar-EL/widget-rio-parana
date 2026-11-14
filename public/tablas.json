@@ -50,9 +50,9 @@
    {
     "puerto": "Puerto Mani",
     "rio": "Paraná",
-    "altura": 6.52,
+    "altura": 6.13,
     "anterior": 6.73,
-    "fecha": "2026-11-14T03:00:00.000Z",
+    "fecha": "2026-11-14T15:00:00.000Z",
     "alerta": 9.5,
     "evac": 10
    },
@@ -97,7 +97,7 @@
     "rio": "Paraná",
     "altura": 6.95,
     "anterior": 7.06,
-    "fecha": "2026-11-14T17:00:00.000Z",
+    "fecha": "2026-11-14T19:00:00.000Z",
     "alerta": 6.8,
     "evac": 7.5
    },
@@ -142,7 +142,7 @@
     "rio": "Paraná",
     "altura": 6.26,
     "anterior": 6.27,
-    "fecha": "2026-11-14T17:00:00.000Z",
+    "fecha": "2026-11-14T19:00:00.000Z",
     "alerta": 6,
     "evac": 6.4
    },
@@ -160,7 +160,7 @@
     "rio": "Paraná",
     "altura": 5.69,
     "anterior": 5.72,
-    "fecha": "2026-11-14T17:00:00.000Z",
+    "fecha": "2026-11-14T19:00:00.000Z",
     "alerta": 5.1,
     "evac": 5.3
    },
@@ -356,9 +356,9 @@
    {
     "puerto": "Isla del Cerrito",
     "rio": "Paraguay",
-    "altura": 7.05,
+    "altura": 7.04,
     "anterior": 7.15,
-    "fecha": "2026-11-14T17:00:00.000Z",
+    "fecha": "2026-11-14T20:00:00.000Z",
     "alerta": 6.2,
     "evac": 6.8
    }
