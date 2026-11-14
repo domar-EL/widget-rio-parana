@@ -106,16 +106,16 @@
     "rio": "Paraná",
     "altura": 6.78,
     "anterior": 6.9,
-    "fecha": "2026-11-14T17:00:00.000Z",
+    "fecha": "2026-11-14T19:00:00.000Z",
     "alerta": 6.5,
     "evac": 7
    },
    {
     "puerto": "Corrientes",
     "rio": "Paraná",
-    "altura": 6.65,
+    "altura": 6.64,
     "anterior": 6.73,
-    "fecha": "2026-11-14T17:00:00.000Z",
+    "fecha": "2026-11-14T19:00:00.000Z",
     "alerta": 6.5,
     "evac": 7
    },
@@ -169,7 +169,7 @@
     "rio": "Paraná",
     "altura": 5.51,
     "anterior": 5.52,
-    "fecha": "2026-11-14T17:00:00.000Z",
+    "fecha": "2026-11-14T19:00:00.000Z",
     "alerta": 5,
     "evac": 5.4
    },
@@ -178,7 +178,7 @@
     "rio": "San Javier",
     "altura": 7.97,
     "anterior": 7.98,
-    "fecha": "2026-11-14T17:00:00.000Z",
+    "fecha": "2026-11-14T19:00:00.000Z",
     "alerta": 6,
     "evac": 6.5
    },
@@ -214,16 +214,16 @@
     "rio": "Paraná",
     "altura": 5.65,
     "anterior": 5.57,
-    "fecha": "2026-11-14T17:00:00.000Z",
+    "fecha": "2026-11-14T19:00:00.000Z",
     "alerta": 4.7,
     "evac": 5
    },
    {
     "puerto": "Santa Fe",
     "rio": "Paraná",
-    "altura": 5.66,
+    "altura": 5.67,
     "anterior": 5.5,
-    "fecha": "2026-11-14T17:00:00.000Z",
+    "fecha": "2026-11-14T19:00:00.000Z",
     "alerta": 5.3,
     "evac": 5.7
    },
@@ -232,7 +232,7 @@
     "rio": "Paraná",
     "altura": 5.76,
     "anterior": 5.67,
-    "fecha": "2026-11-14T17:00:00.000Z",
+    "fecha": "2026-11-14T19:00:00.000Z",
     "alerta": 5.3,
     "evac": 5.5
    },
@@ -349,7 +349,7 @@
     "rio": "Paraguay",
     "altura": 6.59,
     "anterior": 6.64,
-    "fecha": "2026-11-14T17:00:00.000Z",
+    "fecha": "2026-11-14T19:00:00.000Z",
     "alerta": 6.5,
     "evac": 7
    },
