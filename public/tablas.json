@@ -70,7 +70,7 @@
     "rio": "Paraná",
     "altura": 10.13,
     "anterior": 10.1,
-    "fecha": "2026-11-14T03:00:00.000Z",
+    "fecha": "2026-11-14T15:00:00.000Z",
     "alerta": 11,
     "evac": 12
    },
@@ -439,9 +439,9 @@
    {
     "puerto": "Mocoretá",
     "rio": "Uruguay",
-    "altura": 8.98,
+    "altura": 9.04,
     "anterior": 8.78,
-    "fecha": "2026-11-14T03:00:00.000Z",
+    "fecha": "2026-11-14T15:00:00.000Z",
     "alerta": 10.3,
     "evac": 12
    },
