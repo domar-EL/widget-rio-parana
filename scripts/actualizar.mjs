@@ -54,6 +54,7 @@ try {
 // provincia (el INA no actualiza el Salado desde el 8/10/2026); Uruguay: series de
 // Prefectura en el INA. Las del CIM son páginas HTML, no APIs: si cambian o no
 // responden, se conserva el último dato y los widgets avisan cuando es viejo.
+// Durante el día, Paraná y Uruguay se completan con los registros de Prefectura (ver más abajo).
 const RIOS = new URL('../public/rios.json', import.meta.url);
 const TABLAS = new URL('../public/tablas.json', import.meta.url);
 const URUGUAY = [   // [puerto, río, serie del INA]
@@ -103,7 +104,8 @@ const tablas = JSON.parse(await readFile(TABLAS, 'utf8').catch(() => '{}'));
 
 try {
   const t = await cim('parana');
-  tablas.parana = { fecha: t.fecha, filas: t.filas.map(c => ({ puerto: c[0], rio: c[1], altura: num(c[2]), anterior: num(c[5]), alerta: num(c[6]), evac: num(c[7]) })) };
+  const fecha = new Date(`${t.fecha}T00:00:00-03:00`).toISOString();
+  tablas.parana = { fecha: t.fecha, filas: t.filas.map(c => ({ puerto: c[0], rio: c[1], altura: num(c[2]), anterior: num(c[5]), fecha, alerta: num(c[6]), evac: num(c[7]) })) };
 } catch (e) { fallo('Tabla del Paraná (CIM FICH-UNL)', e); }
 try {
   const t = await cim('salado');
@@ -112,26 +114,43 @@ try {
 try {
   tablas.uruguay = { filas: await uruguay() };
 } catch (e) { fallo('Tabla del Uruguay (INA)', e); }
-await writeFile(TABLAS, JSON.stringify(tablas, null, 1) + '\n');
-console.log(`tablas.json: Paraná ${tablas.parana?.fecha} · Salado ${tablas.salado?.fecha} · Uruguay ${tablas.uruguay?.filas.find(f => f.fecha)?.fecha}`);
 
 // El INA carga Santa Fe horas después que el CIM: si la tabla del CIM ya tiene un día más nuevo,
 // se suma a datos.json hasta que el INA publique el suyo (que lo reemplaza en la corrida siguiente).
 const sf = tablas.parana?.filas.find(f => f.puerto === 'Santa Fe');
 const tSf = tablas.parana && new Date(`${tablas.parana.fecha}T00:00:00-03:00`).toISOString();
 if (sf?.altura != null && tSf > observaciones.at(-1).t) observaciones = [...observaciones, { t: tSf, v: sf.altura }].slice(-DIAS);
-// Durante el día: último registro de Santa Fe en Prefectura ("11/NOV/26 - 1400"), que sube una Mac en
-// Argentina a fuentes/prefectura.json (ver mac/). Se suma solo si es más nuevo que la última lectura,
-// y reemplaza a la de ese mismo día: los widgets comparan la última lectura con la anterior como
-// «respecto del día anterior», así que queda una por día (la más nueva).
-const pf = JSON.parse(await readFile(new URL('../fuentes/prefectura.json', import.meta.url), 'utf8').catch(() => '{}')).santa_fe;
-const mPf = pf?.[5]?.match(/(\d{2})\/(\S{3})\/(\d{2}) - (\d{2})(\d{2})/);
-const tPf = mPf && MESES[mPf[2]] && new Date(`20${mPf[3]}-${String(MESES[mPf[2]]).padStart(2, '0')}-${mPf[1]}T${mPf[4]}:${mPf[5]}:00-03:00`).toISOString();
-if (tPf && num(pf[2]) != null && tPf > observaciones.at(-1).t) {
-  const diaAR = t => new Date(new Date(t) - 3 * 36e5).toISOString().slice(0, 10);
+
+// Durante el día: último registro de cada puerto en Prefectura ("11/NOV/26 - 1400"), que sube un hosting
+// en Argentina a fuentes/prefectura.json (ver donweb/). Antes llegaba solo la fila de Santa Fe ({santa_fe}).
+const fuentePf = JSON.parse(await readFile(new URL('../fuentes/prefectura.json', import.meta.url), 'utf8').catch(() => '{}'));
+const prefectura = new Map((fuentePf.filas ?? [fuentePf.santa_fe].filter(Boolean)).map(c => {
+  const m = c[5]?.match(/(\d{2})\/(\S{3})\/(\d{2}) - (\d{2})(\d{2})/);
+  const t = m && MESES[m[2]] && new Date(`20${m[3]}-${String(MESES[m[2]]).padStart(2, '0')}-${m[1]}T${m[4]}:${m[5]}:00-03:00`).toISOString();
+  return [clave(c[0]), { t, v: num(c[2]) }];
+}).filter(([, p]) => p.t && p.v != null));
+const diaAR = t => new Date(new Date(t) - 3 * 36e5).toISOString().slice(0, 10);
+
+// Santa Fe: se suma solo si es más nueva que la última lectura, y reemplaza a la de ese mismo día:
+// los widgets comparan la última lectura con la anterior como «respecto del día anterior», así que
+// queda una por día (la más nueva).
+const tPf = prefectura.get('SANTA FE')?.t;
+if (tPf && tPf > observaciones.at(-1).t) {
   const previas = diaAR(observaciones.at(-1).t) === diaAR(tPf) ? observaciones.slice(0, -1) : observaciones;
-  observaciones = [...previas, { t: tPf, v: num(pf[2]) }].slice(-DIAS);
+  observaciones = [...previas, { t: tPf, v: prefectura.get('SANTA FE').v }].slice(-DIAS);
 }
+
+// Tablas del Paraná y del Uruguay: el registro de Prefectura reemplaza al de la tabla diaria si es más
+// nuevo. La columna «anterior» sigue siendo la lectura del día anterior: si Prefectura ya está en un día
+// más nuevo que la tabla diaria, la anterior pasa a ser la altura de la tabla.
+const conPrefectura = f => {
+  const p = prefectura.get(clave(f.puerto));
+  if (!p || (f.fecha && new Date(p.t) <= new Date(f.fecha))) return f;
+  return { ...f, altura: p.v, anterior: f.fecha && diaAR(f.fecha) === diaAR(p.t) ? f.anterior : f.altura, fecha: p.t };
+};
+for (const rio of ['parana', 'uruguay']) if (tablas[rio]) tablas[rio].filas = tablas[rio].filas.map(conPrefectura);
+await writeFile(TABLAS, JSON.stringify(tablas, null, 1) + '\n');
+console.log(`tablas.json: Paraná ${tablas.parana?.fecha} · Salado ${tablas.salado?.fecha} · Uruguay ${tablas.uruguay?.filas.find(f => f.fecha)?.fecha} · Prefectura ${prefectura.size} puertos`);
 await writeFile(DATOS, JSON.stringify({ estacion, niveles, observaciones }, null, 1) + '\n');
 
 // rios.json: Paraná de datos.json + Salado del CIM, con la lectura del día y la anterior.
@@ -156,7 +175,7 @@ const dia = t => new Date(t).toLocaleDateString('es-AR', { timeZone: 'America/Ar
 const revisar = (que, t) => { if (viejo(t)) problemas.push(`${que}: la última lectura es del ${dia(t)}.`); };
 revisar('Santa Fe (INA), widgets y franja', observaciones.at(-1)?.t);
 // Prefectura publica varios registros por día: un día sin uno nuevo es que el equipo que la consulta no está subiendo.
-if (tPf && Date.now() - new Date(tPf) >= 864e5) problemas.push(`Santa Fe durante el día (Prefectura, ver mac/ y linux/): la última lectura es del ${dia(tPf)}.`);
+if (tPf && Date.now() - new Date(tPf) >= 864e5) problemas.push(`Santa Fe y tablas durante el día (Prefectura, ver donweb/): la última lectura es del ${dia(tPf)}.`);
 revisar('Tabla del Paraná (CIM FICH-UNL)', tablas.parana && `${tablas.parana.fecha}T00:00:00-03:00`);
 revisar('Tabla del Salado y widget de ríos (CIM FICH-UNL)', tablas.salado && `${tablas.salado.fecha}T00:00:00-03:00`);
 revisar('Tabla del Uruguay (INA)', tablas.uruguay?.filas.map(f => f.fecha).filter(Boolean).sort().at(-1));

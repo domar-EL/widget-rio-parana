@@ -1,7 +1,7 @@
 <?php
 // Prefectura no responde a GitHub ni a Cloudflare, pero sí desde Argentina. Esta tarea corre en un
-// hosting de Donweb (tarea programada, cada 30 minutos): baja la fila de Santa Fe y, si cambió, se la
-// pasa al Action, que la guarda en fuentes/prefectura.json. Es lo mismo que mac/prefectura.sh, sin gh.
+// hosting de Donweb (tarea programada, cada 30 minutos): baja la tabla de alturas y, si cambió, se la
+// pasa al Action, que la guarda en fuentes/prefectura.json.
 // El token de GitHub va en token.txt, al lado de este archivo. Instalación: ver donweb/LEEME.md.
 $API = 'https://api.github.com/repos/domar-EL/widget-rio-parana';
 $ARCHIVO = 'fuentes/prefectura.json';
@@ -27,22 +27,24 @@ function fallar($mensaje) {
 
 list($codigo, $pagina) = pedir('https://contenidosweb.prefecturanaval.gob.ar/alturas/', array());
 if ($codigo != 200) fallar("Prefectura respondió $codigo");
-$nuevo = null;
+// Todas las filas de la tabla (cada puerto con sus 12 columnas); el Action toma las que usan las tablas.
+$todas = array();
+$santaFe = null;
 preg_match_all('#<tr[^>]*>(.*?)</tr>#s', $pagina, $filas);
 foreach ($filas[1] as $tr) {
     preg_match_all('#<t[hd][^>]*>(.*?)</t[hd]>#s', $tr, $celdas);
+    if (count($celdas[1]) < 12) continue;
     $c = array();
-    foreach ($celdas[1] as $td) {
+    foreach (array_slice($celdas[1], 0, 12) as $td) {
         $texto = html_entity_decode(preg_replace('/<[^>]+>/', ' ', $td), ENT_QUOTES | ENT_HTML5, 'UTF-8');
         $c[] = json_encode(trim(preg_replace('/[\s\x{A0}]+/u', ' ', $texto)), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
     }
-    if (array_slice($c, 0, 2) == array('"SANTA FE"', '"PARANA"')) {
-        // Mismo formato que escribe la Mac (json.dumps de Python), para que no se pisen entre sí.
-        $nuevo = '{"santa_fe": [' . implode(', ', array_slice($c, 0, 12)) . ']}';
-        break;
-    }
+    if ($c[0] == '"Puerto"') continue;   // encabezado
+    $todas[] = '[' . implode(', ', $c) . ']';
+    if (array_slice($c, 0, 2) == array('"SANTA FE"', '"PARANA"')) $santaFe = end($todas);
 }
-if ($nuevo === null) fallar('Prefectura: no está la fila de Santa Fe');
+if ($santaFe === null) fallar('Prefectura: no está la fila de Santa Fe');
+$nuevo = '{"filas": [' . implode(', ', $todas) . ']}';
 
 $token = @file_get_contents(__DIR__ . '/token.txt');
 if (!$token) fallar('Falta token.txt');
@@ -57,4 +59,4 @@ list($codigo, $respuesta) = pedir("$API/actions/workflows/actualizar.yml/dispatc
     CURLOPT_POSTFIELDS => json_encode(array('ref' => 'main', 'inputs' => array('prefectura' => $nuevo))),
 ));
 if ($codigo != 204) fallar("GitHub respondió $codigo: " . substr($respuesta, 0, 200));
-anotar("subido: $nuevo");
+anotar('subido: ' . count($todas) . " puertos; Santa Fe $santaFe");

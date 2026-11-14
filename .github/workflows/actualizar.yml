@@ -10,7 +10,7 @@ on:
         type: boolean
         default: false
       prefectura:
-        description: 'Fila de Santa Fe en Prefectura (la manda la tarea de mac/ o linux/)'
+        description: 'Tabla de alturas de Prefectura (la manda la tarea de donweb/)'
         type: string
         default: ''
 

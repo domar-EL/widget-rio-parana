@@ -9,9 +9,10 @@ Puerto de Santa Fe, los niveles de alerta y evacuación, y los últimos 30 días
 - `disparador/` — Worker de Cloudflare que dispara ese Action cada 30 minutos (el cron de GitHub
   se atrasa horas; queda como respaldo). Usa el secreto `GITHUB_TOKEN`: token fine-grained con
   acceso solo a este repo y permiso Actions: write. Publicar con `npx wrangler deploy` desde `disparador/`.
-- `mac/` — tarea de una Mac en Argentina que le pasa al Action el último registro de Santa Fe en Prefectura, que lo guarda en
-  `fuentes/prefectura.json` (Prefectura no responde a GitHub). Así los widgets muestran la altura
-  durante el día y no solo la lectura de las 0:00. Ver `mac/LEEME.md`.
+- `donweb/` — tarea de un hosting de Donweb en Argentina que le pasa al Action la tabla de alturas de
+  Prefectura, que la guarda en `fuentes/prefectura.json` (Prefectura no responde a GitHub). Así el
+  widget de Santa Fe y las tablas del Paraná y del Uruguay muestran el último registro del día y no solo
+  la lectura de las 0:00. Ver `donweb/LEEME.md`. `mac/` y `linux/` hacían lo mismo solo para Santa Fe.
 
 Los lectores nunca consultan al INA: leen `datos.json` desde el CDN.
 
@@ -46,6 +47,8 @@ iframe al alto que informa el widget (mensaje `datawrapper-height`). Prueba loca
 Lee `public/tablas.json`: Paraná, Paraguay, Iguazú y Salado de las tablas diarias del CIM (FICH-UNL);
 Uruguay de las series de Prefectura en el INA. Desde GitHub no se llega a Prefectura ni al mapa de la
 provincia. Las del CIM son páginas HTML, no APIs: si cambian o no responden, se conserva el último dato.
+Durante el día, Paraná y Uruguay toman el último registro de Prefectura que sube `donweb/`, con su
+fecha y hora por puerto.
 
 ## Aviso de fallas
 

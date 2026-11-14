@@ -1,8 +1,10 @@
 # Santa Fe durante el día, desde un hosting de Donweb
 
-Lo mismo que `mac/`, para un hosting compartido de Donweb (panel Ferozo), que está en Argentina y sí
-llega a Prefectura. `prefectura.php` corre cada 30 minutos como tarea programada, baja la fila de
-Santa Fe y, si cambió, se la pasa al Action, que la guarda en `fuentes/prefectura.json`.
+Reemplaza a `mac/`, en un hosting compartido de Donweb (panel Ferozo), que está en Argentina y sí
+llega a Prefectura. `prefectura.php` corre cada 30 minutos como tarea programada, baja la tabla de
+alturas (todos los puertos) y, si cambió, se la pasa al Action, que la guarda en
+`fuentes/prefectura.json`. Con eso, el widget de Santa Fe y las tablas del Paraná y del Uruguay
+muestran el último registro del día y no solo la lectura de las 0:00.
 
 No hay SSH ni `gh`: el script habla directo con la API de GitHub y todo se instala desde el panel.
 
@@ -35,7 +37,7 @@ Límites del panel que cuestan tiempo si no se conocen:
 ## Revisar
 
 Abrir `prefectura.log` desde el Administrador de archivos. Cada dato nuevo deja una línea
-`subido: …`; si el dato no cambió, la corrida no escribe nada. Los errores (Prefectura no responde,
+`subido: N puertos; Santa Fe […]`; si el dato no cambió, la corrida no escribe nada. Los errores (Prefectura no responde,
 falta el token, GitHub lo rechaza) también quedan ahí.
 
 ## Desinstalar
