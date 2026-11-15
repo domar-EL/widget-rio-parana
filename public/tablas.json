@@ -106,16 +106,16 @@
     "rio": "Paraná",
     "altura": 6.72,
     "anterior": 6.82,
-    "fecha": "2026-11-15T07:00:00.000Z",
+    "fecha": "2026-11-15T09:00:00.000Z",
     "alerta": 6.5,
     "evac": 7
    },
    {
     "puerto": "Corrientes",
     "rio": "Paraná",
-    "altura": 6.62,
+    "altura": 6.59,
     "anterior": 6.68,
-    "fecha": "2026-11-15T03:00:00.000Z",
+    "fecha": "2026-11-15T09:00:00.000Z",
     "alerta": 6.5,
     "evac": 7
    },
@@ -140,9 +140,9 @@
    {
     "puerto": "Bella Vista",
     "rio": "Paraná",
-    "altura": 6.22,
+    "altura": 6.2,
     "anterior": 6.26,
-    "fecha": "2026-11-15T07:00:00.000Z",
+    "fecha": "2026-11-15T09:00:00.000Z",
     "alerta": 6,
     "evac": 6.4
    },
@@ -160,16 +160,16 @@
     "rio": "Paraná",
     "altura": 5.68,
     "anterior": 5.7,
-    "fecha": "2026-11-15T07:00:00.000Z",
+    "fecha": "2026-11-15T09:00:00.000Z",
     "alerta": 5.1,
     "evac": 5.3
    },
    {
     "puerto": "Esquina",
     "rio": "Paraná",
-    "altura": 5.51,
+    "altura": 5.5,
     "anterior": 5.51,
-    "fecha": "2026-11-15T07:00:00.000Z",
+    "fecha": "2026-11-15T09:00:00.000Z",
     "alerta": 5,
     "evac": 5.4
    },
@@ -178,7 +178,7 @@
     "rio": "San Javier",
     "altura": 7.96,
     "anterior": 7.95,
-    "fecha": "2026-11-15T05:00:00.000Z",
+    "fecha": "2026-11-15T09:00:00.000Z",
     "alerta": 6,
     "evac": 6.5
    },
@@ -214,16 +214,16 @@
     "rio": "Paraná",
     "altura": 5.67,
     "anterior": 5.64,
-    "fecha": "2026-11-15T07:00:00.000Z",
+    "fecha": "2026-11-15T09:00:00.000Z",
     "alerta": 4.7,
     "evac": 5
    },
    {
     "puerto": "Santa Fe",
     "rio": "Paraná",
-    "altura": 5.68,
+    "altura": 5.69,
     "anterior": 5.66,
-    "fecha": "2026-11-15T03:00:00.000Z",
+    "fecha": "2026-11-15T09:00:00.000Z",
     "alerta": 5.3,
     "evac": 5.7
    },
@@ -486,7 +486,7 @@
     "rio": "Uruguay",
     "altura": 8.64,
     "anterior": 8.66,
-    "fecha": "2026-11-15T03:00:00.000Z",
+    "fecha": "2026-11-15T09:00:00.000Z",
     "alerta": 11,
     "evac": 12.5
    },
