@@ -95,18 +95,18 @@
    {
     "puerto": "Itati",
     "rio": "Paraná",
-    "altura": 6.87,
+    "altura": 6.85,
     "anterior": 7,
-    "fecha": "2026-11-15T05:00:00.000Z",
+    "fecha": "2026-11-15T07:00:00.000Z",
     "alerta": 6.8,
     "evac": 7.5
    },
    {
     "puerto": "Paso de la Patria",
     "rio": "Paraná",
-    "altura": 6.74,
+    "altura": 6.72,
     "anterior": 6.82,
-    "fecha": "2026-11-15T05:00:00.000Z",
+    "fecha": "2026-11-15T07:00:00.000Z",
     "alerta": 6.5,
     "evac": 7
    },
