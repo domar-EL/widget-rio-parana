@@ -122,9 +122,9 @@
    {
     "puerto": "Barranqueras",
     "rio": "Paraná",
-    "altura": 6.45,
+    "altura": 6.44,
     "anterior": 6.56,
-    "fecha": "2026-11-15T15:00:00.000Z",
+    "fecha": "2026-11-15T17:00:00.000Z",
     "alerta": 6,
     "evac": 6.5
    },
@@ -176,18 +176,18 @@
    {
     "puerto": "San Javier (Santa Fe)",
     "rio": "San Javier",
-    "altura": 7.95,
+    "altura": 7.94,
     "anterior": 7.95,
-    "fecha": "2026-11-15T15:00:00.000Z",
+    "fecha": "2026-11-15T17:00:00.000Z",
     "alerta": 6,
     "evac": 6.5
    },
    {
     "puerto": "La Paz",
     "rio": "Paraná",
-    "altura": 6.28,
+    "altura": 6.26,
     "anterior": 6.28,
-    "fecha": "2026-11-15T15:00:00.000Z",
+    "fecha": "2026-11-15T17:00:00.000Z",
     "alerta": 5.8,
     "evac": 6.15
    },
@@ -205,7 +205,7 @@
     "rio": "Paraná",
     "altura": 6.42,
     "anterior": 6.39,
-    "fecha": "2026-11-15T15:00:00.000Z",
+    "fecha": "2026-11-15T17:00:00.000Z",
     "alerta": 5.5,
     "evac": 6
    },
