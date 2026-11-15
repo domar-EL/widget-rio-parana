@@ -124,7 +124,7 @@
     "rio": "Paraná",
     "altura": 6.49,
     "anterior": 6.61,
-    "fecha": "2026-11-14T21:00:00.000Z",
+    "fecha": "2026-11-14T23:00:00.000Z",
     "alerta": 6,
     "evac": 6.5
    },
@@ -142,7 +142,7 @@
     "rio": "Paraná",
     "altura": 6.26,
     "anterior": 6.27,
-    "fecha": "2026-11-14T21:00:00.000Z",
+    "fecha": "2026-11-14T23:00:00.000Z",
     "alerta": 6,
     "evac": 6.4
    },
@@ -176,9 +176,9 @@
    {
     "puerto": "San Javier (Santa Fe)",
     "rio": "San Javier",
-    "altura": 7.92,
+    "altura": 7.96,
     "anterior": 7.98,
-    "fecha": "2026-11-14T21:00:00.000Z",
+    "fecha": "2026-11-14T23:00:00.000Z",
     "alerta": 6,
     "evac": 6.5
    },
@@ -187,7 +187,7 @@
     "rio": "Paraná",
     "altura": 6.3,
     "anterior": 6.26,
-    "fecha": "2026-11-14T21:00:00.000Z",
+    "fecha": "2026-11-14T23:00:00.000Z",
     "alerta": 5.8,
     "evac": 6.15
    },
@@ -205,7 +205,7 @@
     "rio": "Paraná",
     "altura": 6.43,
     "anterior": 6.37,
-    "fecha": "2026-11-14T21:00:00.000Z",
+    "fecha": "2026-11-14T23:00:00.000Z",
     "alerta": 5.5,
     "evac": 6
    },
@@ -356,9 +356,9 @@
    {
     "puerto": "Isla del Cerrito",
     "rio": "Paraguay",
-    "altura": 7.04,
+    "altura": 7.03,
     "anterior": 7.15,
-    "fecha": "2026-11-14T20:00:00.000Z",
+    "fecha": "2026-11-15T00:00:00.000Z",
     "alerta": 6.2,
     "evac": 6.8
    }
