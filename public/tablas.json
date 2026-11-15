@@ -122,9 +122,9 @@
    {
     "puerto": "Barranqueras",
     "rio": "Paraná",
-    "altura": 6.44,
+    "altura": 6.43,
     "anterior": 6.56,
-    "fecha": "2026-11-15T17:00:00.000Z",
+    "fecha": "2026-11-15T19:00:00.000Z",
     "alerta": 6,
     "evac": 6.5
    },
@@ -223,7 +223,7 @@
     "rio": "Paraná",
     "altura": 5.75,
     "anterior": 5.66,
-    "fecha": "2026-11-15T15:00:00.000Z",
+    "fecha": "2026-11-15T19:00:00.000Z",
     "alerta": 5.3,
     "evac": 5.7
    },
@@ -302,9 +302,9 @@
    {
     "puerto": "Baradero",
     "rio": "Delta Paraná",
-    "altura": 1.97,
+    "altura": 2,
     "anterior": 1.97,
-    "fecha": "2026-11-15T03:00:00.000Z",
+    "fecha": "2026-11-15T15:00:00.000Z",
     "alerta": 2.7,
     "evac": 3.1
    },
