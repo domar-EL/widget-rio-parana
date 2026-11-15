@@ -151,7 +151,7 @@
     "rio": "Paraná",
     "altura": 5.86,
     "anterior": 5.86,
-    "fecha": "2026-11-15T05:00:00.000Z",
+    "fecha": "2026-11-15T07:00:00.000Z",
     "alerta": 5.2,
     "evac": 5.7
    },
@@ -502,7 +502,7 @@
    {
     "puerto": "Concepción del Uruguay",
     "rio": "Uruguay",
-    "altura": 3.96,
+    "altura": 3.98,
     "anterior": 3.98,
     "fecha": "2026-11-15T03:00:00.000Z",
     "alerta": 5.3,
@@ -512,8 +512,8 @@
     "puerto": "Campichuelo",
     "rio": "Uruguay",
     "altura": 3.28,
-    "anterior": 3.2,
-    "fecha": "2026-11-14T15:00:00.000Z",
+    "anterior": 3.28,
+    "fecha": "2026-11-15T03:00:00.000Z",
     "alerta": 5.3,
     "evac": 6.3
    },
