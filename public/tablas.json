@@ -95,9 +95,9 @@
    {
     "puerto": "Itati",
     "rio": "Paraná",
-    "altura": 6.92,
+    "altura": 6.91,
     "anterior": 7.06,
-    "fecha": "2026-11-14T23:00:00.000Z",
+    "fecha": "2026-11-15T01:00:00.000Z",
     "alerta": 6.8,
     "evac": 7.5
    },
@@ -106,7 +106,7 @@
     "rio": "Paraná",
     "altura": 6.76,
     "anterior": 6.9,
-    "fecha": "2026-11-14T23:00:00.000Z",
+    "fecha": "2026-11-15T01:00:00.000Z",
     "alerta": 6.5,
     "evac": 7
    },
@@ -115,7 +115,7 @@
     "rio": "Paraná",
     "altura": 6.62,
     "anterior": 6.73,
-    "fecha": "2026-11-14T23:00:00.000Z",
+    "fecha": "2026-11-15T01:00:00.000Z",
     "alerta": 6.5,
     "evac": 7
    },
@@ -142,7 +142,7 @@
     "rio": "Paraná",
     "altura": 6.26,
     "anterior": 6.27,
-    "fecha": "2026-11-14T23:00:00.000Z",
+    "fecha": "2026-11-15T01:00:00.000Z",
     "alerta": 6,
     "evac": 6.4
    },
@@ -151,7 +151,7 @@
     "rio": "Paraná",
     "altura": 5.86,
     "anterior": 5.87,
-    "fecha": "2026-11-14T23:00:00.000Z",
+    "fecha": "2026-11-15T01:00:00.000Z",
     "alerta": 5.2,
     "evac": 5.7
    },
@@ -187,7 +187,7 @@
     "rio": "Paraná",
     "altura": 6.3,
     "anterior": 6.26,
-    "fecha": "2026-11-14T23:00:00.000Z",
+    "fecha": "2026-11-15T01:00:00.000Z",
     "alerta": 5.8,
     "evac": 6.15
    },
@@ -205,7 +205,7 @@
     "rio": "Paraná",
     "altura": 6.43,
     "anterior": 6.37,
-    "fecha": "2026-11-14T23:00:00.000Z",
+    "fecha": "2026-11-15T01:00:00.000Z",
     "alerta": 5.5,
     "evac": 6
    },
@@ -232,7 +232,7 @@
     "rio": "Paraná",
     "altura": 5.77,
     "anterior": 5.67,
-    "fecha": "2026-11-14T23:00:00.000Z",
+    "fecha": "2026-11-15T01:00:00.000Z",
     "alerta": 5.3,
     "evac": 5.5
    },
@@ -347,9 +347,9 @@
    {
     "puerto": "Las Palmas",
     "rio": "Paraguay",
-    "altura": 6.53,
+    "altura": 6.51,
     "anterior": 6.64,
-    "fecha": "2026-11-14T23:00:00.000Z",
+    "fecha": "2026-11-15T01:00:00.000Z",
     "alerta": 6.5,
     "evac": 7
    },
