@@ -131,9 +131,9 @@
    {
     "puerto": "Empedrado",
     "rio": "Paraná",
-    "altura": 5.82,
-    "anterior": 5.84,
-    "fecha": "2026-11-15T15:00:00.000Z",
+    "altura": 5.75,
+    "anterior": 5.8,
+    "fecha": "2026-11-16T03:00:00.000Z",
     "alerta": 6.5,
     "evac": 6.7
    },
@@ -142,7 +142,7 @@
     "rio": "Paraná",
     "altura": 6.2,
     "anterior": 6.2,
-    "fecha": "2026-11-16T03:00:00.000Z",
+    "fecha": "2026-11-16T05:00:00.000Z",
     "alerta": 6,
     "evac": 6.4
    },
@@ -167,9 +167,9 @@
    {
     "puerto": "Esquina",
     "rio": "Paraná",
-    "altura": 5.49,
+    "altura": 5.48,
     "anterior": 5.5,
-    "fecha": "2026-11-16T03:00:00.000Z",
+    "fecha": "2026-11-16T05:00:00.000Z",
     "alerta": 5,
     "evac": 5.4
    },
