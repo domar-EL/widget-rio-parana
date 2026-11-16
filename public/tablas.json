@@ -149,9 +149,9 @@
    {
     "puerto": "Goya",
     "rio": "Paraná",
-    "altura": 5.78,
+    "altura": 5.76,
     "anterior": 5.86,
-    "fecha": "2026-11-16T19:00:00.000Z",
+    "fecha": "2026-11-16T21:00:00.000Z",
     "alerta": 5.2,
     "evac": 5.7
    },
@@ -356,9 +356,9 @@
    {
     "puerto": "Isla del Cerrito",
     "rio": "Paraguay",
-    "altura": 6.76,
+    "altura": 6.74,
     "anterior": 7.01,
-    "fecha": "2026-11-16T19:00:00.000Z",
+    "fecha": "2026-11-16T21:00:00.000Z",
     "alerta": 6.2,
     "evac": 6.8
    }
