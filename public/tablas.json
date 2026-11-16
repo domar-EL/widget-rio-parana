@@ -23,9 +23,9 @@
    {
     "puerto": "Libertad",
     "rio": "Paraná",
-    "altura": 20.6,
-    "anterior": 22.3,
-    "fecha": "2026-11-15T15:00:00.000Z",
+    "altura": 20.7,
+    "anterior": 21.3,
+    "fecha": "2026-11-16T03:00:00.000Z",
     "alerta": 29,
     "evac": 31
    },
@@ -123,8 +123,8 @@
     "puerto": "Barranqueras",
     "rio": "Paraná",
     "altura": 6.4,
-    "anterior": 6.56,
-    "fecha": "2026-11-16T01:00:00.000Z",
+    "anterior": 6.47,
+    "fecha": "2026-11-16T03:00:00.000Z",
     "alerta": 6,
     "evac": 6.5
    },
@@ -159,8 +159,8 @@
     "puerto": "Reconquista",
     "rio": "Paraná",
     "altura": 5.65,
-    "anterior": 5.7,
-    "fecha": "2026-11-16T01:00:00.000Z",
+    "anterior": 5.68,
+    "fecha": "2026-11-16T03:00:00.000Z",
     "alerta": 5.1,
     "evac": 5.3
    },
@@ -284,9 +284,9 @@
    {
     "puerto": "Ramallo",
     "rio": "Paraná",
-    "altura": 2.89,
-    "anterior": 2.85,
-    "fecha": "2026-11-15T15:00:00.000Z",
+    "altura": 2.92,
+    "anterior": 2.86,
+    "fecha": "2026-11-16T03:00:00.000Z",
     "alerta": 3.5,
     "evac": 4
    },
@@ -484,9 +484,9 @@
    {
     "puerto": "Concordia",
     "rio": "Uruguay",
-    "altura": 8.74,
+    "altura": 8.66,
     "anterior": 8.66,
-    "fecha": "2026-11-15T15:00:00.000Z",
+    "fecha": "2026-11-16T03:00:00.000Z",
     "alerta": 11,
     "evac": 12.5
    },
@@ -520,9 +520,9 @@
    {
     "puerto": "Boca Gualeguaychú",
     "rio": "Gualeguaychú",
-    "altura": 2.04,
+    "altura": 2.12,
     "anterior": 2.02,
-    "fecha": "2026-11-15T15:00:00.000Z",
+    "fecha": "2026-11-16T03:00:00.000Z",
     "alerta": 2.9,
     "evac": 3.1
    }
