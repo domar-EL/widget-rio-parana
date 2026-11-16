@@ -122,9 +122,9 @@
    {
     "puerto": "Barranqueras",
     "rio": "Paraná",
-    "altura": 6.39,
+    "altura": 6.37,
     "anterior": 6.47,
-    "fecha": "2026-11-16T05:00:00.000Z",
+    "fecha": "2026-11-16T11:00:00.000Z",
     "alerta": 6,
     "evac": 6.5
    },
@@ -178,7 +178,7 @@
     "rio": "San Javier",
     "altura": 7.92,
     "anterior": 7.96,
-    "fecha": "2026-11-16T09:00:00.000Z",
+    "fecha": "2026-11-16T11:00:00.000Z",
     "alerta": 6,
     "evac": 6.5
    },
@@ -223,7 +223,7 @@
     "rio": "Paraná",
     "altura": 5.77,
     "anterior": 5.69,
-    "fecha": "2026-11-16T09:00:00.000Z",
+    "fecha": "2026-11-16T11:00:00.000Z",
     "alerta": 5.3,
     "evac": 5.7
    },
@@ -248,9 +248,9 @@
    {
     "puerto": "San Lorenzo",
     "rio": "Paraná",
-    "altura": 5.18,
+    "altura": 5.23,
     "anterior": 5.13,
-    "fecha": "2026-11-16T03:00:00.000Z",
+    "fecha": "2026-11-16T11:00:00.000Z",
     "alerta": 5.2,
     "evac": 5.7
    },
@@ -356,71 +356,71 @@
    {
     "puerto": "Isla del Cerrito",
     "rio": "Paraguay",
-    "altura": 6.82,
+    "altura": 6.81,
     "anterior": 7.01,
-    "fecha": "2026-11-16T09:00:00.000Z",
+    "fecha": "2026-11-16T11:00:00.000Z",
     "alerta": 6.2,
     "evac": 6.8
    }
   ]
  },
  "salado": {
-  "fecha": "2026-11-15",
+  "fecha": "2026-11-16",
   "filas": [
    {
     "estacion": "Tostado (R.N. 95)",
     "rio": "Río Salado",
-    "altura": 3.97,
-    "anterior": 3.61,
+    "altura": 3.88,
+    "anterior": 3.97,
     "alerta": 4
    },
    {
     "estacion": "Calchaquí (R.P. 38)",
     "rio": "Río Calchaquí",
-    "altura": 2.32,
-    "anterior": 2.49,
+    "altura": 2.3,
+    "anterior": 2.32,
     "alerta": 3.5
    },
    {
     "estacion": "Paso de las Piedras (R.P. 39)",
     "rio": "Río Salado",
-    "altura": 3.66,
-    "anterior": 3.22,
+    "altura": 3.26,
+    "anterior": 3.66,
     "alerta": 5
    },
    {
     "estacion": "San Justo (R.P. 2)",
     "rio": "Río Salado",
-    "altura": 5.48,
-    "anterior": 5.45,
+    "altura": 5.56,
+    "anterior": 5.48,
     "alerta": 9
    },
    {
     "estacion": "Emilia (R.P. 62)",
     "rio": "Río Salado",
-    "altura": 1.67,
-    "anterior": 1.73,
+    "altura": 1.65,
+    "anterior": 1.67,
     "alerta": 4.5
    },
    {
     "estacion": "Recreo (R.P. 70)",
     "rio": "Río Salado",
-    "altura": 2.87,
-    "anterior": 2.72,
+    "altura": 2.86,
+    "anterior": 2.87,
     "alerta": 4.7
    },
    {
     "estacion": "Santo Tomé",
     "rio": "Río Salado",
-    "altura": 5.72,
-    "anterior": 5.64,
+    "altura": 5.78,
+    "anterior": 5.72,
     "alerta": 4.7
    },
    {
     "estacion": "Cululú (R.P. 50-s)",
     "rio": "Arroyo Cululú",
-    "altura": 0.36,
-    "anterior": 0.46,
+    "altura": 0.61,
+    "anterior": 0.36,
     "alerta": 4
    }
   ]
