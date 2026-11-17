@@ -5,18 +5,18 @@
    {
     "puerto": "Andresito",
     "rio": "Iguazú",
-    "altura": 2.7,
-    "anterior": 2,
-    "fecha": "2026-11-16T15:00:00.000Z",
+    "altura": 2,
+    "anterior": 1.6,
+    "fecha": "2026-11-17T03:00:00.000Z",
     "alerta": 10.5,
     "evac": 13.5
    },
    {
     "puerto": "Iguazú",
     "rio": "Iguazú",
-    "altura": 20.5,
-    "anterior": 22,
-    "fecha": "2026-11-16T15:00:00.000Z",
+    "altura": 21.2,
+    "anterior": 21.45,
+    "fecha": "2026-11-17T03:00:00.000Z",
     "alerta": 25,
     "evac": 28
    },
@@ -275,9 +275,9 @@
    {
     "puerto": "San Nicolás",
     "rio": "Paraná",
-    "altura": 3.41,
-    "anterior": 3.36,
-    "fecha": "2026-11-16T03:00:00.000Z",
+    "altura": 3.44,
+    "anterior": 3.41,
+    "fecha": "2026-11-17T03:00:00.000Z",
     "alerta": 4.2,
     "evac": 5
    },
@@ -329,9 +329,9 @@
    {
     "puerto": "Formosa",
     "rio": "Paraguay",
-    "altura": 4.82,
-    "anterior": 4.9,
-    "fecha": "2026-11-16T15:00:00.000Z",
+    "altura": 4.76,
+    "anterior": 4.85,
+    "fecha": "2026-11-17T03:00:00.000Z",
     "alerta": 7.8,
     "evac": 8.3
    },
@@ -356,9 +356,9 @@
    {
     "puerto": "Isla del Cerrito",
     "rio": "Paraguay",
-    "altura": 6.71,
-    "anterior": 7.01,
-    "fecha": "2026-11-17T01:00:00.000Z",
+    "altura": 6.69,
+    "anterior": 6.84,
+    "fecha": "2026-11-17T03:00:00.000Z",
     "alerta": 6.2,
     "evac": 6.8
    }
