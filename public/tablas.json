@@ -169,7 +169,7 @@
     "rio": "Paraná",
     "altura": 5.46,
     "anterior": 5.48,
-    "fecha": "2026-11-17T07:00:00.000Z",
+    "fecha": "2026-11-17T09:00:00.000Z",
     "alerta": 5,
     "evac": 5.4
    },
@@ -356,9 +356,9 @@
    {
     "puerto": "Isla del Cerrito",
     "rio": "Paraguay",
-    "altura": 6.65,
+    "altura": 6.64,
     "anterior": 6.84,
-    "fecha": "2026-11-17T07:00:00.000Z",
+    "fecha": "2026-11-17T09:00:00.000Z",
     "alerta": 6.2,
     "evac": 6.8
    }
