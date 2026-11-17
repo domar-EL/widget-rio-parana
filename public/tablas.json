@@ -7,16 +7,16 @@
     "rio": "Iguazú",
     "altura": 2,
     "anterior": 1.6,
-    "fecha": "2026-11-17T03:00:00.000Z",
+    "fecha": "2026-11-17T15:00:00.000Z",
     "alerta": 10.5,
     "evac": 13.5
    },
    {
     "puerto": "Iguazú",
     "rio": "Iguazú",
-    "altura": 21.2,
+    "altura": 20.3,
     "anterior": 21.45,
-    "fecha": "2026-11-17T03:00:00.000Z",
+    "fecha": "2026-11-17T15:00:00.000Z",
     "alerta": 25,
     "evac": 28
    },
@@ -70,7 +70,7 @@
     "rio": "Paraná",
     "altura": 10.24,
     "anterior": 10.22,
-    "fecha": "2026-11-17T03:00:00.000Z",
+    "fecha": "2026-11-17T15:00:00.000Z",
     "alerta": 11,
     "evac": 12
    },
@@ -86,18 +86,18 @@
    {
     "puerto": "Ita Ibate",
     "rio": "Paraná",
-    "altura": 4.76,
+    "altura": 4.7,
     "anterior": 5,
-    "fecha": "2026-11-17T03:00:00.000Z",
+    "fecha": "2026-11-17T15:00:00.000Z",
     "alerta": 7,
     "evac": 7.5
    },
    {
     "puerto": "Itati",
     "rio": "Paraná",
-    "altura": 6.38,
+    "altura": 6.2,
     "anterior": 6.61,
-    "fecha": "2026-11-17T03:00:00.000Z",
+    "fecha": "2026-11-17T15:00:00.000Z",
     "alerta": 6.8,
     "evac": 7.5
    },
@@ -250,16 +250,16 @@
     "rio": "Paraná",
     "altura": 5.32,
     "anterior": 5.18,
-    "fecha": "2026-11-17T11:00:00.000Z",
+    "fecha": "2026-11-17T15:00:00.000Z",
     "alerta": 5.2,
     "evac": 5.7
    },
    {
     "puerto": "Rosario",
     "rio": "Paraná",
-    "altura": 4.9,
+    "altura": 4.84,
     "anterior": 4.81,
-    "fecha": "2026-11-17T03:00:00.000Z",
+    "fecha": "2026-11-17T15:00:00.000Z",
     "alerta": 5,
     "evac": 5.3
    },
@@ -275,9 +275,9 @@
    {
     "puerto": "San Nicolás",
     "rio": "Paraná",
-    "altura": 3.44,
+    "altura": 3.46,
     "anterior": 3.41,
-    "fecha": "2026-11-17T03:00:00.000Z",
+    "fecha": "2026-11-17T15:00:00.000Z",
     "alerta": 4.2,
     "evac": 5
    },
@@ -448,18 +448,18 @@
    {
     "puerto": "Federación",
     "rio": "Uruguay",
-    "altura": 2.95,
+    "altura": 2.94,
     "anterior": null,
-    "fecha": "2026-11-17T03:00:00.000Z",
+    "fecha": "2026-11-17T15:00:00.000Z",
     "alerta": 3.9,
     "evac": 4.2
    },
    {
     "puerto": "Federación Embalse",
     "rio": "Uruguay",
-    "altura": 35.2,
+    "altura": 35.19,
     "anterior": 35.15,
-    "fecha": "2026-11-17T03:00:00.000Z",
+    "fecha": "2026-11-17T15:00:00.000Z",
     "alerta": null,
     "evac": null
    },
