@@ -122,9 +122,9 @@
    {
     "puerto": "Barranqueras",
     "rio": "Paraná",
-    "altura": 6.29,
+    "altura": 6.27,
     "anterior": 6.47,
-    "fecha": "2026-11-16T21:00:00.000Z",
+    "fecha": "2026-11-17T01:00:00.000Z",
     "alerta": 6,
     "evac": 6.5
    },
@@ -142,7 +142,7 @@
     "rio": "Paraná",
     "altura": 6.15,
     "anterior": 6.2,
-    "fecha": "2026-11-16T23:00:00.000Z",
+    "fecha": "2026-11-17T01:00:00.000Z",
     "alerta": 6,
     "evac": 6.4
    },
@@ -248,9 +248,9 @@
    {
     "puerto": "San Lorenzo",
     "rio": "Paraná",
-    "altura": 5.27,
+    "altura": 0.27,
     "anterior": 5.13,
-    "fecha": "2026-11-16T23:00:00.000Z",
+    "fecha": "2026-11-17T01:00:00.000Z",
     "alerta": 5.2,
     "evac": 5.7
    },
@@ -358,7 +358,7 @@
     "rio": "Paraguay",
     "altura": 6.71,
     "anterior": 7.01,
-    "fecha": "2026-11-17T00:00:00.000Z",
+    "fecha": "2026-11-17T01:00:00.000Z",
     "alerta": 6.2,
     "evac": 6.8
    }
