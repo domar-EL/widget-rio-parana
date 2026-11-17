@@ -113,18 +113,18 @@
    {
     "puerto": "Corrientes",
     "rio": "Paraná",
-    "altura": 6.28,
+    "altura": 6.29,
     "anterior": 6.51,
-    "fecha": "2026-11-17T17:00:00.000Z",
+    "fecha": "2026-11-17T15:00:00.000Z",
     "alerta": 6.5,
     "evac": 7
    },
    {
     "puerto": "Barranqueras",
     "rio": "Paraná",
-    "altura": 6.23,
+    "altura": 6.18,
     "anterior": 6.39,
-    "fecha": "2026-11-17T07:00:00.000Z",
+    "fecha": "2026-11-17T17:00:00.000Z",
     "alerta": 6,
     "evac": 6.5
    },
@@ -140,9 +140,9 @@
    {
     "puerto": "Bella Vista",
     "rio": "Paraná",
-    "altura": 6.12,
+    "altura": 6.1,
     "anterior": 6.2,
-    "fecha": "2026-11-17T15:00:00.000Z",
+    "fecha": "2026-11-17T17:00:00.000Z",
     "alerta": 6,
     "evac": 6.4
    },
@@ -167,9 +167,9 @@
    {
     "puerto": "Esquina",
     "rio": "Paraná",
-    "altura": 5.46,
+    "altura": 5.45,
     "anterior": 5.48,
-    "fecha": "2026-11-17T15:00:00.000Z",
+    "fecha": "2026-11-17T17:00:00.000Z",
     "alerta": 5,
     "evac": 5.4
    },
@@ -178,7 +178,7 @@
     "rio": "San Javier",
     "altura": 7.87,
     "anterior": 7.92,
-    "fecha": "2026-11-17T15:00:00.000Z",
+    "fecha": "2026-11-17T17:00:00.000Z",
     "alerta": 6,
     "evac": 6.5
    },
