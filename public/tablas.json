@@ -169,7 +169,7 @@
     "rio": "Paraná",
     "altura": 5.46,
     "anterior": 5.48,
-    "fecha": "2026-11-17T09:00:00.000Z",
+    "fecha": "2026-11-17T11:00:00.000Z",
     "alerta": 5,
     "evac": 5.4
    },
@@ -223,7 +223,7 @@
     "rio": "Paraná",
     "altura": 5.83,
     "anterior": 5.76,
-    "fecha": "2026-11-17T09:00:00.000Z",
+    "fecha": "2026-11-17T12:00:00.000Z",
     "alerta": 5.3,
     "evac": 5.7
    },
@@ -358,69 +358,69 @@
     "rio": "Paraguay",
     "altura": 6.63,
     "anterior": 6.84,
-    "fecha": "2026-11-17T10:00:00.000Z",
+    "fecha": "2026-11-17T12:00:00.000Z",
     "alerta": 6.2,
     "evac": 6.8
    }
   ]
  },
  "salado": {
-  "fecha": "2026-11-16",
+  "fecha": "2026-11-17",
   "filas": [
    {
     "estacion": "Tostado (R.N. 95)",
     "rio": "Río Salado",
-    "altura": 3.88,
-    "anterior": 3.97,
+    "altura": 3.8,
+    "anterior": 3.88,
     "alerta": 4
    },
    {
     "estacion": "Calchaquí (R.P. 38)",
     "rio": "Río Calchaquí",
-    "altura": 2.3,
-    "anterior": 2.32,
+    "altura": 2.22,
+    "anterior": 2.3,
     "alerta": 3.5
    },
    {
     "estacion": "Paso de las Piedras (R.P. 39)",
     "rio": "Río Salado",
-    "altura": 3.26,
-    "anterior": 3.66,
+    "altura": 3.17,
+    "anterior": 3.26,
     "alerta": 5
    },
    {
     "estacion": "San Justo (R.P. 2)",
     "rio": "Río Salado",
-    "altura": 5.56,
-    "anterior": 5.48,
+    "altura": 5.59,
+    "anterior": 5.56,
     "alerta": 9
    },
    {
     "estacion": "Emilia (R.P. 62)",
     "rio": "Río Salado",
-    "altura": 1.65,
-    "anterior": 1.67,
+    "altura": 1.75,
+    "anterior": 1.65,
     "alerta": 4.5
    },
    {
     "estacion": "Recreo (R.P. 70)",
     "rio": "Río Salado",
-    "altura": 2.86,
-    "anterior": 2.87,
+    "altura": 2.9,
+    "anterior": 2.86,
     "alerta": 4.7
    },
    {
     "estacion": "Santo Tomé",
     "rio": "Río Salado",
-    "altura": 5.78,
-    "anterior": 5.72,
+    "altura": 5.84,
+    "anterior": 5.78,
     "alerta": 4.7
    },
    {
     "estacion": "Cululú (R.P. 50-s)",
     "rio": "Arroyo Cululú",
-    "altura": 0.61,
-    "anterior": 0.36,
+    "altura": 0.47,
+    "anterior": 0.61,
     "alerta": 4
    }
   ]
