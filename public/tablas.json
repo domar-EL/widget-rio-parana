@@ -221,9 +221,9 @@
    {
     "puerto": "Santa Fe",
     "rio": "Paraná",
-    "altura": 5.8,
+    "altura": 5.81,
     "anterior": 5.69,
-    "fecha": "2026-11-16T21:00:00.000Z",
+    "fecha": "2026-11-17T00:00:00.000Z",
     "alerta": 5.3,
     "evac": 5.7
    },
@@ -356,9 +356,9 @@
    {
     "puerto": "Isla del Cerrito",
     "rio": "Paraguay",
-    "altura": 6.72,
+    "altura": 6.71,
     "anterior": 7.01,
-    "fecha": "2026-11-16T23:00:00.000Z",
+    "fecha": "2026-11-17T00:00:00.000Z",
     "alerta": 6.2,
     "evac": 6.8
    }
