@@ -122,9 +122,9 @@
    {
     "puerto": "Barranqueras",
     "rio": "Paraná",
-    "altura": 6.25,
+    "altura": 6.23,
     "anterior": 6.39,
-    "fecha": "2026-11-17T05:00:00.000Z",
+    "fecha": "2026-11-17T07:00:00.000Z",
     "alerta": 6,
     "evac": 6.5
    },
@@ -356,9 +356,9 @@
    {
     "puerto": "Isla del Cerrito",
     "rio": "Paraguay",
-    "altura": 6.69,
+    "altura": 6.65,
     "anterior": 6.84,
-    "fecha": "2026-11-17T03:00:00.000Z",
+    "fecha": "2026-11-17T07:00:00.000Z",
     "alerta": 6.2,
     "evac": 6.8
    }
