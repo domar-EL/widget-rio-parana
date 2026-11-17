@@ -142,7 +142,7 @@
     "rio": "Paraná",
     "altura": 6.15,
     "anterior": 6.2,
-    "fecha": "2026-11-17T05:00:00.000Z",
+    "fecha": "2026-11-17T07:00:00.000Z",
     "alerta": 6,
     "evac": 6.4
    },
@@ -169,7 +169,7 @@
     "rio": "Paraná",
     "altura": 5.46,
     "anterior": 5.48,
-    "fecha": "2026-11-17T05:00:00.000Z",
+    "fecha": "2026-11-17T07:00:00.000Z",
     "alerta": 5,
     "evac": 5.4
    },
@@ -221,9 +221,9 @@
    {
     "puerto": "Santa Fe",
     "rio": "Paraná",
-    "altura": 5.81,
+    "altura": 5.82,
     "anterior": 5.76,
-    "fecha": "2026-11-17T03:00:00.000Z",
+    "fecha": "2026-11-17T06:00:00.000Z",
     "alerta": 5.3,
     "evac": 5.7
    },
@@ -232,7 +232,7 @@
     "rio": "Paraná",
     "altura": 5.84,
     "anterior": 5.82,
-    "fecha": "2026-11-17T03:00:00.000Z",
+    "fecha": "2026-11-17T05:00:00.000Z",
     "alerta": 5.3,
     "evac": 5.5
    },
