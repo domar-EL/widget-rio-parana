@@ -1,6 +1,6 @@
 {
  "parana": {
-  "fecha": "2026-11-16",
+  "fecha": "2026-11-17",
   "filas": [
    {
     "puerto": "Andresito",
@@ -142,7 +142,7 @@
     "rio": "Paraná",
     "altura": 6.15,
     "anterior": 6.2,
-    "fecha": "2026-11-17T07:00:00.000Z",
+    "fecha": "2026-11-17T09:00:00.000Z",
     "alerta": 6,
     "evac": 6.4
    },
@@ -151,7 +151,7 @@
     "rio": "Paraná",
     "altura": 5.76,
     "anterior": 5.82,
-    "fecha": "2026-11-17T07:00:00.000Z",
+    "fecha": "2026-11-17T09:00:00.000Z",
     "alerta": 5.2,
     "evac": 5.7
    },
@@ -160,7 +160,7 @@
     "rio": "Paraná",
     "altura": 5.61,
     "anterior": 5.65,
-    "fecha": "2026-11-17T05:00:00.000Z",
+    "fecha": "2026-11-17T09:00:00.000Z",
     "alerta": 5.1,
     "evac": 5.3
    },
@@ -178,7 +178,7 @@
     "rio": "San Javier",
     "altura": 7.88,
     "anterior": 7.92,
-    "fecha": "2026-11-17T07:00:00.000Z",
+    "fecha": "2026-11-17T09:00:00.000Z",
     "alerta": 6,
     "evac": 6.5
    },
@@ -187,7 +187,7 @@
     "rio": "Paraná",
     "altura": 6.24,
     "anterior": 6.25,
-    "fecha": "2026-11-17T07:00:00.000Z",
+    "fecha": "2026-11-17T09:00:00.000Z",
     "alerta": 5.8,
     "evac": 6.15
    },
@@ -205,25 +205,25 @@
     "rio": "Paraná",
     "altura": 6.42,
     "anterior": 6.42,
-    "fecha": "2026-11-17T07:00:00.000Z",
+    "fecha": "2026-11-17T09:00:00.000Z",
     "alerta": 5.5,
     "evac": 6
    },
    {
     "puerto": "Paraná",
     "rio": "Paraná",
-    "altura": 5.72,
+    "altura": 5.71,
     "anterior": 5.69,
-    "fecha": "2026-11-17T07:00:00.000Z",
+    "fecha": "2026-11-17T09:00:00.000Z",
     "alerta": 4.7,
     "evac": 5
    },
    {
     "puerto": "Santa Fe",
     "rio": "Paraná",
-    "altura": 5.82,
+    "altura": 5.83,
     "anterior": 5.76,
-    "fecha": "2026-11-17T06:00:00.000Z",
+    "fecha": "2026-11-17T09:00:00.000Z",
     "alerta": 5.3,
     "evac": 5.7
    },
@@ -232,7 +232,7 @@
     "rio": "Paraná",
     "altura": 5.84,
     "anterior": 5.82,
-    "fecha": "2026-11-17T05:00:00.000Z",
+    "fecha": "2026-11-17T09:00:00.000Z",
     "alerta": 5.3,
     "evac": 5.5
    },
@@ -241,7 +241,7 @@
     "rio": "Paraná",
     "altura": 4.64,
     "anterior": 4.54,
-    "fecha": "2026-11-17T07:00:00.000Z",
+    "fecha": "2026-11-17T09:00:00.000Z",
     "alerta": 4.6,
     "evac": 4.9
    },
@@ -250,7 +250,7 @@
     "rio": "Paraná",
     "altura": 5.28,
     "anterior": 5.18,
-    "fecha": "2026-11-17T07:00:00.000Z",
+    "fecha": "2026-11-17T09:00:00.000Z",
     "alerta": 5.2,
     "evac": 5.7
    },
@@ -322,7 +322,7 @@
     "rio": "Paraguay",
     "altura": null,
     "anterior": 1.81,
-    "fecha": "2026-11-16T03:00:00.000Z",
+    "fecha": "2026-11-17T03:00:00.000Z",
     "alerta": 6,
     "evac": 6.4
    },
