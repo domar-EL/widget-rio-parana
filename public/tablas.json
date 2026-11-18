@@ -151,25 +151,25 @@
     "rio": "Paraná",
     "altura": 5.72,
     "anterior": 5.76,
-    "fecha": "2026-11-18T19:00:00.000Z",
+    "fecha": "2026-11-18T21:00:00.000Z",
     "alerta": 5.2,
     "evac": 5.7
    },
    {
     "puerto": "Reconquista",
     "rio": "Paraná",
-    "altura": 5.59,
+    "altura": 5.58,
     "anterior": 5.61,
-    "fecha": "2026-11-18T17:00:00.000Z",
+    "fecha": "2026-11-18T21:00:00.000Z",
     "alerta": 5.1,
     "evac": 5.3
    },
    {
     "puerto": "Esquina",
     "rio": "Paraná",
-    "altura": 5.39,
+    "altura": 5.43,
     "anterior": 5.46,
-    "fecha": "2026-11-18T17:00:00.000Z",
+    "fecha": "2026-11-18T21:00:00.000Z",
     "alerta": 5,
     "evac": 5.4
    },
@@ -230,9 +230,9 @@
    {
     "puerto": "Diamante",
     "rio": "Paraná",
-    "altura": 5.85,
+    "altura": 5.84,
     "anterior": 5.84,
-    "fecha": "2026-11-18T19:00:00.000Z",
+    "fecha": "2026-11-18T21:00:00.000Z",
     "alerta": 5.3,
     "evac": 5.5
    },
@@ -250,7 +250,7 @@
     "rio": "Paraná",
     "altura": 5.34,
     "anterior": 5.28,
-    "fecha": "2026-11-18T19:00:00.000Z",
+    "fecha": "2026-11-18T21:00:00.000Z",
     "alerta": 5.2,
     "evac": 5.7
    },
