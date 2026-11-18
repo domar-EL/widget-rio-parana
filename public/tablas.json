@@ -122,9 +122,9 @@
    {
     "puerto": "Barranqueras",
     "rio": "Paraná",
-    "altura": 6.18,
+    "altura": 6.13,
     "anterior": 6.39,
-    "fecha": "2026-11-17T17:00:00.000Z",
+    "fecha": "2026-11-17T23:00:00.000Z",
     "alerta": 6,
     "evac": 6.5
    },
@@ -142,7 +142,7 @@
     "rio": "Paraná",
     "altura": 6.1,
     "anterior": 6.2,
-    "fecha": "2026-11-17T23:00:00.000Z",
+    "fecha": "2026-11-18T01:00:00.000Z",
     "alerta": 6,
     "evac": 6.4
    },
@@ -151,7 +151,7 @@
     "rio": "Paraná",
     "altura": 5.76,
     "anterior": 5.82,
-    "fecha": "2026-11-17T23:00:00.000Z",
+    "fecha": "2026-11-18T01:00:00.000Z",
     "alerta": 5.2,
     "evac": 5.7
    },
@@ -160,25 +160,25 @@
     "rio": "Paraná",
     "altura": 5.6,
     "anterior": 5.65,
-    "fecha": "2026-11-17T23:00:00.000Z",
+    "fecha": "2026-11-18T01:00:00.000Z",
     "alerta": 5.1,
     "evac": 5.3
    },
    {
     "puerto": "Esquina",
     "rio": "Paraná",
-    "altura": 5.45,
+    "altura": 5.44,
     "anterior": 5.48,
-    "fecha": "2026-11-17T21:00:00.000Z",
+    "fecha": "2026-11-18T01:00:00.000Z",
     "alerta": 5,
     "evac": 5.4
    },
    {
     "puerto": "San Javier (Santa Fe)",
     "rio": "San Javier",
-    "altura": 7.85,
+    "altura": 7.84,
     "anterior": 7.92,
-    "fecha": "2026-11-17T23:00:00.000Z",
+    "fecha": "2026-11-18T01:00:00.000Z",
     "alerta": 6,
     "evac": 6.5
    },
@@ -212,9 +212,9 @@
    {
     "puerto": "Paraná",
     "rio": "Paraná",
-    "altura": 5.7,
+    "altura": 5.71,
     "anterior": 5.69,
-    "fecha": "2026-11-17T23:00:00.000Z",
+    "fecha": "2026-11-18T01:00:00.000Z",
     "alerta": 4.7,
     "evac": 5
    },
@@ -241,7 +241,7 @@
     "rio": "Paraná",
     "altura": 4.68,
     "anterior": 4.54,
-    "fecha": "2026-11-17T23:00:00.000Z",
+    "fecha": "2026-11-18T01:00:00.000Z",
     "alerta": 4.6,
     "evac": 4.9
    },
@@ -356,9 +356,9 @@
    {
     "puerto": "Isla del Cerrito",
     "rio": "Paraguay",
-    "altura": 6.58,
+    "altura": 6.53,
     "anterior": 6.84,
-    "fecha": "2026-11-17T19:00:00.000Z",
+    "fecha": "2026-11-18T01:00:00.000Z",
     "alerta": 6.2,
     "evac": 6.8
    }
