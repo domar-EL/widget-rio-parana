@@ -78,8 +78,8 @@
     "puerto": "Ituzaingó",
     "rio": "Paraná",
     "altura": 2.4,
-    "anterior": 2.5,
-    "fecha": "2026-11-17T15:00:00.000Z",
+    "anterior": 2.3,
+    "fecha": "2026-11-18T03:00:00.000Z",
     "alerta": 3.5,
     "evac": 4
    },
@@ -356,9 +356,9 @@
    {
     "puerto": "Isla del Cerrito",
     "rio": "Paraguay",
-    "altura": 6.53,
-    "anterior": 6.84,
-    "fecha": "2026-11-18T01:00:00.000Z",
+    "altura": 6.52,
+    "anterior": 6.65,
+    "fecha": "2026-11-18T04:00:00.000Z",
     "alerta": 6.2,
     "evac": 6.8
    }
