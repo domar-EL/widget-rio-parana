@@ -122,9 +122,9 @@
    {
     "puerto": "Barranqueras",
     "rio": "Paraná",
-    "altura": 6.04,
+    "altura": 6.03,
     "anterior": 6.23,
-    "fecha": "2026-11-18T15:00:00.000Z",
+    "fecha": "2026-11-18T17:00:00.000Z",
     "alerta": 6,
     "evac": 6.5
    },
@@ -140,9 +140,9 @@
    {
     "puerto": "Bella Vista",
     "rio": "Paraná",
-    "altura": 6.02,
+    "altura": 6.01,
     "anterior": 6.15,
-    "fecha": "2026-11-18T17:00:00.000Z",
+    "fecha": "2026-11-18T19:00:00.000Z",
     "alerta": 6,
     "evac": 6.4
    },
@@ -187,7 +187,7 @@
     "rio": "Paraná",
     "altura": 6.24,
     "anterior": 6.24,
-    "fecha": "2026-11-18T17:00:00.000Z",
+    "fecha": "2026-11-18T19:00:00.000Z",
     "alerta": 5.8,
     "evac": 6.15
    },
@@ -205,16 +205,16 @@
     "rio": "Paraná",
     "altura": 6.42,
     "anterior": 6.42,
-    "fecha": "2026-11-18T17:00:00.000Z",
+    "fecha": "2026-11-18T19:00:00.000Z",
     "alerta": 5.5,
     "evac": 6
    },
    {
     "puerto": "Paraná",
     "rio": "Paraná",
-    "altura": 5.7,
+    "altura": 5.71,
     "anterior": 5.72,
-    "fecha": "2026-11-18T17:00:00.000Z",
+    "fecha": "2026-11-18T19:00:00.000Z",
     "alerta": 4.7,
     "evac": 5
    },
@@ -239,9 +239,9 @@
    {
     "puerto": "Victoria",
     "rio": "Paraná",
-    "altura": 4.84,
+    "altura": 4.85,
     "anterior": 4.64,
-    "fecha": "2026-11-18T17:00:00.000Z",
+    "fecha": "2026-11-18T19:00:00.000Z",
     "alerta": 4.6,
     "evac": 4.9
    },
@@ -250,7 +250,7 @@
     "rio": "Paraná",
     "altura": 5.34,
     "anterior": 5.28,
-    "fecha": "2026-11-18T17:00:00.000Z",
+    "fecha": "2026-11-18T19:00:00.000Z",
     "alerta": 5.2,
     "evac": 5.7
    },
