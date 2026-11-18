@@ -140,9 +140,9 @@
    {
     "puerto": "Bella Vista",
     "rio": "Paraná",
-    "altura": 6.01,
+    "altura": 6,
     "anterior": 6.15,
-    "fecha": "2026-11-18T19:00:00.000Z",
+    "fecha": "2026-11-18T21:00:00.000Z",
     "alerta": 6,
     "evac": 6.4
    },
@@ -176,9 +176,9 @@
    {
     "puerto": "San Javier (Santa Fe)",
     "rio": "San Javier",
-    "altura": 7.81,
+    "altura": 7.8,
     "anterior": 7.88,
-    "fecha": "2026-11-18T19:00:00.000Z",
+    "fecha": "2026-11-18T21:00:00.000Z",
     "alerta": 6,
     "evac": 6.5
    },
@@ -223,7 +223,7 @@
     "rio": "Paraná",
     "altura": 5.85,
     "anterior": 5.82,
-    "fecha": "2026-11-18T18:00:00.000Z",
+    "fecha": "2026-11-18T21:00:00.000Z",
     "alerta": 5.3,
     "evac": 5.7
    },
@@ -241,7 +241,7 @@
     "rio": "Paraná",
     "altura": 4.85,
     "anterior": 4.64,
-    "fecha": "2026-11-18T19:00:00.000Z",
+    "fecha": "2026-11-18T21:00:00.000Z",
     "alerta": 4.6,
     "evac": 4.9
    },
