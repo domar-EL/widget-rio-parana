@@ -122,9 +122,9 @@
    {
     "puerto": "Barranqueras",
     "rio": "Paraná",
-    "altura": 6.01,
+    "altura": 5.99,
     "anterior": 6.23,
-    "fecha": "2026-11-18T19:00:00.000Z",
+    "fecha": "2026-11-18T21:00:00.000Z",
     "alerta": 6,
     "evac": 6.5
    },
@@ -187,7 +187,7 @@
     "rio": "Paraná",
     "altura": 6.24,
     "anterior": 6.24,
-    "fecha": "2026-11-18T19:00:00.000Z",
+    "fecha": "2026-11-18T21:00:00.000Z",
     "alerta": 5.8,
     "evac": 6.15
    },
@@ -205,7 +205,7 @@
     "rio": "Paraná",
     "altura": 6.42,
     "anterior": 6.42,
-    "fecha": "2026-11-18T19:00:00.000Z",
+    "fecha": "2026-11-18T21:00:00.000Z",
     "alerta": 5.5,
     "evac": 6
    },
@@ -214,7 +214,7 @@
     "rio": "Paraná",
     "altura": 5.71,
     "anterior": 5.72,
-    "fecha": "2026-11-18T19:00:00.000Z",
+    "fecha": "2026-11-18T21:00:00.000Z",
     "alerta": 4.7,
     "evac": 5
    },
