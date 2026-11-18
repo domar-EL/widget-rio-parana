@@ -140,9 +140,9 @@
    {
     "puerto": "Bella Vista",
     "rio": "Paraná",
-    "altura": 6.03,
+    "altura": 6.02,
     "anterior": 6.15,
-    "fecha": "2026-11-18T15:00:00.000Z",
+    "fecha": "2026-11-18T17:00:00.000Z",
     "alerta": 6,
     "evac": 6.4
    },
@@ -167,9 +167,9 @@
    {
     "puerto": "Esquina",
     "rio": "Paraná",
-    "altura": 5.43,
+    "altura": 5.39,
     "anterior": 5.46,
-    "fecha": "2026-11-18T15:00:00.000Z",
+    "fecha": "2026-11-18T17:00:00.000Z",
     "alerta": 5,
     "evac": 5.4
    },
@@ -178,7 +178,7 @@
     "rio": "San Javier",
     "altura": 7.81,
     "anterior": 7.88,
-    "fecha": "2026-11-18T15:00:00.000Z",
+    "fecha": "2026-11-18T17:00:00.000Z",
     "alerta": 6,
     "evac": 6.5
    },
@@ -214,7 +214,7 @@
     "rio": "Paraná",
     "altura": 5.7,
     "anterior": 5.72,
-    "fecha": "2026-11-18T15:00:00.000Z",
+    "fecha": "2026-11-18T17:00:00.000Z",
     "alerta": 4.7,
     "evac": 5
    },
@@ -239,9 +239,9 @@
    {
     "puerto": "Victoria",
     "rio": "Paraná",
-    "altura": 4.8,
+    "altura": 4.84,
     "anterior": 4.64,
-    "fecha": "2026-11-18T15:00:00.000Z",
+    "fecha": "2026-11-18T17:00:00.000Z",
     "alerta": 4.6,
     "evac": 4.9
    },
@@ -356,9 +356,9 @@
    {
     "puerto": "Isla del Cerrito",
     "rio": "Paraguay",
-    "altura": 6.43,
+    "altura": 6.48,
     "anterior": 6.65,
-    "fecha": "2026-11-18T16:00:00.000Z",
+    "fecha": "2026-11-18T17:00:00.000Z",
     "alerta": 6.2,
     "evac": 6.8
    }
