@@ -124,7 +124,7 @@
     "rio": "Paraná",
     "altura": 5.99,
     "anterior": 6.23,
-    "fecha": "2026-11-18T21:00:00.000Z",
+    "fecha": "2026-11-19T01:00:00.000Z",
     "alerta": 6,
     "evac": 6.5
    },
@@ -158,9 +158,9 @@
    {
     "puerto": "Reconquista",
     "rio": "Paraná",
-    "altura": 5.58,
+    "altura": 5.56,
     "anterior": 5.61,
-    "fecha": "2026-11-18T21:00:00.000Z",
+    "fecha": "2026-11-19T01:00:00.000Z",
     "alerta": 5.1,
     "evac": 5.3
    },
