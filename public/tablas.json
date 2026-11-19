@@ -1,6 +1,6 @@
 {
  "parana": {
-  "fecha": "2026-11-18",
+  "fecha": "2026-11-19",
   "filas": [
    {
     "puerto": "Andresito",
@@ -151,7 +151,7 @@
     "rio": "Paraná",
     "altura": 5.72,
     "anterior": 5.76,
-    "fecha": "2026-11-19T07:00:00.000Z",
+    "fecha": "2026-11-19T09:00:00.000Z",
     "alerta": 5.2,
     "evac": 5.7
    },
@@ -160,7 +160,7 @@
     "rio": "Paraná",
     "altura": 5.56,
     "anterior": 5.6,
-    "fecha": "2026-11-19T03:00:00.000Z",
+    "fecha": "2026-11-19T09:00:00.000Z",
     "alerta": 5.1,
     "evac": 5.3
    },
@@ -169,7 +169,7 @@
     "rio": "Paraná",
     "altura": 5.41,
     "anterior": 5.44,
-    "fecha": "2026-11-19T07:00:00.000Z",
+    "fecha": "2026-11-19T09:00:00.000Z",
     "alerta": 5,
     "evac": 5.4
    },
@@ -214,7 +214,7 @@
     "rio": "Paraná",
     "altura": 5.71,
     "anterior": 5.71,
-    "fecha": "2026-11-19T07:00:00.000Z",
+    "fecha": "2026-11-19T09:00:00.000Z",
     "alerta": 4.7,
     "evac": 5
    },
@@ -223,16 +223,16 @@
     "rio": "Paraná",
     "altura": 5.84,
     "anterior": 5.85,
-    "fecha": "2026-11-19T06:00:00.000Z",
+    "fecha": "2026-11-19T09:00:00.000Z",
     "alerta": 5.3,
     "evac": 5.7
    },
    {
     "puerto": "Diamante",
     "rio": "Paraná",
-    "altura": 5.87,
+    "altura": 5.85,
     "anterior": 5.86,
-    "fecha": "2026-11-19T07:00:00.000Z",
+    "fecha": "2026-11-19T09:00:00.000Z",
     "alerta": 5.3,
     "evac": 5.5
    },
@@ -241,7 +241,7 @@
     "rio": "Paraná",
     "altura": 4.85,
     "anterior": 4.7,
-    "fecha": "2026-11-19T07:00:00.000Z",
+    "fecha": "2026-11-19T09:00:00.000Z",
     "alerta": 4.6,
     "evac": 4.9
    },
@@ -322,7 +322,7 @@
     "rio": "Paraguay",
     "altura": null,
     "anterior": 1.81,
-    "fecha": "2026-11-18T03:00:00.000Z",
+    "fecha": "2026-11-19T03:00:00.000Z",
     "alerta": 6,
     "evac": 6.4
    },
@@ -356,9 +356,9 @@
    {
     "puerto": "Isla del Cerrito",
     "rio": "Paraguay",
-    "altura": 6.37,
+    "altura": 6.34,
     "anterior": 6.5,
-    "fecha": "2026-11-19T07:00:00.000Z",
+    "fecha": "2026-11-19T09:00:00.000Z",
     "alerta": 6.2,
     "evac": 6.8
    }
