@@ -113,9 +113,9 @@
    {
     "puerto": "Corrientes",
     "rio": "Paraná",
-    "altura": 6.13,
-    "anterior": 6.36,
-    "fecha": "2026-11-18T15:00:00.000Z",
+    "altura": 6.08,
+    "anterior": 6.2,
+    "fecha": "2026-11-19T03:00:00.000Z",
     "alerta": 6.5,
     "evac": 7
    },
@@ -159,8 +159,8 @@
     "puerto": "Reconquista",
     "rio": "Paraná",
     "altura": 5.56,
-    "anterior": 5.61,
-    "fecha": "2026-11-19T01:00:00.000Z",
+    "anterior": 5.6,
+    "fecha": "2026-11-19T03:00:00.000Z",
     "alerta": 5.1,
     "evac": 5.3
    },
@@ -249,17 +249,17 @@
     "puerto": "San Lorenzo",
     "rio": "Paraná",
     "altura": 5.34,
-    "anterior": 5.28,
-    "fecha": "2026-11-19T01:00:00.000Z",
+    "anterior": 5.32,
+    "fecha": "2026-11-19T03:00:00.000Z",
     "alerta": 5.2,
     "evac": 5.7
    },
    {
     "puerto": "Rosario",
     "rio": "Paraná",
-    "altura": 4.87,
-    "anterior": 4.9,
-    "fecha": "2026-11-18T15:00:00.000Z",
+    "altura": 4.89,
+    "anterior": 4.86,
+    "fecha": "2026-11-19T03:00:00.000Z",
     "alerta": 5,
     "evac": 5.3
    },
@@ -275,9 +275,9 @@
    {
     "puerto": "San Nicolás",
     "rio": "Paraná",
-    "altura": 3.45,
-    "anterior": 3.44,
-    "fecha": "2026-11-18T15:00:00.000Z",
+    "altura": 3.49,
+    "anterior": 3.46,
+    "fecha": "2026-11-19T03:00:00.000Z",
     "alerta": 4.2,
     "evac": 5
    },
