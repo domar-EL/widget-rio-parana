@@ -178,7 +178,7 @@
     "rio": "San Javier",
     "altura": 7.8,
     "anterior": 7.84,
-    "fecha": "2026-11-19T07:00:00.000Z",
+    "fecha": "2026-11-19T09:00:00.000Z",
     "alerta": 6,
     "evac": 6.5
    },
@@ -187,7 +187,7 @@
     "rio": "Paraná",
     "altura": 6.24,
     "anterior": 6.24,
-    "fecha": "2026-11-19T07:00:00.000Z",
+    "fecha": "2026-11-19T09:00:00.000Z",
     "alerta": 5.8,
     "evac": 6.15
    },
@@ -205,7 +205,7 @@
     "rio": "Paraná",
     "altura": 6.4,
     "anterior": 6.42,
-    "fecha": "2026-11-19T07:00:00.000Z",
+    "fecha": "2026-11-19T09:00:00.000Z",
     "alerta": 5.5,
     "evac": 6
    },
@@ -248,9 +248,9 @@
    {
     "puerto": "San Lorenzo",
     "rio": "Paraná",
-    "altura": 5.35,
+    "altura": 5.38,
     "anterior": 5.32,
-    "fecha": "2026-11-19T07:00:00.000Z",
+    "fecha": "2026-11-19T09:00:00.000Z",
     "alerta": 5.2,
     "evac": 5.7
    },
