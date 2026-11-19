@@ -151,16 +151,16 @@
     "rio": "Paraná",
     "altura": 5.72,
     "anterior": 5.76,
-    "fecha": "2026-11-19T09:00:00.000Z",
+    "fecha": "2026-11-19T11:00:00.000Z",
     "alerta": 5.2,
     "evac": 5.7
    },
    {
     "puerto": "Reconquista",
     "rio": "Paraná",
-    "altura": 5.56,
+    "altura": 5.54,
     "anterior": 5.6,
-    "fecha": "2026-11-19T09:00:00.000Z",
+    "fecha": "2026-11-19T11:00:00.000Z",
     "alerta": 5.1,
     "evac": 5.3
    },
@@ -169,7 +169,7 @@
     "rio": "Paraná",
     "altura": 5.41,
     "anterior": 5.44,
-    "fecha": "2026-11-19T09:00:00.000Z",
+    "fecha": "2026-11-19T11:00:00.000Z",
     "alerta": 5,
     "evac": 5.4
    },
@@ -178,16 +178,16 @@
     "rio": "San Javier",
     "altura": 7.8,
     "anterior": 7.84,
-    "fecha": "2026-11-19T09:00:00.000Z",
+    "fecha": "2026-11-19T11:00:00.000Z",
     "alerta": 6,
     "evac": 6.5
    },
    {
     "puerto": "La Paz",
     "rio": "Paraná",
-    "altura": 6.24,
+    "altura": 6.2,
     "anterior": 6.24,
-    "fecha": "2026-11-19T09:00:00.000Z",
+    "fecha": "2026-11-19T11:00:00.000Z",
     "alerta": 5.8,
     "evac": 6.15
    },
@@ -203,9 +203,9 @@
    {
     "puerto": "Hernandarias",
     "rio": "Paraná",
-    "altura": 6.4,
+    "altura": 6.38,
     "anterior": 6.42,
-    "fecha": "2026-11-19T09:00:00.000Z",
+    "fecha": "2026-11-19T11:00:00.000Z",
     "alerta": 5.5,
     "evac": 6
    },
@@ -214,7 +214,7 @@
     "rio": "Paraná",
     "altura": 5.71,
     "anterior": 5.71,
-    "fecha": "2026-11-19T09:00:00.000Z",
+    "fecha": "2026-11-19T11:00:00.000Z",
     "alerta": 4.7,
     "evac": 5
    },
@@ -239,9 +239,9 @@
    {
     "puerto": "Victoria",
     "rio": "Paraná",
-    "altura": 4.85,
+    "altura": 4.86,
     "anterior": 4.7,
-    "fecha": "2026-11-19T09:00:00.000Z",
+    "fecha": "2026-11-19T11:00:00.000Z",
     "alerta": 4.6,
     "evac": 4.9
    },
