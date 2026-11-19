@@ -259,7 +259,7 @@
     "rio": "Paraná",
     "altura": 4.89,
     "anterior": 4.86,
-    "fecha": "2026-11-19T03:00:00.000Z",
+    "fecha": "2026-11-19T15:00:00.000Z",
     "alerta": 5,
     "evac": 5.3
    },
@@ -286,7 +286,7 @@
     "rio": "Paraná",
     "altura": 3,
     "anterior": 2.97,
-    "fecha": "2026-11-19T03:00:00.000Z",
+    "fecha": "2026-11-19T15:00:00.000Z",
     "alerta": 3.5,
     "evac": 4
    },
@@ -358,7 +358,7 @@
     "rio": "Paraguay",
     "altura": 6.3,
     "anterior": 6.5,
-    "fecha": "2026-11-19T15:00:00.000Z",
+    "fecha": "2026-11-19T16:00:00.000Z",
     "alerta": 6.2,
     "evac": 6.8
    }
