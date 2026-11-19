@@ -87,8 +87,8 @@
     "puerto": "Ita Ibate",
     "rio": "Paraná",
     "altura": 4.66,
-    "anterior": 4.76,
-    "fecha": "2026-11-18T15:00:00.000Z",
+    "anterior": 4.7,
+    "fecha": "2026-11-19T03:00:00.000Z",
     "alerta": 7,
     "evac": 7.5
    },
@@ -168,8 +168,8 @@
     "puerto": "Esquina",
     "rio": "Paraná",
     "altura": 5.43,
-    "anterior": 5.46,
-    "fecha": "2026-11-19T01:00:00.000Z",
+    "anterior": 5.44,
+    "fecha": "2026-11-19T03:00:00.000Z",
     "alerta": 5,
     "evac": 5.4
    },
@@ -311,9 +311,9 @@
    {
     "puerto": "Pilcomayo",
     "rio": "Paraguay",
-    "altura": 2.38,
-    "anterior": 2.44,
-    "fecha": "2026-11-18T15:00:00.000Z",
+    "altura": 2.39,
+    "anterior": 2.38,
+    "fecha": "2026-11-19T03:00:00.000Z",
     "alerta": 5.35,
     "evac": 6
    },
@@ -357,8 +357,8 @@
     "puerto": "Isla del Cerrito",
     "rio": "Paraguay",
     "altura": 6.38,
-    "anterior": 6.65,
-    "fecha": "2026-11-19T02:00:00.000Z",
+    "anterior": 6.5,
+    "fecha": "2026-11-19T03:00:00.000Z",
     "alerta": 6.2,
     "evac": 6.8
    }
