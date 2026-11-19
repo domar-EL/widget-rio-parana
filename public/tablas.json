@@ -61,7 +61,7 @@
     "rio": "Paraná",
     "altura": 8.38,
     "anterior": 8.38,
-    "fecha": "2026-11-19T03:00:00.000Z",
+    "fecha": "2026-11-19T15:00:00.000Z",
     "alerta": 9.3,
     "evac": 9.8
    },
@@ -113,16 +113,16 @@
    {
     "puerto": "Corrientes",
     "rio": "Paraná",
-    "altura": 6.08,
+    "altura": 6,
     "anterior": 6.2,
-    "fecha": "2026-11-19T03:00:00.000Z",
+    "fecha": "2026-11-19T15:00:00.000Z",
     "alerta": 6.5,
     "evac": 7
    },
    {
     "puerto": "Barranqueras",
     "rio": "Paraná",
-    "altura": 5.94,
+    "altura": 5.92,
     "anterior": 6.08,
     "fecha": "2026-11-19T15:00:00.000Z",
     "alerta": 6,
@@ -187,16 +187,16 @@
     "rio": "Paraná",
     "altura": 6.2,
     "anterior": 6.24,
-    "fecha": "2026-11-19T13:00:00.000Z",
+    "fecha": "2026-11-19T15:00:00.000Z",
     "alerta": 5.8,
     "evac": 6.15
    },
    {
     "puerto": "Santa Elena",
     "rio": "Paraná",
-    "altura": 6.36,
+    "altura": 6.34,
     "anterior": 6.39,
-    "fecha": "2026-11-19T03:00:00.000Z",
+    "fecha": "2026-11-19T15:00:00.000Z",
     "alerta": 6.9,
     "evac": 7.25
    },
@@ -205,7 +205,7 @@
     "rio": "Paraná",
     "altura": 6.38,
     "anterior": 6.42,
-    "fecha": "2026-11-19T13:00:00.000Z",
+    "fecha": "2026-11-19T15:00:00.000Z",
     "alerta": 5.5,
     "evac": 6
    },
