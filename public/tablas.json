@@ -178,7 +178,7 @@
     "rio": "San Javier",
     "altura": 7.73,
     "anterior": 7.8,
-    "fecha": "2026-11-20T09:00:00.000Z",
+    "fecha": "2026-11-20T12:00:00.000Z",
     "alerta": 6,
     "evac": 6.5
    },
@@ -214,16 +214,16 @@
     "rio": "Paraná",
     "altura": 5.7,
     "anterior": 5.71,
-    "fecha": "2026-11-20T09:00:00.000Z",
+    "fecha": "2026-11-20T12:00:00.000Z",
     "alerta": 4.7,
     "evac": 5
    },
    {
     "puerto": "Santa Fe",
     "rio": "Paraná",
-    "altura": 5.88,
+    "altura": 5.87,
     "anterior": 5.84,
-    "fecha": "2026-11-20T09:00:00.000Z",
+    "fecha": "2026-11-20T12:00:00.000Z",
     "alerta": 5.3,
     "evac": 5.7
    },
@@ -232,7 +232,7 @@
     "rio": "Paraná",
     "altura": 5.86,
     "anterior": 5.85,
-    "fecha": "2026-11-20T09:00:00.000Z",
+    "fecha": "2026-11-20T12:00:00.000Z",
     "alerta": 5.3,
     "evac": 5.5
    },
@@ -241,7 +241,7 @@
     "rio": "Paraná",
     "altura": 5,
     "anterior": 4.85,
-    "fecha": "2026-11-20T09:00:00.000Z",
+    "fecha": "2026-11-20T12:00:00.000Z",
     "alerta": 4.6,
     "evac": 4.9
    },
