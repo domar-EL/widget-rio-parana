@@ -185,9 +185,9 @@
    {
     "puerto": "La Paz",
     "rio": "Paraná",
-    "altura": 6.2,
+    "altura": 6.19,
     "anterior": 6.24,
-    "fecha": "2026-11-19T21:00:00.000Z",
+    "fecha": "2026-11-20T00:00:00.000Z",
     "alerta": 5.8,
     "evac": 6.15
    },
@@ -205,7 +205,7 @@
     "rio": "Paraná",
     "altura": 6.38,
     "anterior": 6.42,
-    "fecha": "2026-11-19T21:00:00.000Z",
+    "fecha": "2026-11-20T00:00:00.000Z",
     "alerta": 5.5,
     "evac": 6
    },
@@ -221,9 +221,9 @@
    {
     "puerto": "Santa Fe",
     "rio": "Paraná",
-    "altura": 5.87,
+    "altura": 5.88,
     "anterior": 5.85,
-    "fecha": "2026-11-19T21:00:00.000Z",
+    "fecha": "2026-11-20T00:00:00.000Z",
     "alerta": 5.3,
     "evac": 5.7
    },
