@@ -77,9 +77,9 @@
    {
     "puerto": "Ituzaingó",
     "rio": "Paraná",
-    "altura": 2.27,
-    "anterior": 2.4,
-    "fecha": "2026-11-19T15:00:00.000Z",
+    "altura": 2.3,
+    "anterior": 2.36,
+    "fecha": "2026-11-20T03:00:00.000Z",
     "alerta": 3.5,
     "evac": 4
    },
@@ -257,9 +257,9 @@
    {
     "puerto": "Rosario",
     "rio": "Paraná",
-    "altura": 4.89,
-    "anterior": 4.86,
-    "fecha": "2026-11-19T15:00:00.000Z",
+    "altura": 4.9,
+    "anterior": 4.89,
+    "fecha": "2026-11-20T03:00:00.000Z",
     "alerta": 5,
     "evac": 5.3
    },
