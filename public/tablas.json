@@ -178,7 +178,7 @@
     "rio": "San Javier",
     "altura": 7.73,
     "anterior": 7.8,
-    "fecha": "2026-11-20T03:00:00.000Z",
+    "fecha": "2026-11-20T06:00:00.000Z",
     "alerta": 6,
     "evac": 6.5
    },
@@ -358,7 +358,7 @@
     "rio": "Paraguay",
     "altura": 6.23,
     "anterior": 6.34,
-    "fecha": "2026-11-20T05:00:00.000Z",
+    "fecha": "2026-11-20T06:00:00.000Z",
     "alerta": 6.2,
     "evac": 6.8
    }
