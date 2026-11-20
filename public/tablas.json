@@ -113,9 +113,9 @@
    {
     "puerto": "Corrientes",
     "rio": "Paraná",
-    "altura": 6,
-    "anterior": 6.2,
-    "fecha": "2026-11-19T15:00:00.000Z",
+    "altura": 5.93,
+    "anterior": 6.08,
+    "fecha": "2026-11-20T03:00:00.000Z",
     "alerta": 6.5,
     "evac": 7
    },
@@ -149,9 +149,9 @@
    {
     "puerto": "Goya",
     "rio": "Paraná",
-    "altura": 5.69,
-    "anterior": 5.76,
-    "fecha": "2026-11-19T21:00:00.000Z",
+    "altura": 5.68,
+    "anterior": 5.72,
+    "fecha": "2026-11-20T03:00:00.000Z",
     "alerta": 5.2,
     "evac": 5.7
    },
@@ -185,18 +185,18 @@
    {
     "puerto": "La Paz",
     "rio": "Paraná",
-    "altura": 6.19,
+    "altura": 6.18,
     "anterior": 6.24,
-    "fecha": "2026-11-20T00:00:00.000Z",
+    "fecha": "2026-11-20T03:00:00.000Z",
     "alerta": 5.8,
     "evac": 6.15
    },
    {
     "puerto": "Santa Elena",
     "rio": "Paraná",
-    "altura": 6.34,
-    "anterior": 6.39,
-    "fecha": "2026-11-19T15:00:00.000Z",
+    "altura": 6.33,
+    "anterior": 6.36,
+    "fecha": "2026-11-20T03:00:00.000Z",
     "alerta": 6.9,
     "evac": 7.25
    },
@@ -204,8 +204,8 @@
     "puerto": "Hernandarias",
     "rio": "Paraná",
     "altura": 6.38,
-    "anterior": 6.42,
-    "fecha": "2026-11-20T00:00:00.000Z",
+    "anterior": 6.4,
+    "fecha": "2026-11-20T03:00:00.000Z",
     "alerta": 5.5,
     "evac": 6
    },
@@ -329,9 +329,9 @@
    {
     "puerto": "Formosa",
     "rio": "Paraguay",
-    "altura": 4.62,
-    "anterior": 4.69,
-    "fecha": "2026-11-19T15:00:00.000Z",
+    "altura": 4.58,
+    "anterior": 4.62,
+    "fecha": "2026-11-20T03:00:00.000Z",
     "alerta": 7.8,
     "evac": 8.3
    },
@@ -356,9 +356,9 @@
    {
     "puerto": "Isla del Cerrito",
     "rio": "Paraguay",
-    "altura": 6.25,
-    "anterior": 6.5,
-    "fecha": "2026-11-20T01:00:00.000Z",
+    "altura": 6.24,
+    "anterior": 6.34,
+    "fecha": "2026-11-20T03:00:00.000Z",
     "alerta": 6.2,
     "evac": 6.8
    }
