@@ -187,7 +187,7 @@
     "rio": "Paraná",
     "altura": 6.18,
     "anterior": 6.24,
-    "fecha": "2026-11-20T09:00:00.000Z",
+    "fecha": "2026-11-20T12:00:00.000Z",
     "alerta": 5.8,
     "evac": 6.15
    },
@@ -203,9 +203,9 @@
    {
     "puerto": "Hernandarias",
     "rio": "Paraná",
-    "altura": 6.38,
+    "altura": 6.34,
     "anterior": 6.4,
-    "fecha": "2026-11-20T09:00:00.000Z",
+    "fecha": "2026-11-20T12:00:00.000Z",
     "alerta": 5.5,
     "evac": 6
    },
