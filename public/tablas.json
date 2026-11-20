@@ -158,9 +158,9 @@
    {
     "puerto": "Reconquista",
     "rio": "Paraná",
-    "altura": 5.52,
+    "altura": 5.5,
     "anterior": 5.56,
-    "fecha": "2026-11-20T09:00:00.000Z",
+    "fecha": "2026-11-20T12:00:00.000Z",
     "alerta": 5.1,
     "evac": 5.3
    },
@@ -356,9 +356,9 @@
    {
     "puerto": "Isla del Cerrito",
     "rio": "Paraguay",
-    "altura": 6.2,
+    "altura": 6.19,
     "anterior": 6.34,
-    "fecha": "2026-11-20T09:00:00.000Z",
+    "fecha": "2026-11-20T13:00:00.000Z",
     "alerta": 6.2,
     "evac": 6.8
    }
