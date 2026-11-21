@@ -113,9 +113,9 @@
    {
     "puerto": "Corrientes",
     "rio": "Paraná",
-    "altura": 5.9,
-    "anterior": 6.08,
-    "fecha": "2026-11-20T15:00:00.000Z",
+    "altura": 5.85,
+    "anterior": 5.93,
+    "fecha": "2026-11-21T03:00:00.000Z",
     "alerta": 6.5,
     "evac": 7
    },
