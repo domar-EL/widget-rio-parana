@@ -32,9 +32,9 @@
    {
     "puerto": "Eldorado",
     "rio": "Paraná",
-    "altura": 14.95,
+    "altura": 14.85,
     "anterior": 14.9,
-    "fecha": "2026-11-21T03:00:00.000Z",
+    "fecha": "2026-11-21T15:00:00.000Z",
     "alerta": 23,
     "evac": 25
    },
@@ -68,9 +68,9 @@
    {
     "puerto": "Posadas",
     "rio": "Paraná",
-    "altura": 10.22,
+    "altura": 10.2,
     "anterior": 10.24,
-    "fecha": "2026-11-21T03:00:00.000Z",
+    "fecha": "2026-11-21T15:00:00.000Z",
     "alerta": 11,
     "evac": 12
    },
@@ -178,7 +178,7 @@
     "rio": "San Javier",
     "altura": 7.67,
     "anterior": 7.73,
-    "fecha": "2026-11-21T12:00:00.000Z",
+    "fecha": "2026-11-21T15:00:00.000Z",
     "alerta": 6,
     "evac": 6.5
    },
@@ -275,9 +275,9 @@
    {
     "puerto": "San Nicolás",
     "rio": "Paraná",
-    "altura": 3.51,
+    "altura": 3.52,
     "anterior": 3.5,
-    "fecha": "2026-11-21T03:00:00.000Z",
+    "fecha": "2026-11-21T15:00:00.000Z",
     "alerta": 4.2,
     "evac": 5
    },
@@ -286,7 +286,7 @@
     "rio": "Paraná",
     "altura": 3.02,
     "anterior": 3,
-    "fecha": "2026-11-21T03:00:00.000Z",
+    "fecha": "2026-11-21T15:00:00.000Z",
     "alerta": 3.5,
     "evac": 4
    },
@@ -329,9 +329,9 @@
    {
     "puerto": "Formosa",
     "rio": "Paraguay",
-    "altura": 4.54,
+    "altura": 4.49,
     "anterior": 4.58,
-    "fecha": "2026-11-21T03:00:00.000Z",
+    "fecha": "2026-11-21T15:00:00.000Z",
     "alerta": 7.8,
     "evac": 8.3
    },
@@ -430,9 +430,9 @@
    {
     "puerto": "Monte Caseros",
     "rio": "Uruguay",
-    "altura": 3.97,
+    "altura": 3.91,
     "anterior": 4,
-    "fecha": "2026-11-21T03:00:00.000Z",
+    "fecha": "2026-11-21T15:00:00.000Z",
     "alerta": 7.5,
     "evac": 8.5
    },
