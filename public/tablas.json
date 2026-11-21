@@ -151,16 +151,16 @@
     "rio": "Paraná",
     "altura": 5.6,
     "anterior": 5.68,
-    "fecha": "2026-11-21T15:00:00.000Z",
+    "fecha": "2026-11-21T21:00:00.000Z",
     "alerta": 5.2,
     "evac": 5.7
    },
    {
     "puerto": "Reconquista",
     "rio": "Paraná",
-    "altura": 5.46,
+    "altura": 5.43,
     "anterior": 5.52,
-    "fecha": "2026-11-21T09:00:00.000Z",
+    "fecha": "2026-11-21T19:00:00.000Z",
     "alerta": 5.1,
     "evac": 5.3
    },
@@ -214,7 +214,7 @@
     "rio": "Paraná",
     "altura": 5.67,
     "anterior": 5.7,
-    "fecha": "2026-11-21T19:00:00.000Z",
+    "fecha": "2026-11-21T21:00:00.000Z",
     "alerta": 4.7,
     "evac": 5
    },
@@ -223,7 +223,7 @@
     "rio": "Paraná",
     "altura": 5.87,
     "anterior": 5.88,
-    "fecha": "2026-11-21T18:00:00.000Z",
+    "fecha": "2026-11-21T21:00:00.000Z",
     "alerta": 5.3,
     "evac": 5.7
    },
@@ -232,7 +232,7 @@
     "rio": "Paraná",
     "altura": 5.85,
     "anterior": 5.86,
-    "fecha": "2026-11-21T18:00:00.000Z",
+    "fecha": "2026-11-21T21:00:00.000Z",
     "alerta": 5.3,
     "evac": 5.5
    },
@@ -356,9 +356,9 @@
    {
     "puerto": "Isla del Cerrito",
     "rio": "Paraguay",
-    "altura": 6.11,
+    "altura": 6.09,
     "anterior": 6.22,
-    "fecha": "2026-11-21T17:00:00.000Z",
+    "fecha": "2026-11-21T21:00:00.000Z",
     "alerta": 6.2,
     "evac": 6.8
    }
