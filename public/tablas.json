@@ -187,7 +187,7 @@
     "rio": "Paraná",
     "altura": 6.14,
     "anterior": 6.18,
-    "fecha": "2026-11-21T15:00:00.000Z",
+    "fecha": "2026-11-21T18:00:00.000Z",
     "alerta": 5.8,
     "evac": 6.15
    },
@@ -205,7 +205,7 @@
     "rio": "Paraná",
     "altura": 6.3,
     "anterior": 6.38,
-    "fecha": "2026-11-21T15:00:00.000Z",
+    "fecha": "2026-11-21T18:00:00.000Z",
     "alerta": 5.5,
     "evac": 6
    },
@@ -214,7 +214,7 @@
     "rio": "Paraná",
     "altura": 5.67,
     "anterior": 5.7,
-    "fecha": "2026-11-21T17:00:00.000Z",
+    "fecha": "2026-11-21T19:00:00.000Z",
     "alerta": 4.7,
     "evac": 5
    },
@@ -239,9 +239,9 @@
    {
     "puerto": "Victoria",
     "rio": "Paraná",
-    "altura": 5.12,
+    "altura": 5.15,
     "anterior": 4.98,
-    "fecha": "2026-11-21T15:00:00.000Z",
+    "fecha": "2026-11-21T18:00:00.000Z",
     "alerta": 4.6,
     "evac": 4.9
    },
