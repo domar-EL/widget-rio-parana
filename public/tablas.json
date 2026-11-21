@@ -15,8 +15,8 @@
     "puerto": "Iguazú",
     "rio": "Iguazú",
     "altura": 20.5,
-    "anterior": 20.7,
-    "fecha": "2026-11-20T15:00:00.000Z",
+    "anterior": 20.5,
+    "fecha": "2026-11-21T05:00:00.000Z",
     "alerta": 25,
     "evac": 28
    },
@@ -158,9 +158,9 @@
    {
     "puerto": "Reconquista",
     "rio": "Paraná",
-    "altura": 5.47,
+    "altura": 5.46,
     "anterior": 5.52,
-    "fecha": "2026-11-21T03:00:00.000Z",
+    "fecha": "2026-11-21T06:00:00.000Z",
     "alerta": 5.1,
     "evac": 5.3
    },
@@ -176,9 +176,9 @@
    {
     "puerto": "San Javier (Santa Fe)",
     "rio": "San Javier",
-    "altura": 7.7,
+    "altura": 7.69,
     "anterior": 7.73,
-    "fecha": "2026-11-21T03:00:00.000Z",
+    "fecha": "2026-11-21T06:00:00.000Z",
     "alerta": 6,
     "evac": 6.5
    },
@@ -187,7 +187,7 @@
     "rio": "Paraná",
     "altura": 6.17,
     "anterior": 6.18,
-    "fecha": "2026-11-21T03:00:00.000Z",
+    "fecha": "2026-11-21T06:00:00.000Z",
     "alerta": 5.8,
     "evac": 6.15
    },
@@ -205,7 +205,7 @@
     "rio": "Paraná",
     "altura": 6.33,
     "anterior": 6.38,
-    "fecha": "2026-11-21T03:00:00.000Z",
+    "fecha": "2026-11-21T06:00:00.000Z",
     "alerta": 5.5,
     "evac": 6
    },
@@ -223,7 +223,7 @@
     "rio": "Paraná",
     "altura": 5.88,
     "anterior": 5.88,
-    "fecha": "2026-11-21T03:00:00.000Z",
+    "fecha": "2026-11-21T06:00:00.000Z",
     "alerta": 5.3,
     "evac": 5.7
    },
@@ -241,7 +241,7 @@
     "rio": "Paraná",
     "altura": 5.1,
     "anterior": 4.98,
-    "fecha": "2026-11-21T03:00:00.000Z",
+    "fecha": "2026-11-21T06:00:00.000Z",
     "alerta": 4.6,
     "evac": 4.9
    },
@@ -303,8 +303,8 @@
     "puerto": "Baradero",
     "rio": "Delta Paraná",
     "altura": 2.1,
-    "anterior": 2.08,
-    "fecha": "2026-11-20T03:00:00.000Z",
+    "anterior": 2.1,
+    "fecha": "2026-11-21T05:00:00.000Z",
     "alerta": 2.7,
     "evac": 3.1
    },
