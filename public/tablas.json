@@ -78,17 +78,17 @@
     "puerto": "Ituzaingó",
     "rio": "Paraná",
     "altura": 2.37,
-    "anterior": 2.3,
-    "fecha": "2026-11-21T15:00:00.000Z",
+    "anterior": 2.37,
+    "fecha": "2026-11-22T03:00:00.000Z",
     "alerta": 3.5,
     "evac": 4
    },
    {
     "puerto": "Ita Ibate",
     "rio": "Paraná",
-    "altura": 4.6,
+    "altura": 4.58,
     "anterior": 4.6,
-    "fecha": "2026-11-21T15:00:00.000Z",
+    "fecha": "2026-11-22T04:00:00.000Z",
     "alerta": 7,
     "evac": 7.5
    },
@@ -149,9 +149,9 @@
    {
     "puerto": "Goya",
     "rio": "Paraná",
-    "altura": 5.6,
-    "anterior": 5.68,
-    "fecha": "2026-11-21T21:00:00.000Z",
+    "altura": 5.59,
+    "anterior": 5.63,
+    "fecha": "2026-11-22T03:00:00.000Z",
     "alerta": 5.2,
     "evac": 5.7
    },
@@ -250,7 +250,7 @@
     "rio": "Paraná",
     "altura": 5.36,
     "anterior": 5.38,
-    "fecha": "2026-11-21T21:00:00.000Z",
+    "fecha": "2026-11-22T03:00:00.000Z",
     "alerta": 5.2,
     "evac": 5.7
    },
@@ -285,8 +285,8 @@
     "puerto": "Ramallo",
     "rio": "Paraná",
     "altura": 3.02,
-    "anterior": 3,
-    "fecha": "2026-11-21T15:00:00.000Z",
+    "anterior": 3.02,
+    "fecha": "2026-11-22T03:00:00.000Z",
     "alerta": 3.5,
     "evac": 4
    },
@@ -493,9 +493,9 @@
    {
     "puerto": "Colón",
     "rio": "Uruguay",
-    "altura": 3.7,
-    "anterior": 4.47,
-    "fecha": "2026-11-21T15:00:00.000Z",
+    "altura": 3.64,
+    "anterior": 3.83,
+    "fecha": "2026-11-22T03:00:00.000Z",
     "alerta": 7.1,
     "evac": 7.9
    },
