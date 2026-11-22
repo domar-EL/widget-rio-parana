@@ -24,8 +24,8 @@
     "puerto": "Libertad",
     "rio": "Paraná",
     "altura": 19.7,
-    "anterior": 20,
-    "fecha": "2026-11-21T15:00:00.000Z",
+    "anterior": 19.7,
+    "fecha": "2026-11-22T03:00:00.000Z",
     "alerta": 29,
     "evac": 31
    },
@@ -60,8 +60,8 @@
     "puerto": "Santa Ana",
     "rio": "Paraná",
     "altura": 8.34,
-    "anterior": 8.38,
-    "fecha": "2026-11-21T15:00:00.000Z",
+    "anterior": 8.33,
+    "fecha": "2026-11-22T03:00:00.000Z",
     "alerta": 9.3,
     "evac": 9.8
    },
@@ -69,8 +69,8 @@
     "puerto": "Posadas",
     "rio": "Paraná",
     "altura": 10.2,
-    "anterior": 10.24,
-    "fecha": "2026-11-21T15:00:00.000Z",
+    "anterior": 10.22,
+    "fecha": "2026-11-22T03:00:00.000Z",
     "alerta": 11,
     "evac": 12
    },
@@ -259,7 +259,7 @@
     "rio": "Paraná",
     "altura": 4.9,
     "anterior": 4.9,
-    "fecha": "2026-11-21T03:00:00.000Z",
+    "fecha": "2026-11-22T03:00:00.000Z",
     "alerta": 5,
     "evac": 5.3
    },
