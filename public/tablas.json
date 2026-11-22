@@ -187,16 +187,16 @@
     "rio": "Paraná",
     "altura": 6.11,
     "anterior": 6.16,
-    "fecha": "2026-11-22T12:00:00.000Z",
+    "fecha": "2026-11-22T15:00:00.000Z",
     "alerta": 5.8,
     "evac": 6.15
    },
    {
     "puerto": "Santa Elena",
     "rio": "Paraná",
-    "altura": 6.26,
+    "altura": 6.22,
     "anterior": 6.3,
-    "fecha": "2026-11-22T03:00:00.000Z",
+    "fecha": "2026-11-22T15:00:00.000Z",
     "alerta": 6.9,
     "evac": 7.25
    },
@@ -205,7 +205,7 @@
     "rio": "Paraná",
     "altura": 6.25,
     "anterior": 6.33,
-    "fecha": "2026-11-22T12:00:00.000Z",
+    "fecha": "2026-11-22T15:00:00.000Z",
     "alerta": 5.5,
     "evac": 6
    },
@@ -241,7 +241,7 @@
     "rio": "Paraná",
     "altura": 5.22,
     "anterior": 5.1,
-    "fecha": "2026-11-22T12:00:00.000Z",
+    "fecha": "2026-11-22T15:00:00.000Z",
     "alerta": 4.6,
     "evac": 4.9
    },
@@ -257,9 +257,9 @@
    {
     "puerto": "Rosario",
     "rio": "Paraná",
-    "altura": 4.9,
+    "altura": 4.91,
     "anterior": 4.9,
-    "fecha": "2026-11-22T03:00:00.000Z",
+    "fecha": "2026-11-22T15:00:00.000Z",
     "alerta": 5,
     "evac": 5.3
    },
@@ -268,7 +268,7 @@
     "rio": "Paraná",
     "altura": 3.87,
     "anterior": 3.86,
-    "fecha": "2026-11-22T03:00:00.000Z",
+    "fecha": "2026-11-22T15:00:00.000Z",
     "alerta": 4,
     "evac": 4.5
    },
@@ -338,18 +338,18 @@
    {
     "puerto": "Bermejo",
     "rio": "Paraguay",
-    "altura": 4.83,
+    "altura": 4.8,
     "anterior": 4.9,
-    "fecha": "2026-11-22T03:00:00.000Z",
+    "fecha": "2026-11-22T15:00:00.000Z",
     "alerta": 6.5,
     "evac": 7
    },
    {
     "puerto": "Las Palmas",
     "rio": "Paraguay",
-    "altura": 5.64,
+    "altura": 5.57,
     "anterior": 5.72,
-    "fecha": "2026-11-22T03:00:00.000Z",
+    "fecha": "2026-11-22T15:00:00.000Z",
     "alerta": 6.5,
     "evac": 7
    },
