@@ -158,9 +158,9 @@
    {
     "puerto": "Reconquista",
     "rio": "Paraná",
-    "altura": 5.42,
+    "altura": 5.4,
     "anterior": 5.46,
-    "fecha": "2026-11-22T09:00:00.000Z",
+    "fecha": "2026-11-22T12:00:00.000Z",
     "alerta": 5.1,
     "evac": 5.3
    },
@@ -185,9 +185,9 @@
    {
     "puerto": "La Paz",
     "rio": "Paraná",
-    "altura": 6.14,
+    "altura": 6.11,
     "anterior": 6.16,
-    "fecha": "2026-11-22T09:00:00.000Z",
+    "fecha": "2026-11-22T12:00:00.000Z",
     "alerta": 5.8,
     "evac": 6.15
    },
@@ -203,9 +203,9 @@
    {
     "puerto": "Hernandarias",
     "rio": "Paraná",
-    "altura": 6.28,
+    "altura": 6.25,
     "anterior": 6.33,
-    "fecha": "2026-11-22T09:00:00.000Z",
+    "fecha": "2026-11-22T12:00:00.000Z",
     "alerta": 5.5,
     "evac": 6
    },
