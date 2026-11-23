@@ -185,9 +185,9 @@
    {
     "puerto": "La Paz",
     "rio": "Paraná",
-    "altura": 6.1,
+    "altura": 6.08,
     "anterior": 6.14,
-    "fecha": "2026-11-23T03:00:00.000Z",
+    "fecha": "2026-11-23T09:00:00.000Z",
     "alerta": 5.8,
     "evac": 6.15
    },
@@ -203,18 +203,18 @@
    {
     "puerto": "Hernandarias",
     "rio": "Paraná",
-    "altura": 6.23,
+    "altura": 6.2,
     "anterior": 6.28,
-    "fecha": "2026-11-23T06:00:00.000Z",
+    "fecha": "2026-11-23T09:00:00.000Z",
     "alerta": 5.5,
     "evac": 6
    },
    {
     "puerto": "Paraná",
     "rio": "Paraná",
-    "altura": 5.63,
+    "altura": 5.62,
     "anterior": 5.65,
-    "fecha": "2026-11-23T09:00:00.000Z",
+    "fecha": "2026-11-23T11:00:00.000Z",
     "alerta": 4.7,
     "evac": 5
    },
