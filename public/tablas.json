@@ -149,9 +149,9 @@
    {
     "puerto": "Goya",
     "rio": "Paraná",
-    "altura": 5.55,
-    "anterior": 5.63,
-    "fecha": "2026-11-22T21:00:00.000Z",
+    "altura": 5.54,
+    "anterior": 5.58,
+    "fecha": "2026-11-23T03:00:00.000Z",
     "alerta": 5.2,
     "evac": 5.7
    },
@@ -304,7 +304,7 @@
     "rio": "Delta Paraná",
     "altura": 2.1,
     "anterior": 2.1,
-    "fecha": "2026-11-22T15:00:00.000Z",
+    "fecha": "2026-11-23T03:00:00.000Z",
     "alerta": 2.7,
     "evac": 3.1
    },
