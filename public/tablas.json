@@ -104,27 +104,27 @@
    {
     "puerto": "Paso de la Patria",
     "rio": "Paraná",
-    "altura": 5.76,
-    "anterior": 5.88,
-    "fecha": "2026-11-22T15:00:00.000Z",
+    "altura": 5.74,
+    "anterior": 5.8,
+    "fecha": "2026-11-23T03:00:00.000Z",
     "alerta": 6.5,
     "evac": 7
    },
    {
     "puerto": "Corrientes",
     "rio": "Paraná",
-    "altura": 5.74,
-    "anterior": 5.85,
-    "fecha": "2026-11-22T15:00:00.000Z",
+    "altura": 5.68,
+    "anterior": 5.76,
+    "fecha": "2026-11-23T03:00:00.000Z",
     "alerta": 6.5,
     "evac": 7
    },
    {
     "puerto": "Barranqueras",
     "rio": "Paraná",
-    "altura": 5.64,
-    "anterior": 5.75,
-    "fecha": "2026-11-22T15:00:00.000Z",
+    "altura": 5.62,
+    "anterior": 5.66,
+    "fecha": "2026-11-23T03:00:00.000Z",
     "alerta": 6,
     "evac": 6.5
    },
@@ -176,9 +176,9 @@
    {
     "puerto": "San Javier (Santa Fe)",
     "rio": "San Javier",
-    "altura": 7.6,
-    "anterior": 7.69,
-    "fecha": "2026-11-23T00:00:00.000Z",
+    "altura": 7.57,
+    "anterior": 7.65,
+    "fecha": "2026-11-23T03:00:00.000Z",
     "alerta": 6,
     "evac": 6.5
    },
@@ -186,26 +186,26 @@
     "puerto": "La Paz",
     "rio": "Paraná",
     "altura": 6.1,
-    "anterior": 6.16,
-    "fecha": "2026-11-22T21:00:00.000Z",
+    "anterior": 6.14,
+    "fecha": "2026-11-23T03:00:00.000Z",
     "alerta": 5.8,
     "evac": 6.15
    },
    {
     "puerto": "Santa Elena",
     "rio": "Paraná",
-    "altura": 6.22,
-    "anterior": 6.3,
-    "fecha": "2026-11-22T15:00:00.000Z",
+    "altura": 6.21,
+    "anterior": 6.26,
+    "fecha": "2026-11-23T03:00:00.000Z",
     "alerta": 6.9,
     "evac": 7.25
    },
    {
     "puerto": "Hernandarias",
     "rio": "Paraná",
-    "altura": 6.24,
-    "anterior": 6.33,
-    "fecha": "2026-11-23T00:00:00.000Z",
+    "altura": 6.23,
+    "anterior": 6.28,
+    "fecha": "2026-11-23T03:00:00.000Z",
     "alerta": 5.5,
     "evac": 6
    },
@@ -213,8 +213,8 @@
     "puerto": "Paraná",
     "rio": "Paraná",
     "altura": 5.63,
-    "anterior": 5.68,
-    "fecha": "2026-11-23T00:00:00.000Z",
+    "anterior": 5.65,
+    "fecha": "2026-11-23T03:00:00.000Z",
     "alerta": 4.7,
     "evac": 5
    },
@@ -311,9 +311,9 @@
    {
     "puerto": "Pilcomayo",
     "rio": "Paraguay",
-    "altura": 2.53,
-    "anterior": 2.42,
-    "fecha": "2026-11-22T15:00:00.000Z",
+    "altura": 2.58,
+    "anterior": 2.48,
+    "fecha": "2026-11-23T03:00:00.000Z",
     "alerta": 5.35,
     "evac": 6
    },
@@ -520,9 +520,9 @@
    {
     "puerto": "Boca Gualeguaychú",
     "rio": "Gualeguaychú",
-    "altura": 1.7,
-    "anterior": 2.02,
-    "fecha": "2026-11-22T15:00:00.000Z",
+    "altura": 1.64,
+    "anterior": 1.8,
+    "fecha": "2026-11-23T03:00:00.000Z",
     "alerta": 2.9,
     "evac": 3.1
    }
