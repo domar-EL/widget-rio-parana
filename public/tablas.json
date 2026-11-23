@@ -70,7 +70,7 @@
     "rio": "Paraná",
     "altura": 10.2,
     "anterior": 10.2,
-    "fecha": "2026-11-23T03:00:00.000Z",
+    "fecha": "2026-11-23T15:00:00.000Z",
     "alerta": 11,
     "evac": 12
    },
@@ -140,9 +140,9 @@
    {
     "puerto": "Bella Vista",
     "rio": "Paraná",
-    "altura": 5.89,
+    "altura": 5.86,
     "anterior": 5.9,
-    "fecha": "2026-11-23T03:00:00.000Z",
+    "fecha": "2026-11-23T15:00:00.000Z",
     "alerta": 6,
     "evac": 6.4
    },
