@@ -484,9 +484,9 @@
    {
     "puerto": "Concordia",
     "rio": "Uruguay",
-    "altura": 6.28,
+    "altura": 6.26,
     "anterior": 6.16,
-    "fecha": "2026-11-23T03:00:00.000Z",
+    "fecha": "2026-11-23T15:00:00.000Z",
     "alerta": 11,
     "evac": 12.5
    },
