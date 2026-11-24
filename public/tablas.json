@@ -79,7 +79,7 @@
     "rio": "Paraná",
     "altura": 2.35,
     "anterior": 1.97,
-    "fecha": "2026-11-24T03:00:00.000Z",
+    "fecha": "2026-11-24T15:00:00.000Z",
     "alerta": 3.5,
     "evac": 4
    },
@@ -257,9 +257,9 @@
    {
     "puerto": "Rosario",
     "rio": "Paraná",
-    "altura": 4.99,
+    "altura": 4.94,
     "anterior": 4.91,
-    "fecha": "2026-11-24T03:00:00.000Z",
+    "fecha": "2026-11-24T15:00:00.000Z",
     "alerta": 5,
     "evac": 5.3
    },
