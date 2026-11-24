@@ -68,9 +68,9 @@
    {
     "puerto": "Posadas",
     "rio": "Paraná",
-    "altura": 10.2,
+    "altura": 10.3,
     "anterior": 10.2,
-    "fecha": "2026-11-23T15:00:00.000Z",
+    "fecha": "2026-11-24T03:00:00.000Z",
     "alerta": 11,
     "evac": 12
    },
@@ -88,7 +88,7 @@
     "rio": "Paraná",
     "altura": 4.58,
     "anterior": 4.58,
-    "fecha": "2026-11-23T15:00:00.000Z",
+    "fecha": "2026-11-24T03:00:00.000Z",
     "alerta": 7,
     "evac": 7.5
    },
@@ -275,9 +275,9 @@
    {
     "puerto": "San Nicolás",
     "rio": "Paraná",
-    "altura": 3.54,
-    "anterior": 3.52,
-    "fecha": "2026-11-23T15:00:00.000Z",
+    "altura": 3.55,
+    "anterior": 3.53,
+    "fecha": "2026-11-24T03:00:00.000Z",
     "alerta": 4.2,
     "evac": 5
    },
