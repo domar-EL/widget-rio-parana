@@ -50,9 +50,9 @@
    {
     "puerto": "Puerto Mani",
     "rio": "Paraná",
-    "altura": 6.11,
-    "anterior": 6,
-    "fecha": "2026-11-23T03:00:00.000Z",
+    "altura": 6.15,
+    "anterior": 6.11,
+    "fecha": "2026-11-24T03:00:00.000Z",
     "alerta": 9.5,
     "evac": 10
    },
@@ -122,9 +122,9 @@
    {
     "puerto": "Barranqueras",
     "rio": "Paraná",
-    "altura": 5.6,
-    "anterior": 5.66,
-    "fecha": "2026-11-23T15:00:00.000Z",
+    "altura": 5.54,
+    "anterior": 5.62,
+    "fecha": "2026-11-24T03:00:00.000Z",
     "alerta": 6,
     "evac": 6.5
    },
@@ -241,7 +241,7 @@
     "rio": "Paraná",
     "altura": 5.29,
     "anterior": 5.24,
-    "fecha": "2026-11-24T03:00:00.000Z",
+    "fecha": "2026-11-24T06:00:00.000Z",
     "alerta": 4.6,
     "evac": 4.9
    },
@@ -266,9 +266,9 @@
    {
     "puerto": "Villa Constitución",
     "rio": "Paraná",
-    "altura": 3.9,
-    "anterior": 3.87,
-    "fecha": "2026-11-23T15:00:00.000Z",
+    "altura": 3.92,
+    "anterior": 3.88,
+    "fecha": "2026-11-24T03:00:00.000Z",
     "alerta": 4,
     "evac": 4.5
    },
@@ -304,7 +304,7 @@
     "rio": "Delta Paraná",
     "altura": 2,
     "anterior": 2.1,
-    "fecha": "2026-11-23T15:00:00.000Z",
+    "fecha": "2026-11-24T03:00:00.000Z",
     "alerta": 2.7,
     "evac": 3.1
    },
@@ -502,9 +502,9 @@
    {
     "puerto": "Concepción del Uruguay",
     "rio": "Uruguay",
-    "altura": 2.74,
-    "anterior": 2.92,
-    "fecha": "2026-11-23T15:00:00.000Z",
+    "altura": 2.7,
+    "anterior": 2.78,
+    "fecha": "2026-11-24T03:00:00.000Z",
     "alerta": 5.3,
     "evac": 6.3
    },
@@ -512,8 +512,8 @@
     "puerto": "Campichuelo",
     "rio": "Uruguay",
     "altura": 2.06,
-    "anterior": 2.26,
-    "fecha": "2026-11-23T15:00:00.000Z",
+    "anterior": 2.08,
+    "fecha": "2026-11-24T03:00:00.000Z",
     "alerta": 5.3,
     "evac": 6.3
    },
