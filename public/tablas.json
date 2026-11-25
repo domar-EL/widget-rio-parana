@@ -167,9 +167,9 @@
    {
     "puerto": "Esquina",
     "rio": "Paraná",
-    "altura": 5.24,
+    "altura": 5.23,
     "anterior": 5.26,
-    "fecha": "2026-11-25T03:00:00.000Z",
+    "fecha": "2026-11-25T09:00:00.000Z",
     "alerta": 5,
     "evac": 5.4
    },
@@ -250,7 +250,7 @@
     "rio": "Paraná",
     "altura": 5.37,
     "anterior": 5.37,
-    "fecha": "2026-11-25T03:00:00.000Z",
+    "fecha": "2026-11-25T09:00:00.000Z",
     "alerta": 5.2,
     "evac": 5.7
    },
