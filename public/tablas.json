@@ -5,9 +5,9 @@
    {
     "puerto": "Andresito",
     "rio": "Iguazú",
-    "altura": 2.9,
-    "anterior": 2.1,
-    "fecha": "2026-11-24T03:00:00.000Z",
+    "altura": 2.1,
+    "anterior": 2.9,
+    "fecha": "2026-11-25T03:00:00.000Z",
     "alerta": 10.5,
     "evac": 13.5
    },
@@ -16,7 +16,7 @@
     "rio": "Iguazú",
     "altura": 21,
     "anterior": 21,
-    "fecha": "2026-11-24T03:00:00.000Z",
+    "fecha": "2026-11-25T03:00:00.000Z",
     "alerta": 25,
     "evac": 28
    },
@@ -59,9 +59,9 @@
    {
     "puerto": "Santa Ana",
     "rio": "Paraná",
-    "altura": 8.34,
+    "altura": 8.4,
     "anterior": 8.34,
-    "fecha": "2026-11-24T15:00:00.000Z",
+    "fecha": "2026-11-25T03:00:00.000Z",
     "alerta": 9.3,
     "evac": 9.8
    },
@@ -78,8 +78,8 @@
     "puerto": "Ituzaingó",
     "rio": "Paraná",
     "altura": 2.35,
-    "anterior": 1.97,
-    "fecha": "2026-11-24T15:00:00.000Z",
+    "anterior": 2.35,
+    "fecha": "2026-11-25T03:00:00.000Z",
     "alerta": 3.5,
     "evac": 4
    },
@@ -114,8 +114,8 @@
     "puerto": "Corrientes",
     "rio": "Paraná",
     "altura": 5.67,
-    "anterior": 5.68,
-    "fecha": "2026-11-24T15:00:00.000Z",
+    "anterior": 5.63,
+    "fecha": "2026-11-25T03:00:00.000Z",
     "alerta": 6.5,
     "evac": 7
    },
@@ -176,9 +176,9 @@
    {
     "puerto": "San Javier (Santa Fe)",
     "rio": "San Javier",
-    "altura": 7.48,
+    "altura": 7.47,
     "anterior": 7.55,
-    "fecha": "2026-11-25T03:00:00.000Z",
+    "fecha": "2026-11-25T06:00:00.000Z",
     "alerta": 6,
     "evac": 6.5
    },
@@ -205,7 +205,7 @@
     "rio": "Paraná",
     "altura": 6.15,
     "anterior": 6.19,
-    "fecha": "2026-11-25T03:00:00.000Z",
+    "fecha": "2026-11-25T06:00:00.000Z",
     "alerta": 5.5,
     "evac": 6
    },
@@ -214,7 +214,7 @@
     "rio": "Paraná",
     "altura": 5.56,
     "anterior": 5.59,
-    "fecha": "2026-11-25T03:00:00.000Z",
+    "fecha": "2026-11-25T05:00:00.000Z",
     "alerta": 4.7,
     "evac": 5
    },
@@ -232,7 +232,7 @@
     "rio": "Paraná",
     "altura": 5.8,
     "anterior": 5.82,
-    "fecha": "2026-11-25T03:00:00.000Z",
+    "fecha": "2026-11-25T06:00:00.000Z",
     "alerta": 5.3,
     "evac": 5.5
    },
@@ -241,7 +241,7 @@
     "rio": "Paraná",
     "altura": 5.34,
     "anterior": 5.29,
-    "fecha": "2026-11-25T03:00:00.000Z",
+    "fecha": "2026-11-25T06:00:00.000Z",
     "alerta": 4.6,
     "evac": 4.9
    },
@@ -275,9 +275,9 @@
    {
     "puerto": "San Nicolás",
     "rio": "Paraná",
-    "altura": 3.56,
-    "anterior": 3.53,
-    "fecha": "2026-11-24T15:00:00.000Z",
+    "altura": 3.57,
+    "anterior": 3.55,
+    "fecha": "2026-11-25T03:00:00.000Z",
     "alerta": 4.2,
     "evac": 5
    },
@@ -302,9 +302,9 @@
    {
     "puerto": "Baradero",
     "rio": "Delta Paraná",
-    "altura": 2,
-    "anterior": 2.1,
-    "fecha": "2026-11-24T03:00:00.000Z",
+    "altura": 2.12,
+    "anterior": 2,
+    "fecha": "2026-11-25T03:00:00.000Z",
     "alerta": 2.7,
     "evac": 3.1
    },
@@ -467,17 +467,17 @@
     "puerto": "Salto Grande Arriba",
     "rio": "Uruguay",
     "altura": 34.92,
-    "anterior": 34.99,
-    "fecha": "2026-11-24T15:00:00.000Z",
+    "anterior": 34.89,
+    "fecha": "2026-11-25T03:00:00.000Z",
     "alerta": 35.5,
     "evac": 36
    },
    {
     "puerto": "Salto Grande Abajo",
     "rio": "Uruguay",
-    "altura": 9.38,
-    "anterior": 9.41,
-    "fecha": "2026-11-24T15:00:00.000Z",
+    "altura": 8.88,
+    "anterior": 9.39,
+    "fecha": "2026-11-25T03:00:00.000Z",
     "alerta": 17.3,
     "evac": 17.8
    },
