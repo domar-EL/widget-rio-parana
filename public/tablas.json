@@ -104,9 +104,9 @@
    {
     "puerto": "Paso de la Patria",
     "rio": "Paraná",
-    "altura": 5.69,
-    "anterior": 5.74,
-    "fecha": "2026-11-24T15:00:00.000Z",
+    "altura": 5.72,
+    "anterior": 5.68,
+    "fecha": "2026-11-25T03:00:00.000Z",
     "alerta": 6.5,
     "evac": 7
    },
@@ -122,9 +122,9 @@
    {
     "puerto": "Barranqueras",
     "rio": "Paraná",
-    "altura": 5.54,
-    "anterior": 5.62,
-    "fecha": "2026-11-24T15:00:00.000Z",
+    "altura": 5.56,
+    "anterior": 5.54,
+    "fecha": "2026-11-25T03:00:00.000Z",
     "alerta": 6,
     "evac": 6.5
    },
@@ -132,8 +132,8 @@
     "puerto": "Empedrado",
     "rio": "Paraná",
     "altura": 5.08,
-    "anterior": 5.18,
-    "fecha": "2026-11-24T15:00:00.000Z",
+    "anterior": 5.09,
+    "fecha": "2026-11-25T03:00:00.000Z",
     "alerta": 6.5,
     "evac": 6.7
    },
@@ -167,9 +167,9 @@
    {
     "puerto": "Esquina",
     "rio": "Paraná",
-    "altura": 5.26,
-    "anterior": 5.3,
-    "fecha": "2026-11-24T15:00:00.000Z",
+    "altura": 5.24,
+    "anterior": 5.26,
+    "fecha": "2026-11-25T03:00:00.000Z",
     "alerta": 5,
     "evac": 5.4
    },
@@ -239,9 +239,9 @@
    {
     "puerto": "Victoria",
     "rio": "Paraná",
-    "altura": 5.33,
-    "anterior": 5.24,
-    "fecha": "2026-11-25T00:00:00.000Z",
+    "altura": 5.34,
+    "anterior": 5.29,
+    "fecha": "2026-11-25T03:00:00.000Z",
     "alerta": 4.6,
     "evac": 4.9
    },
@@ -250,7 +250,7 @@
     "rio": "Paraná",
     "altura": 5.37,
     "anterior": 5.37,
-    "fecha": "2026-11-24T21:00:00.000Z",
+    "fecha": "2026-11-25T03:00:00.000Z",
     "alerta": 5.2,
     "evac": 5.7
    },
@@ -520,9 +520,9 @@
    {
     "puerto": "Boca Gualeguaychú",
     "rio": "Gualeguaychú",
-    "altura": 1.5,
-    "anterior": 1.64,
-    "fecha": "2026-11-24T15:00:00.000Z",
+    "altura": 1.7,
+    "anterior": 1.6,
+    "fecha": "2026-11-25T03:00:00.000Z",
     "alerta": 2.9,
     "evac": 3.1
    }
