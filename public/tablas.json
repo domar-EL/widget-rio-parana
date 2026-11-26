@@ -178,7 +178,7 @@
     "rio": "San Javier",
     "altura": 7.4,
     "anterior": 7.55,
-    "fecha": "2026-11-25T21:00:00.000Z",
+    "fecha": "2026-11-26T00:00:00.000Z",
     "alerta": 6,
     "evac": 6.5
    },
@@ -203,9 +203,9 @@
    {
     "puerto": "Hernandarias",
     "rio": "Paraná",
-    "altura": 6.1,
+    "altura": 6.09,
     "anterior": 6.19,
-    "fecha": "2026-11-25T21:00:00.000Z",
+    "fecha": "2026-11-26T00:00:00.000Z",
     "alerta": 5.5,
     "evac": 6
    },
@@ -241,7 +241,7 @@
     "rio": "Paraná",
     "altura": 5.36,
     "anterior": 5.29,
-    "fecha": "2026-11-25T21:00:00.000Z",
+    "fecha": "2026-11-26T00:00:00.000Z",
     "alerta": 4.6,
     "evac": 4.9
    },
