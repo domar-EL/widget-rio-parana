@@ -86,9 +86,9 @@
    {
     "puerto": "Ita Ibate",
     "rio": "Paraná",
-    "altura": 4.58,
+    "altura": 4.65,
     "anterior": 4.58,
-    "fecha": "2026-11-25T15:00:00.000Z",
+    "fecha": "2026-11-26T03:00:00.000Z",
     "alerta": 7,
     "evac": 7.5
    },
@@ -302,9 +302,9 @@
    {
     "puerto": "Baradero",
     "rio": "Delta Paraná",
-    "altura": 2.25,
-    "anterior": 2,
-    "fecha": "2026-11-25T15:00:00.000Z",
+    "altura": 2.3,
+    "anterior": 2.12,
+    "fecha": "2026-11-26T03:00:00.000Z",
     "alerta": 2.7,
     "evac": 3.1
    },
