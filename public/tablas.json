@@ -113,9 +113,9 @@
    {
     "puerto": "Corrientes",
     "rio": "Paraná",
-    "altura": 5.66,
-    "anterior": 5.63,
-    "fecha": "2026-11-25T15:00:00.000Z",
+    "altura": 5.65,
+    "anterior": 5.67,
+    "fecha": "2026-11-26T03:00:00.000Z",
     "alerta": 6.5,
     "evac": 7
    },
@@ -149,9 +149,9 @@
    {
     "puerto": "Goya",
     "rio": "Paraná",
-    "altura": 5.4,
-    "anterior": 5.47,
-    "fecha": "2026-11-25T21:00:00.000Z",
+    "altura": 5.39,
+    "anterior": 5.44,
+    "fecha": "2026-11-26T03:00:00.000Z",
     "alerta": 5.2,
     "evac": 5.7
    },
@@ -250,7 +250,7 @@
     "rio": "Paraná",
     "altura": 5.36,
     "anterior": 5.37,
-    "fecha": "2026-11-25T21:00:00.000Z",
+    "fecha": "2026-11-26T03:00:00.000Z",
     "alerta": 5.2,
     "evac": 5.7
    },
@@ -340,7 +340,7 @@
     "rio": "Paraguay",
     "altura": 4.65,
     "anterior": 4.69,
-    "fecha": "2026-11-25T15:00:00.000Z",
+    "fecha": "2026-11-26T03:00:00.000Z",
     "alerta": 6.5,
     "evac": 7
    },
@@ -349,7 +349,7 @@
     "rio": "Paraguay",
     "altura": 5.49,
     "anterior": 5.49,
-    "fecha": "2026-11-25T15:00:00.000Z",
+    "fecha": "2026-11-26T03:00:00.000Z",
     "alerta": 6.5,
     "evac": 7
    },
