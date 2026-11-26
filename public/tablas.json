@@ -169,7 +169,7 @@
     "rio": "Paraná",
     "altura": 5.22,
     "anterior": 5.26,
-    "fecha": "2026-11-25T20:00:00.000Z",
+    "fecha": "2026-11-25T21:00:00.000Z",
     "alerta": 5,
     "evac": 5.4
    },
@@ -212,9 +212,9 @@
    {
     "puerto": "Paraná",
     "rio": "Paraná",
-    "altura": 5.54,
+    "altura": 5.53,
     "anterior": 5.59,
-    "fecha": "2026-11-25T21:00:00.000Z",
+    "fecha": "2026-11-26T00:00:00.000Z",
     "alerta": 4.7,
     "evac": 5
    },
@@ -223,16 +223,16 @@
     "rio": "Paraná",
     "altura": 5.74,
     "anterior": 5.8,
-    "fecha": "2026-11-25T21:00:00.000Z",
+    "fecha": "2026-11-26T00:00:00.000Z",
     "alerta": 5.3,
     "evac": 5.7
    },
    {
     "puerto": "Diamante",
     "rio": "Paraná",
-    "altura": 5.78,
+    "altura": 5.76,
     "anterior": 5.82,
-    "fecha": "2026-11-25T21:00:00.000Z",
+    "fecha": "2026-11-26T00:00:00.000Z",
     "alerta": 5.3,
     "evac": 5.5
    },
@@ -248,9 +248,9 @@
    {
     "puerto": "San Lorenzo",
     "rio": "Paraná",
-    "altura": 5.37,
+    "altura": 5.36,
     "anterior": 5.37,
-    "fecha": "2026-11-25T09:00:00.000Z",
+    "fecha": "2026-11-25T21:00:00.000Z",
     "alerta": 5.2,
     "evac": 5.7
    },
