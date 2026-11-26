@@ -5,18 +5,18 @@
    {
     "puerto": "Andresito",
     "rio": "Iguazú",
-    "altura": 4.8,
-    "anterior": 2.9,
-    "fecha": "2026-11-25T15:00:00.000Z",
+    "altura": 5.2,
+    "anterior": 2.1,
+    "fecha": "2026-11-26T03:00:00.000Z",
     "alerta": 10.5,
     "evac": 13.5
    },
    {
     "puerto": "Iguazú",
     "rio": "Iguazú",
-    "altura": 21.6,
+    "altura": 22.1,
     "anterior": 21,
-    "fecha": "2026-11-25T15:00:00.000Z",
+    "fecha": "2026-11-26T03:00:00.000Z",
     "alerta": 25,
     "evac": 28
    },
@@ -96,17 +96,17 @@
     "puerto": "Itati",
     "rio": "Paraná",
     "altura": 5.95,
-    "anterior": 5.88,
-    "fecha": "2026-11-25T15:00:00.000Z",
+    "anterior": 5.95,
+    "fecha": "2026-11-26T03:00:00.000Z",
     "alerta": 6.8,
     "evac": 7.5
    },
    {
     "puerto": "Paso de la Patria",
     "rio": "Paraná",
-    "altura": 5.72,
-    "anterior": 5.68,
-    "fecha": "2026-11-25T15:00:00.000Z",
+    "altura": 5.7,
+    "anterior": 5.72,
+    "fecha": "2026-11-26T03:00:00.000Z",
     "alerta": 6.5,
     "evac": 7
    },
@@ -122,9 +122,9 @@
    {
     "puerto": "Barranqueras",
     "rio": "Paraná",
-    "altura": 5.57,
-    "anterior": 5.54,
-    "fecha": "2026-11-25T15:00:00.000Z",
+    "altura": 5.5,
+    "anterior": 5.56,
+    "fecha": "2026-11-26T03:00:00.000Z",
     "alerta": 6,
     "evac": 6.5
    },
@@ -177,8 +177,8 @@
     "puerto": "San Javier (Santa Fe)",
     "rio": "San Javier",
     "altura": 7.4,
-    "anterior": 7.55,
-    "fecha": "2026-11-26T00:00:00.000Z",
+    "anterior": 7.47,
+    "fecha": "2026-11-26T03:00:00.000Z",
     "alerta": 6,
     "evac": 6.5
    },
@@ -266,9 +266,9 @@
    {
     "puerto": "Villa Constitución",
     "rio": "Paraná",
-    "altura": 3.95,
+    "altura": 3.98,
     "anterior": 3.92,
-    "fecha": "2026-11-25T15:00:00.000Z",
+    "fecha": "2026-11-26T03:00:00.000Z",
     "alerta": 4,
     "evac": 4.5
    },
@@ -293,9 +293,9 @@
    {
     "puerto": "San Pedro",
     "rio": "Delta Paraná",
-    "altura": 2.56,
-    "anterior": 2.35,
-    "fecha": "2026-11-25T15:00:00.000Z",
+    "altura": 2.58,
+    "anterior": 2.47,
+    "fecha": "2026-11-26T03:00:00.000Z",
     "alerta": 3.4,
     "evac": 3.6
    },
@@ -430,9 +430,9 @@
    {
     "puerto": "Monte Caseros",
     "rio": "Uruguay",
-    "altura": 3.86,
-    "anterior": 3.95,
-    "fecha": "2026-11-25T15:00:00.000Z",
+    "altura": 3.95,
+    "anterior": 3.9,
+    "fecha": "2026-11-26T03:00:00.000Z",
     "alerta": 7.5,
     "evac": 8.5
    },
