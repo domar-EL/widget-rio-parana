@@ -86,9 +86,9 @@
    {
     "puerto": "Ita Ibate",
     "rio": "Paraná",
-    "altura": 5.1,
+    "altura": 5.26,
     "anterior": 4.65,
-    "fecha": "2026-11-27T03:00:00.000Z",
+    "fecha": "2026-11-27T15:00:00.000Z",
     "alerta": 7,
     "evac": 7.5
    },
@@ -113,18 +113,18 @@
    {
     "puerto": "Corrientes",
     "rio": "Paraná",
-    "altura": 5.65,
+    "altura": 5.67,
     "anterior": 5.65,
-    "fecha": "2026-11-27T03:00:00.000Z",
+    "fecha": "2026-11-27T15:00:00.000Z",
     "alerta": 6.5,
     "evac": 7
    },
    {
     "puerto": "Barranqueras",
     "rio": "Paraná",
-    "altura": 5.56,
+    "altura": 5.57,
     "anterior": 5.5,
-    "fecha": "2026-11-27T03:00:00.000Z",
+    "fecha": "2026-11-27T15:00:00.000Z",
     "alerta": 6,
     "evac": 6.5
    },
@@ -194,9 +194,9 @@
    {
     "puerto": "Santa Elena",
     "rio": "Paraná",
-    "altura": 6.05,
+    "altura": 6.03,
     "anterior": 6.09,
-    "fecha": "2026-11-27T03:00:00.000Z",
+    "fecha": "2026-11-27T15:00:00.000Z",
     "alerta": 6.9,
     "evac": 7.25
    },
@@ -250,16 +250,16 @@
     "rio": "Paraná",
     "altura": 5.38,
     "anterior": 5.36,
-    "fecha": "2026-11-27T09:00:00.000Z",
+    "fecha": "2026-11-27T15:00:00.000Z",
     "alerta": 5.2,
     "evac": 5.7
    },
    {
     "puerto": "Rosario",
     "rio": "Paraná",
-    "altura": 4.98,
+    "altura": 4.99,
     "anterior": 4.95,
-    "fecha": "2026-11-27T03:00:00.000Z",
+    "fecha": "2026-11-27T15:00:00.000Z",
     "alerta": 5,
     "evac": 5.3
    },
@@ -302,9 +302,9 @@
    {
     "puerto": "Baradero",
     "rio": "Delta Paraná",
-    "altura": 2.3,
+    "altura": 2.36,
     "anterior": 2.3,
-    "fecha": "2026-11-27T03:00:00.000Z",
+    "fecha": "2026-11-27T15:00:00.000Z",
     "alerta": 2.7,
     "evac": 3.1
    },
@@ -466,18 +466,18 @@
    {
     "puerto": "Salto Grande Arriba",
     "rio": "Uruguay",
-    "altura": 34.25,
+    "altura": 34.18,
     "anterior": 34.54,
-    "fecha": "2026-11-27T03:00:00.000Z",
+    "fecha": "2026-11-27T15:00:00.000Z",
     "alerta": 35.5,
     "evac": 36
    },
    {
     "puerto": "Salto Grande Abajo",
     "rio": "Uruguay",
-    "altura": 10.57,
+    "altura": 10.68,
     "anterior": 10.62,
-    "fecha": "2026-11-27T03:00:00.000Z",
+    "fecha": "2026-11-27T15:00:00.000Z",
     "alerta": 17.3,
     "evac": 17.8
    },
@@ -520,9 +520,9 @@
    {
     "puerto": "Boca Gualeguaychú",
     "rio": "Gualeguaychú",
-    "altura": 2.26,
+    "altura": 2.1,
     "anterior": 2.3,
-    "fecha": "2026-11-27T03:00:00.000Z",
+    "fecha": "2026-11-27T15:00:00.000Z",
     "alerta": 2.9,
     "evac": 3.1
    }
