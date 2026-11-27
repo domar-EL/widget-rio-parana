@@ -5,18 +5,18 @@
    {
     "puerto": "Andresito",
     "rio": "Iguazú",
-    "altura": 5.2,
-    "anterior": 2.1,
-    "fecha": "2026-11-26T03:00:00.000Z",
+    "altura": 4.9,
+    "anterior": 5.2,
+    "fecha": "2026-11-27T03:00:00.000Z",
     "alerta": 10.5,
     "evac": 13.5
    },
    {
     "puerto": "Iguazú",
     "rio": "Iguazú",
-    "altura": 22.1,
-    "anterior": 21,
-    "fecha": "2026-11-26T03:00:00.000Z",
+    "altura": 24.1,
+    "anterior": 22.1,
+    "fecha": "2026-11-27T03:00:00.000Z",
     "alerta": 25,
     "evac": 28
    },
@@ -32,9 +32,9 @@
    {
     "puerto": "Eldorado",
     "rio": "Paraná",
-    "altura": 16.6,
-    "anterior": 16.15,
-    "fecha": "2026-11-26T15:00:00.000Z",
+    "altura": 17,
+    "anterior": 16.85,
+    "fecha": "2026-11-27T03:00:00.000Z",
     "alerta": 23,
     "evac": 25
    },
@@ -50,9 +50,9 @@
    {
     "puerto": "Puerto Mani",
     "rio": "Paraná",
-    "altura": 6.67,
+    "altura": 6.79,
     "anterior": 6.75,
-    "fecha": "2026-11-26T15:00:00.000Z",
+    "fecha": "2026-11-27T03:00:00.000Z",
     "alerta": 9.5,
     "evac": 10
    },
@@ -60,35 +60,35 @@
     "puerto": "Santa Ana",
     "rio": "Paraná",
     "altura": 8.66,
-    "anterior": 8.4,
-    "fecha": "2026-11-26T15:00:00.000Z",
+    "anterior": 8.66,
+    "fecha": "2026-11-27T03:00:00.000Z",
     "alerta": 9.3,
     "evac": 9.8
    },
    {
     "puerto": "Posadas",
     "rio": "Paraná",
-    "altura": 10.39,
-    "anterior": 10.37,
-    "fecha": "2026-11-26T15:00:00.000Z",
+    "altura": 10.33,
+    "anterior": 10.45,
+    "fecha": "2026-11-27T03:00:00.000Z",
     "alerta": 11,
     "evac": 12
    },
    {
     "puerto": "Ituzaingó",
     "rio": "Paraná",
-    "altura": 3.13,
-    "anterior": 2.35,
-    "fecha": "2026-11-26T15:00:00.000Z",
+    "altura": 3.3,
+    "anterior": 3,
+    "fecha": "2026-11-27T03:00:00.000Z",
     "alerta": 3.5,
     "evac": 4
    },
    {
     "puerto": "Ita Ibate",
     "rio": "Paraná",
-    "altura": 5,
-    "anterior": 4.58,
-    "fecha": "2026-11-26T15:00:00.000Z",
+    "altura": 5.1,
+    "anterior": 4.65,
+    "fecha": "2026-11-27T03:00:00.000Z",
     "alerta": 7,
     "evac": 7.5
    },
@@ -104,9 +104,9 @@
    {
     "puerto": "Paso de la Patria",
     "rio": "Paraná",
-    "altura": 5.7,
-    "anterior": 5.72,
-    "fecha": "2026-11-26T15:00:00.000Z",
+    "altura": 5.73,
+    "anterior": 5.7,
+    "fecha": "2026-11-27T03:00:00.000Z",
     "alerta": 6.5,
     "evac": 7
    },
@@ -122,9 +122,9 @@
    {
     "puerto": "Barranqueras",
     "rio": "Paraná",
-    "altura": 5.55,
-    "anterior": 5.56,
-    "fecha": "2026-11-26T15:00:00.000Z",
+    "altura": 5.56,
+    "anterior": 5.5,
+    "fecha": "2026-11-27T03:00:00.000Z",
     "alerta": 6,
     "evac": 6.5
    },
@@ -140,9 +140,9 @@
    {
     "puerto": "Bella Vista",
     "rio": "Paraná",
-    "altura": 5.75,
+    "altura": 5.7,
     "anterior": 5.75,
-    "fecha": "2026-11-26T15:00:00.000Z",
+    "fecha": "2026-11-27T03:00:00.000Z",
     "alerta": 6,
     "evac": 6.4
    },
@@ -150,35 +150,35 @@
     "puerto": "Goya",
     "rio": "Paraná",
     "altura": 5.37,
-    "anterior": 5.44,
-    "fecha": "2026-11-26T21:00:00.000Z",
+    "anterior": 5.39,
+    "fecha": "2026-11-27T03:00:00.000Z",
     "alerta": 5.2,
     "evac": 5.7
    },
    {
     "puerto": "Reconquista",
     "rio": "Paraná",
-    "altura": 5.19,
-    "anterior": 5.27,
-    "fecha": "2026-11-26T21:00:00.000Z",
+    "altura": 5.18,
+    "anterior": 5.22,
+    "fecha": "2026-11-27T03:00:00.000Z",
     "alerta": 5.1,
     "evac": 5.3
    },
    {
     "puerto": "Esquina",
     "rio": "Paraná",
-    "altura": 5.18,
-    "anterior": 5.24,
-    "fecha": "2026-11-26T21:00:00.000Z",
+    "altura": 5.17,
+    "anterior": 5.21,
+    "fecha": "2026-11-27T03:00:00.000Z",
     "alerta": 5,
     "evac": 5.4
    },
    {
     "puerto": "San Javier (Santa Fe)",
     "rio": "San Javier",
-    "altura": 7.36,
-    "anterior": 7.47,
-    "fecha": "2026-11-27T00:00:00.000Z",
+    "altura": 7.34,
+    "anterior": 7.4,
+    "fecha": "2026-11-27T03:00:00.000Z",
     "alerta": 6,
     "evac": 6.5
    },
@@ -212,9 +212,9 @@
    {
     "puerto": "Paraná",
     "rio": "Paraná",
-    "altura": 5.5,
-    "anterior": 5.55,
-    "fecha": "2026-11-27T00:00:00.000Z",
+    "altura": 5.49,
+    "anterior": 5.52,
+    "fecha": "2026-11-27T03:00:00.000Z",
     "alerta": 4.7,
     "evac": 5
    },
@@ -222,17 +222,17 @@
     "puerto": "Santa Fe",
     "rio": "Paraná",
     "altura": 5.7,
-    "anterior": 5.77,
-    "fecha": "2026-11-27T00:00:00.000Z",
+    "anterior": 5.74,
+    "fecha": "2026-11-27T03:00:00.000Z",
     "alerta": 5.3,
     "evac": 5.7
    },
    {
     "puerto": "Diamante",
     "rio": "Paraná",
-    "altura": 5.75,
-    "anterior": 5.8,
-    "fecha": "2026-11-27T00:00:00.000Z",
+    "altura": 5.74,
+    "anterior": 5.77,
+    "fecha": "2026-11-27T03:00:00.000Z",
     "alerta": 5.3,
     "evac": 5.5
    },
@@ -240,8 +240,8 @@
     "puerto": "Victoria",
     "rio": "Paraná",
     "altura": 5.36,
-    "anterior": 5.34,
-    "fecha": "2026-11-27T00:00:00.000Z",
+    "anterior": 5.36,
+    "fecha": "2026-11-27T03:00:00.000Z",
     "alerta": 4.6,
     "evac": 4.9
    },
@@ -267,8 +267,8 @@
     "puerto": "Villa Constitución",
     "rio": "Paraná",
     "altura": 4.05,
-    "anterior": 3.92,
-    "fecha": "2026-11-26T15:00:00.000Z",
+    "anterior": 3.98,
+    "fecha": "2026-11-27T03:00:00.000Z",
     "alerta": 4,
     "evac": 4.5
    },
@@ -293,9 +293,9 @@
    {
     "puerto": "San Pedro",
     "rio": "Delta Paraná",
-    "altura": 2.61,
-    "anterior": 2.47,
-    "fecha": "2026-11-26T15:00:00.000Z",
+    "altura": 2.67,
+    "anterior": 2.58,
+    "fecha": "2026-11-27T03:00:00.000Z",
     "alerta": 3.4,
     "evac": 3.6
    },
@@ -329,9 +329,9 @@
    {
     "puerto": "Formosa",
     "rio": "Paraguay",
-    "altura": 4.48,
-    "anterior": 4.41,
-    "fecha": "2026-11-26T15:00:00.000Z",
+    "altura": 4.51,
+    "anterior": 4.45,
+    "fecha": "2026-11-27T03:00:00.000Z",
     "alerta": 7.8,
     "evac": 8.3
    },
@@ -339,17 +339,17 @@
     "puerto": "Bermejo",
     "rio": "Paraguay",
     "altura": 4.62,
-    "anterior": 4.69,
-    "fecha": "2026-11-26T15:00:00.000Z",
+    "anterior": 4.65,
+    "fecha": "2026-11-27T03:00:00.000Z",
     "alerta": 6.5,
     "evac": 7
    },
    {
     "puerto": "Las Palmas",
     "rio": "Paraguay",
-    "altura": 5.47,
+    "altura": 5.48,
     "anterior": 5.49,
-    "fecha": "2026-11-26T15:00:00.000Z",
+    "fecha": "2026-11-27T03:00:00.000Z",
     "alerta": 6.5,
     "evac": 7
    },
@@ -430,18 +430,18 @@
    {
     "puerto": "Monte Caseros",
     "rio": "Uruguay",
-    "altura": 4.04,
-    "anterior": 3.9,
-    "fecha": "2026-11-26T15:00:00.000Z",
+    "altura": 4.06,
+    "anterior": 3.95,
+    "fecha": "2026-11-27T03:00:00.000Z",
     "alerta": 7.5,
     "evac": 8.5
    },
    {
     "puerto": "Mocoretá",
     "rio": "Uruguay",
-    "altura": 8.46,
-    "anterior": 8.86,
-    "fecha": "2026-11-26T15:00:00.000Z",
+    "altura": 8.32,
+    "anterior": 8.64,
+    "fecha": "2026-11-27T03:00:00.000Z",
     "alerta": 10.3,
     "evac": 12
    },
@@ -466,36 +466,36 @@
    {
     "puerto": "Salto Grande Arriba",
     "rio": "Uruguay",
-    "altura": 34.4,
-    "anterior": 34.92,
-    "fecha": "2026-11-26T15:00:00.000Z",
+    "altura": 34.25,
+    "anterior": 34.54,
+    "fecha": "2026-11-27T03:00:00.000Z",
     "alerta": 35.5,
     "evac": 36
    },
    {
     "puerto": "Salto Grande Abajo",
     "rio": "Uruguay",
-    "altura": 10.64,
-    "anterior": 8.88,
-    "fecha": "2026-11-26T15:00:00.000Z",
+    "altura": 10.57,
+    "anterior": 10.62,
+    "fecha": "2026-11-27T03:00:00.000Z",
     "alerta": 17.3,
     "evac": 17.8
    },
    {
     "puerto": "Concordia",
     "rio": "Uruguay",
-    "altura": 7.56,
-    "anterior": 6.46,
-    "fecha": "2026-11-26T15:00:00.000Z",
+    "altura": 7.54,
+    "anterior": 7.4,
+    "fecha": "2026-11-27T03:00:00.000Z",
     "alerta": 11,
     "evac": 12.5
    },
    {
     "puerto": "Colón",
     "rio": "Uruguay",
-    "altura": 3.9,
-    "anterior": 3.46,
-    "fecha": "2026-11-26T15:00:00.000Z",
+    "altura": 4.16,
+    "anterior": 3.59,
+    "fecha": "2026-11-27T03:00:00.000Z",
     "alerta": 7.1,
     "evac": 7.9
    },
@@ -520,9 +520,9 @@
    {
     "puerto": "Boca Gualeguaychú",
     "rio": "Gualeguaychú",
-    "altura": 2.06,
-    "anterior": 1.7,
-    "fecha": "2026-11-26T15:00:00.000Z",
+    "altura": 2.26,
+    "anterior": 2.3,
+    "fecha": "2026-11-27T03:00:00.000Z",
     "alerta": 2.9,
     "evac": 3.1
    }
