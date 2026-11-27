@@ -176,9 +176,9 @@
    {
     "puerto": "San Javier (Santa Fe)",
     "rio": "San Javier",
-    "altura": 7.34,
+    "altura": 7.32,
     "anterior": 7.4,
-    "fecha": "2026-11-27T03:00:00.000Z",
+    "fecha": "2026-11-27T06:00:00.000Z",
     "alerta": 6,
     "evac": 6.5
    },
@@ -214,7 +214,7 @@
     "rio": "Paraná",
     "altura": 5.49,
     "anterior": 5.52,
-    "fecha": "2026-11-27T03:00:00.000Z",
+    "fecha": "2026-11-27T06:00:00.000Z",
     "alerta": 4.7,
     "evac": 5
    },
