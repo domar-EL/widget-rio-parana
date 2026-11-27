@@ -77,9 +77,9 @@
    {
     "puerto": "Ituzaingó",
     "rio": "Paraná",
-    "altura": 3.3,
+    "altura": 3.4,
     "anterior": 3,
-    "fecha": "2026-11-27T03:00:00.000Z",
+    "fecha": "2026-11-27T16:00:00.000Z",
     "alerta": 3.5,
     "evac": 4
    },
@@ -275,9 +275,9 @@
    {
     "puerto": "San Nicolás",
     "rio": "Paraná",
-    "altura": 3.68,
+    "altura": 3.72,
     "anterior": 3.62,
-    "fecha": "2026-11-27T03:00:00.000Z",
+    "fecha": "2026-11-27T15:00:00.000Z",
     "alerta": 4.2,
     "evac": 5
    },
@@ -311,9 +311,9 @@
    {
     "puerto": "Pilcomayo",
     "rio": "Paraguay",
-    "altura": 3.58,
+    "altura": 3.72,
     "anterior": 3.29,
-    "fecha": "2026-11-27T03:00:00.000Z",
+    "fecha": "2026-11-27T15:00:00.000Z",
     "alerta": 5.35,
     "evac": 6
    },
