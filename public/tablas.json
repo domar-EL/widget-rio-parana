@@ -502,18 +502,18 @@
    {
     "puerto": "Concepción del Uruguay",
     "rio": "Uruguay",
-    "altura": 3.17,
-    "anterior": 2.68,
-    "fecha": "2026-11-26T15:00:00.000Z",
+    "altura": 3.35,
+    "anterior": 2.96,
+    "fecha": "2026-11-27T03:00:00.000Z",
     "alerta": 5.3,
     "evac": 6.3
    },
    {
     "puerto": "Campichuelo",
     "rio": "Uruguay",
-    "altura": 2.34,
-    "anterior": 1.98,
-    "fecha": "2026-11-26T15:00:00.000Z",
+    "altura": 2.53,
+    "anterior": 2.18,
+    "fecha": "2026-11-27T03:00:00.000Z",
     "alerta": 5.3,
     "evac": 6.3
    },
