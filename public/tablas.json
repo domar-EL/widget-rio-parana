@@ -23,9 +23,9 @@
    {
     "puerto": "Libertad",
     "rio": "Paraná",
-    "altura": 21.1,
-    "anterior": 20.2,
-    "fecha": "2026-11-26T15:00:00.000Z",
+    "altura": 22.7,
+    "anterior": 21.1,
+    "fecha": "2026-11-27T03:00:00.000Z",
     "alerta": 29,
     "evac": 31
    },
@@ -113,9 +113,9 @@
    {
     "puerto": "Corrientes",
     "rio": "Paraná",
-    "altura": 5.64,
-    "anterior": 5.67,
-    "fecha": "2026-11-26T15:00:00.000Z",
+    "altura": 5.65,
+    "anterior": 5.65,
+    "fecha": "2026-11-27T03:00:00.000Z",
     "alerta": 6.5,
     "evac": 7
    },
@@ -132,8 +132,8 @@
     "puerto": "Empedrado",
     "rio": "Paraná",
     "altura": 5.11,
-    "anterior": 5.08,
-    "fecha": "2026-11-26T15:00:00.000Z",
+    "anterior": 5.11,
+    "fecha": "2026-11-27T03:00:00.000Z",
     "alerta": 6.5,
     "evac": 6.7
    },
@@ -185,18 +185,18 @@
    {
     "puerto": "La Paz",
     "rio": "Paraná",
-    "altura": 6,
-    "anterior": 6.05,
-    "fecha": "2026-11-26T21:00:00.000Z",
+    "altura": 5.99,
+    "anterior": 6.01,
+    "fecha": "2026-11-27T03:00:00.000Z",
     "alerta": 5.8,
     "evac": 6.15
    },
    {
     "puerto": "Santa Elena",
     "rio": "Paraná",
-    "altura": 6.09,
-    "anterior": 6.14,
-    "fecha": "2026-11-26T03:00:00.000Z",
+    "altura": 6.05,
+    "anterior": 6.09,
+    "fecha": "2026-11-27T03:00:00.000Z",
     "alerta": 6.9,
     "evac": 7.25
    },
@@ -204,8 +204,8 @@
     "puerto": "Hernandarias",
     "rio": "Paraná",
     "altura": 6.04,
-    "anterior": 6.15,
-    "fecha": "2026-11-27T00:00:00.000Z",
+    "anterior": 6.09,
+    "fecha": "2026-11-27T03:00:00.000Z",
     "alerta": 5.5,
     "evac": 6
    },
@@ -259,7 +259,7 @@
     "rio": "Paraná",
     "altura": 4.98,
     "anterior": 4.95,
-    "fecha": "2026-11-26T15:00:00.000Z",
+    "fecha": "2026-11-27T03:00:00.000Z",
     "alerta": 5,
     "evac": 5.3
    },
@@ -275,9 +275,9 @@
    {
     "puerto": "San Nicolás",
     "rio": "Paraná",
-    "altura": 3.66,
-    "anterior": 3.57,
-    "fecha": "2026-11-26T15:00:00.000Z",
+    "altura": 3.68,
+    "anterior": 3.62,
+    "fecha": "2026-11-27T03:00:00.000Z",
     "alerta": 4.2,
     "evac": 5
    },
@@ -303,17 +303,17 @@
     "puerto": "Baradero",
     "rio": "Delta Paraná",
     "altura": 2.3,
-    "anterior": 2.12,
-    "fecha": "2026-11-26T15:00:00.000Z",
+    "anterior": 2.3,
+    "fecha": "2026-11-27T03:00:00.000Z",
     "alerta": 2.7,
     "evac": 3.1
    },
    {
     "puerto": "Pilcomayo",
     "rio": "Paraguay",
-    "altura": 3.43,
-    "anterior": 2.96,
-    "fecha": "2026-11-26T15:00:00.000Z",
+    "altura": 3.58,
+    "anterior": 3.29,
+    "fecha": "2026-11-27T03:00:00.000Z",
     "alerta": 5.35,
     "evac": 6
    },
@@ -448,18 +448,18 @@
    {
     "puerto": "Federación",
     "rio": "Uruguay",
-    "altura": 2.19,
+    "altura": 2.09,
     "anterior": null,
-    "fecha": "2026-11-26T15:00:00.000Z",
+    "fecha": "2026-11-27T03:00:00.000Z",
     "alerta": 3.9,
     "evac": 4.2
    },
    {
     "puerto": "Federación Embalse",
     "rio": "Uruguay",
-    "altura": 34.44,
-    "anterior": 34.93,
-    "fecha": "2026-11-26T15:00:00.000Z",
+    "altura": 34.34,
+    "anterior": 34.62,
+    "fecha": "2026-11-27T03:00:00.000Z",
     "alerta": null,
     "evac": null
    },
