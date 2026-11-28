@@ -68,7 +68,7 @@
    {
     "puerto": "Posadas",
     "rio": "Paraná",
-    "altura": 10.28,
+    "altura": 10.29,
     "anterior": 10.33,
     "fecha": "2026-11-28T03:00:00.000Z",
     "alerta": 11,
@@ -520,9 +520,9 @@
    {
     "puerto": "Boca Gualeguaychú",
     "rio": "Gualeguaychú",
-    "altura": 2.1,
-    "anterior": 2.3,
-    "fecha": "2026-11-27T15:00:00.000Z",
+    "altura": 1.96,
+    "anterior": 2.26,
+    "fecha": "2026-11-28T03:00:00.000Z",
     "alerta": 2.9,
     "evac": 3.1
    }
