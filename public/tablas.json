@@ -32,9 +32,9 @@
    {
     "puerto": "Eldorado",
     "rio": "Paraná",
-    "altura": 17.65,
-    "anterior": 16.85,
-    "fecha": "2026-11-27T15:00:00.000Z",
+    "altura": 17.85,
+    "anterior": 17,
+    "fecha": "2026-11-28T03:00:00.000Z",
     "alerta": 23,
     "evac": 25
    },
@@ -51,8 +51,8 @@
     "puerto": "Puerto Mani",
     "rio": "Paraná",
     "altura": 6.79,
-    "anterior": 6.75,
-    "fecha": "2026-11-27T15:00:00.000Z",
+    "anterior": 6.79,
+    "fecha": "2026-11-28T03:00:00.000Z",
     "alerta": 9.5,
     "evac": 10
    },
@@ -113,9 +113,9 @@
    {
     "puerto": "Corrientes",
     "rio": "Paraná",
-    "altura": 5.67,
+    "altura": 5.73,
     "anterior": 5.65,
-    "fecha": "2026-11-27T15:00:00.000Z",
+    "fecha": "2026-11-28T03:00:00.000Z",
     "alerta": 6.5,
     "evac": 7
    },
@@ -131,9 +131,9 @@
    {
     "puerto": "Empedrado",
     "rio": "Paraná",
-    "altura": 5.1,
+    "altura": 5.13,
     "anterior": 5.11,
-    "fecha": "2026-11-27T15:00:00.000Z",
+    "fecha": "2026-11-28T03:00:00.000Z",
     "alerta": 6.5,
     "evac": 6.7
    },
@@ -311,9 +311,9 @@
    {
     "puerto": "Pilcomayo",
     "rio": "Paraguay",
-    "altura": 3.72,
-    "anterior": 3.29,
-    "fecha": "2026-11-27T15:00:00.000Z",
+    "altura": 3.84,
+    "anterior": 3.58,
+    "fecha": "2026-11-28T03:00:00.000Z",
     "alerta": 5.35,
     "evac": 6
    },
@@ -448,9 +448,9 @@
    {
     "puerto": "Federación",
     "rio": "Uruguay",
-    "altura": 2.01,
+    "altura": 1.94,
     "anterior": null,
-    "fecha": "2026-11-27T15:00:00.000Z",
+    "fecha": "2026-11-28T03:00:00.000Z",
     "alerta": 3.9,
     "evac": 4.2
    },
