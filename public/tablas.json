@@ -158,9 +158,9 @@
    {
     "puerto": "Reconquista",
     "rio": "Paraná",
-    "altura": 5.16,
+    "altura": 5.15,
     "anterior": 5.22,
-    "fecha": "2026-11-27T09:00:00.000Z",
+    "fecha": "2026-11-27T21:00:00.000Z",
     "alerta": 5.1,
     "evac": 5.3
    },
@@ -176,9 +176,9 @@
    {
     "puerto": "San Javier (Santa Fe)",
     "rio": "San Javier",
-    "altura": 7.26,
+    "altura": 7.25,
     "anterior": 7.4,
-    "fecha": "2026-11-27T21:00:00.000Z",
+    "fecha": "2026-11-28T00:00:00.000Z",
     "alerta": 6,
     "evac": 6.5
    },
@@ -232,7 +232,7 @@
     "rio": "Paraná",
     "altura": 5.75,
     "anterior": 5.77,
-    "fecha": "2026-11-27T21:00:00.000Z",
+    "fecha": "2026-11-28T00:00:00.000Z",
     "alerta": 5.3,
     "evac": 5.5
    },
