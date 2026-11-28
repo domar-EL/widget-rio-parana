@@ -5,18 +5,18 @@
    {
     "puerto": "Andresito",
     "rio": "Iguazú",
-    "altura": 4.5,
-    "anterior": 5.2,
-    "fecha": "2026-11-27T15:00:00.000Z",
+    "altura": 3.9,
+    "anterior": 4.9,
+    "fecha": "2026-11-28T03:00:00.000Z",
     "alerta": 10.5,
     "evac": 13.5
    },
    {
     "puerto": "Iguazú",
     "rio": "Iguazú",
-    "altura": 24.5,
-    "anterior": 22.1,
-    "fecha": "2026-11-27T15:00:00.000Z",
+    "altura": 24.4,
+    "anterior": 24.1,
+    "fecha": "2026-11-28T03:00:00.000Z",
     "alerta": 25,
     "evac": 28
    },
@@ -68,9 +68,9 @@
    {
     "puerto": "Posadas",
     "rio": "Paraná",
-    "altura": 10.26,
-    "anterior": 10.45,
-    "fecha": "2026-11-27T15:00:00.000Z",
+    "altura": 10.28,
+    "anterior": 10.33,
+    "fecha": "2026-11-28T03:00:00.000Z",
     "alerta": 11,
     "evac": 12
    },
@@ -158,9 +158,9 @@
    {
     "puerto": "Reconquista",
     "rio": "Paraná",
-    "altura": 5.15,
-    "anterior": 5.22,
-    "fecha": "2026-11-27T21:00:00.000Z",
+    "altura": 5.14,
+    "anterior": 5.18,
+    "fecha": "2026-11-28T03:00:00.000Z",
     "alerta": 5.1,
     "evac": 5.3
    },
@@ -266,9 +266,9 @@
    {
     "puerto": "Villa Constitución",
     "rio": "Paraná",
-    "altura": 4.1,
-    "anterior": 3.98,
-    "fecha": "2026-11-27T21:00:00.000Z",
+    "altura": 4.09,
+    "anterior": 4.05,
+    "fecha": "2026-11-28T03:00:00.000Z",
     "alerta": 4,
     "evac": 4.5
    },
