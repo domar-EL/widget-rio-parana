@@ -1,6 +1,6 @@
 {
  "parana": {
-  "fecha": "2026-11-27",
+  "fecha": "2026-11-28",
   "filas": [
    {
     "puerto": "Andresito",
@@ -322,7 +322,7 @@
     "rio": "Paraguay",
     "altura": null,
     "anterior": 1.81,
-    "fecha": "2026-11-27T03:00:00.000Z",
+    "fecha": "2026-11-28T03:00:00.000Z",
     "alerta": 6,
     "evac": 6.4
    },
@@ -358,7 +358,7 @@
     "rio": "Paraguay",
     "altura": null,
     "anterior": 6.04,
-    "fecha": "2026-11-27T03:00:00.000Z",
+    "fecha": "2026-11-28T03:00:00.000Z",
     "alerta": 6.2,
     "evac": 6.8
    }
