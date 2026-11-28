@@ -151,16 +151,16 @@
     "rio": "Paraná",
     "altura": 5.33,
     "anterior": 5.37,
-    "fecha": "2026-11-28T03:00:00.000Z",
+    "fecha": "2026-11-28T09:00:00.000Z",
     "alerta": 5.2,
     "evac": 5.7
    },
    {
     "puerto": "Reconquista",
     "rio": "Paraná",
-    "altura": 5.14,
+    "altura": 5.12,
     "anterior": 5.18,
-    "fecha": "2026-11-28T03:00:00.000Z",
+    "fecha": "2026-11-28T09:00:00.000Z",
     "alerta": 5.1,
     "evac": 5.3
    },
@@ -176,9 +176,9 @@
    {
     "puerto": "San Javier (Santa Fe)",
     "rio": "San Javier",
-    "altura": 7.24,
+    "altura": 7.23,
     "anterior": 7.32,
-    "fecha": "2026-11-28T06:00:00.000Z",
+    "fecha": "2026-11-28T09:00:00.000Z",
     "alerta": 6,
     "evac": 6.5
    },
@@ -187,7 +187,7 @@
     "rio": "Paraná",
     "altura": 5.97,
     "anterior": 5.99,
-    "fecha": "2026-11-28T03:00:00.000Z",
+    "fecha": "2026-11-28T09:00:00.000Z",
     "alerta": 5.8,
     "evac": 6.15
    },
@@ -205,34 +205,34 @@
     "rio": "Paraná",
     "altura": 6.01,
     "anterior": 6.04,
-    "fecha": "2026-11-28T06:00:00.000Z",
+    "fecha": "2026-11-28T09:00:00.000Z",
     "alerta": 5.5,
     "evac": 6
    },
    {
     "puerto": "Paraná",
     "rio": "Paraná",
-    "altura": 5.46,
+    "altura": 5.45,
     "anterior": 5.49,
-    "fecha": "2026-11-28T06:00:00.000Z",
+    "fecha": "2026-11-28T09:00:00.000Z",
     "alerta": 4.7,
     "evac": 5
    },
    {
     "puerto": "Santa Fe",
     "rio": "Paraná",
-    "altura": 5.67,
+    "altura": 5.64,
     "anterior": 5.7,
-    "fecha": "2026-11-28T03:00:00.000Z",
+    "fecha": "2026-11-28T09:00:00.000Z",
     "alerta": 5.3,
     "evac": 5.7
    },
    {
     "puerto": "Diamante",
     "rio": "Paraná",
-    "altura": 5.73,
+    "altura": 5.71,
     "anterior": 5.74,
-    "fecha": "2026-11-28T06:00:00.000Z",
+    "fecha": "2026-11-28T09:00:00.000Z",
     "alerta": 5.3,
     "evac": 5.5
    },
@@ -486,7 +486,7 @@
     "rio": "Uruguay",
     "altura": 7.66,
     "anterior": 7.54,
-    "fecha": "2026-11-28T03:00:00.000Z",
+    "fecha": "2026-11-28T09:00:00.000Z",
     "alerta": 11,
     "evac": 12.5
    },
